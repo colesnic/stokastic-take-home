@@ -1,0 +1,47 @@
+{
+  "open_positions": {
+    "KXNBAGAME-26MAY10SASMIN-SAS": {
+      "trade_id": "KXNBAGAME-26MAY10SASMIN-SAS_YES_2026-05-02T21-59-56",
+      "side": "YES",
+      "entry_price": 0.72,
+      "sb_prob": 0.8588
+    },
+    "KXNBAGAME-26MAY10SASMIN-MIN": {
+      "trade_id": "KXNBAGAME-26MAY10SASMIN-MIN_NO_2026-05-02T21-59-56",
+      "side": "NO",
+      "entry_price": 0.71,
+      "sb_prob": 0.1412
+    },
+    "KXNBAGAME-26MAY08SASMIN-SAS": {
+      "trade_id": "KXNBAGAME-26MAY08SASMIN-SAS_YES_2026-05-02T21-59-56",
+      "side": "YES",
+      "entry_price": 0.68,
+      "sb_prob": 0.8588
+    },
+    "KXNBAGAME-26MAY08SASMIN-MIN": {
+      "trade_id": "KXNBAGAME-26MAY08SASMIN-MIN_NO_2026-05-02T21-59-56",
+      "side": "NO",
+      "entry_price": 0.68,
+      "sb_prob": 0.1412
+    },
+    "KXNBAGAME-26MAY09OKCLAL-LAL": {
+      "trade_id": "KXNBAGAME-26MAY09OKCLAL-LAL_NO_2026-05-03T15-32-06",
+      "side": "NO",
+      "entry_price": 0.75,
+      "sb_prob": 0.1055
+    },
+    "KXNBAGAME-26MAY08NYKPHI-NYK": {
+      "trade_id": "KXNBAGAME-26MAY08NYKPHI-NYK_YES_2026-05-03T16-52-16",
+      "side": "YES",
+      "entry_price": 0.6,
+      "sb_prob": 0.71
+    },
+    "KXNBAGAME-26MAY11OKCLAL-LAL": {
+      "trade_id": "KXNBAGAME-26MAY11OKCLAL-LAL_NO_2026-05-03T17-02-18",
+      "side": "NO",
+      "entry_price": 0.69,
+      "sb_prob": 0.1055
+    }
+  },
+  "bankroll": 300.0
+}

@@ -8,6 +8,7 @@ directory; pages are written in-place alongside this script.
 from __future__ import annotations
 import json
 import os
+import urllib.parse
 from pathlib import Path
 from textwrap import dedent
 
@@ -1284,7 +1285,8 @@ def location_detail_page(loc: dict):
         f'                  <li><a href="{rel(depth, "practice-areas/" + s["slug"] + "/")}">{s["name"]}</a> &mdash; {s["tagline"]}</li>'
         for s in PRACTICES
     )
-    map_query = (loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + city_state + ' ' + loc['zip']).replace(' ', '+')
+    full_address = loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + city_state + ' ' + loc['zip']
+    map_query = urllib.parse.quote_plus(full_address)
     other_offices = [o for o in LOCATIONS if o["slug"] != loc["slug"]]
     other_links = " &middot; ".join(
         f'<a href="{rel(depth, "locations/" + o["slug"] + "/")}">{o["name"]}</a>'
@@ -1306,7 +1308,18 @@ def location_detail_page(loc: dict):
                   {loc['street']}{suite}<br>
                   {loc['city']}, {loc['state']} {loc['zip']}
                 </address>
-                <p>Call us at <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> to schedule a visit, or use our <a href="{rel(depth, 'contact/')}">contact form</a> to request a consultation. <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Get directions on Google Maps &rarr;</a></p>
+                <div class="map-embed">
+                  <iframe
+                    title="Map of Coles Law Firm {loc['name']} office"
+                    src="https://maps.google.com/maps?q={map_query}&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="map-embed-caption">
+                    <span>Coles Law Firm &mdash; {loc['name']} office</span>
+                    <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps &rarr;</a>
+                  </div>
+                </div>
+                <p>Call us at <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> to schedule a visit, or use our <a href="{rel(depth, 'contact/')}">contact form</a> to request a consultation.</p>
 
                 <h2>Services available at our {loc['name']} office</h2>
                 <p>Our {loc['name']} office offers the full range of Coles Law Firm services:</p>

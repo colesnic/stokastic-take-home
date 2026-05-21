@@ -1083,11 +1083,12 @@ footer.site {
   font-size: 15px;
 }
 .wte-list li::before {
-  content: '\\2713';
+  content: '✓';
   position: absolute;
   left: 0;
   color: var(--gold);
   font-weight: 700;
+  font-size: 16px;
 }
 .pricing-table {
   width: 100%;
@@ -1183,12 +1184,15 @@ footer.site {
   font-size: 16px;
 }
 .check-list li::before {
-  content: '\\25A2';
+  content: '';
   position: absolute;
   left: 0;
-  color: var(--gold);
-  font-size: 20px;
-  line-height: 1;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--gold);
+  border-radius: 2px;
+  background: #fff;
 }
 @media print {
   header.site, footer.site, .mobile-call-bar, .lead-banner, .checklist-banner .cb-actions, .crumbs { display: none !important; }

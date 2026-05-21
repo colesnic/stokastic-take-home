@@ -1281,70 +1281,93 @@ def location_detail_page(loc: dict):
         (loc["name"], None),
     ])
     suite = f"<br>{loc['suite']}" if loc['suite'] else ""
-    services_html = "\n".join(
-        f'                  <li><a href="{rel(depth, "practice-areas/" + s["slug"] + "/")}">{s["name"]}</a> &mdash; {s["tagline"]}</li>'
-        for s in PRACTICES
-    )
     full_address = loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + city_state + ' ' + loc['zip']
     map_query = urllib.parse.quote_plus(full_address)
+
+    services_html = "\n".join(dedent(f"""\
+                <li>
+                  <a href="{rel(depth, 'practice-areas/' + s['slug'] + '/')}">{s['name']}</a>
+                  <span>{s['tagline']}</span>
+                </li>""") for s in PRACTICES)
+
     other_offices = [o for o in LOCATIONS if o["slug"] != loc["slug"]]
-    other_links = " &middot; ".join(
-        f'<a href="{rel(depth, "locations/" + o["slug"] + "/")}">{o["name"]}</a>'
+    other_chips = "\n".join(
+        f'              <a href="{rel(depth, "locations/" + o["slug"] + "/")}">{o["name"]}</a>'
         for o in other_offices
     )
+
     body = dedent(f"""\
         <body>
         {site_header('locations', depth)}
         {bc_html}
         <main id="main">
+
+        <section class="location-hero">
+          <div class="container">
+            <div class="city-label">{city_state} Office</div>
+            <h1>{loc['name']} Estate Planning Attorneys</h1>
+            <p class="blurb">{loc['blurb']}</p>
+            <address>
+              {loc['street']}{suite}<br>
+              {loc['city']}, {loc['state']} {loc['zip']}
+            </address>
+          </div>
+        </section>
+
         <section class="location-detail">
           <div class="container">
             <div class="location-detail-grid">
-              <div>
-                <div class="city-label">{city_state} Office</div>
-                <h1>{loc['name']} Estate Planning Attorneys</h1>
-                <p style="font-size: 18px; color: var(--ink-soft); margin: 16px 0 24px;">{loc['blurb']}</p>
-                <address>
-                  {loc['street']}{suite}<br>
-                  {loc['city']}, {loc['state']} {loc['zip']}
-                </address>
-                <div class="map-embed">
-                  <iframe
-                    title="Map of Coles Law Firm {loc['name']} office"
-                    src="https://maps.google.com/maps?q={map_query}&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                  <div class="map-embed-caption">
-                    <span>Coles Law Firm &mdash; {loc['name']} office</span>
-                    <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps &rarr;</a>
-                  </div>
+              <div class="map-embed">
+                <div class="map-embed-header">
+                  <span class="label-tag">Office Location</span>
+                  <span class="office-name">{loc['name']}</span>
                 </div>
-                <p>Call us at <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> to schedule a visit, or use our <a href="{rel(depth, 'contact/')}">contact form</a> to request a consultation.</p>
-
-                <h2>Services available at our {loc['name']} office</h2>
-                <p>Our {loc['name']} office offers the full range of Coles Law Firm services:</p>
-                <ul>
-        {services_html}
-                </ul>
-
-                <h2>Other Michigan offices</h2>
-                <p>If our {loc['name']} office isn't convenient, we may have a location closer to you: {other_links}.</p>
-
-                <h2>Schedule a visit</h2>
-                <p>We schedule consultations by appointment so our team can give you their full attention. Call <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> or <a href="{rel(depth, 'contact/')}">submit our contact form</a> &mdash; we'll be in touch within one business day.</p>
+                <iframe
+                  title="Map of Coles Law Firm {loc['name']} office"
+                  src="https://maps.google.com/maps?q={map_query}&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-embed-caption">
+                  <span>Street-level view &mdash; click to interact</span>
+                  <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps &rarr;</a>
+                </div>
               </div>
-              <aside class="location-card-side">
-                <h3>Office Information</h3>
-                <div class="meta-line"><strong>Phone</strong><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
-                <div class="meta-line"><strong>Email</strong><a href="mailto:{FIRM_EMAIL}">{FIRM_EMAIL}</a></div>
-                <div class="meta-line"><strong>Hours</strong>Monday &ndash; Friday, 9:00 AM &ndash; 5:00 PM</div>
-                <div class="meta-line"><strong>Address</strong>{loc['street']}{', ' + loc['suite'] if loc['suite'] else ''}, {city_state} {loc['zip']}</div>
-                <div class="meta-line"><strong>Directions</strong><a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps</a></div>
-                <p style="margin-top: 24px;"><a href="{rel(depth, 'contact/')}" class="loc-link" style="color: var(--gold-soft); display: inline-block;">Schedule a consultation &rarr;</a></p>
+              <aside class="location-info-card">
+                <div class="card-header">Office Information</div>
+                <div class="card-body">
+                  <div class="meta-line"><strong>Phone</strong><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
+                  <div class="meta-line"><strong>Email</strong><a href="mailto:{FIRM_EMAIL}">{FIRM_EMAIL}</a></div>
+                  <div class="meta-line"><strong>Hours</strong>Monday &ndash; Friday<br>9:00 AM &ndash; 5:00 PM</div>
+                  <div class="meta-line"><strong>Address</strong>{loc['street']}{', ' + loc['suite'] if loc['suite'] else ''}<br>{city_state} {loc['zip']}</div>
+                  <div class="meta-line"><strong>Directions</strong><a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps &rarr;</a></div>
+                </div>
+                <div class="card-cta">
+                  <a href="{rel(depth, 'contact/')}">Schedule a Consultation</a>
+                </div>
               </aside>
             </div>
           </div>
         </section>
+
+        <div class="container">
+          <div class="location-body">
+            <h2>Services available at our {loc['name']} office</h2>
+            <p>Our {loc['name']} office offers the full range of Coles Law Firm services.</p>
+            <ul class="services-list">
+        {services_html}
+            </ul>
+
+            <h2>Other Michigan offices</h2>
+            <p>If our {loc['name']} office isn't convenient, we may have a location closer to you.</p>
+            <div class="other-offices">
+        {other_chips}
+            </div>
+
+            <h2>Schedule a visit</h2>
+            <p>We schedule consultations by appointment so our team can give you their full attention. Call <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> or <a href="{rel(depth, 'contact/')}">submit our contact form</a> &mdash; we'll be in touch within one business day.</p>
+          </div>
+        </div>
+
         </main>
         {site_footer(depth)}
         </body>

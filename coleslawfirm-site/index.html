@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coles Law Firm — Estate Planning, Wills, Trusts & Probate | West Michigan</title>
-  <meta name="description" content="Coles Law Firm has served West Michigan for over 20 years, offering trusted counsel in estate planning, wills, trusts, probate, and elder law. Offices in Grand Rapids and Ann Arbor." />
+  <title>Coles Law Firm — Estate Planning, Wills, Trusts & Probate | Michigan</title>
+  <meta name="description" content="Coles Law Firm has served Michigan families for over 20 years with estate planning, wills, trusts, probate, and elder law. Offices in Grand Rapids, Ann Arbor, Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -475,6 +475,54 @@
       font-weight: 600;
     }
 
+    /* Locations */
+    #locations { background: var(--cream); }
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .location-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 28px 24px;
+      transition: all .25s ease;
+      position: relative;
+    }
+    .location-card:hover {
+      border-color: var(--gold-soft);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .location-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .location-card .city-rule {
+      width: 28px; height: 2px;
+      background: var(--gold);
+      margin: 10px 0 16px;
+    }
+    .location-card address {
+      font-style: normal;
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .location-card .loc-meta {
+      font-size: 13px;
+      color: var(--ink-soft);
+      display: grid;
+      gap: 4px;
+    }
+    .location-card .loc-meta strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
     /* Contact */
     .contact-grid {
       display: grid;
@@ -651,6 +699,7 @@
       nav ul { display: none; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .practice-grid, .team-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 80px 0; }
       .hero { padding: 100px 0; }
@@ -658,6 +707,7 @@
     @media (max-width: 600px) {
       .container { padding: 0 22px; }
       .footer-grid { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr; }
     }
   </style>
@@ -678,7 +728,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#practice">Practice Areas</a></li>
         <li><a href="#team">Our Team</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#locations">Locations</a></li>
         <li><a href="#contact" class="cta">Schedule Consultation</a></li>
       </ul>
     </nav>
@@ -687,11 +737,11 @@
 
 <section class="hero" id="top">
   <div class="container hero-inner">
-    <div class="kicker">Serving West Michigan since 2003</div>
-    <h1>Thoughtful counsel for <em>life's most important</em> decisions.</h1>
-    <p>For over two decades, Coles Law Firm has guided Michigan families through estate planning, probate, and elder law &mdash; protecting what matters most with care, clarity, and quiet confidence.</p>
+    <div class="kicker">Offices in Grand Rapids &middot; Ann Arbor &middot; Lansing &middot; Kalamazoo &middot; Battle Creek &middot; Muskegon &middot; Newaygo</div>
+    <h1>Experienced, proven, and <em>trusted</em>.</h1>
+    <p>Make sure your estate is in the right hands. Put your trust in 20+ years of experience and thousands of happy clients across Michigan.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Request Consultation</a>
+      <a href="#contact" class="btn btn-primary">Start Your Estate Plan Today</a>
       <a href="#practice" class="btn btn-ghost">Explore Our Services</a>
     </div>
   </div>
@@ -699,10 +749,10 @@
 
 <div class="strip">
   <div class="container strip-inner">
-    <div class="strip-item"><span class="dot"></span><strong>20+ Years</strong> Serving West Michigan</div>
+    <div class="strip-item"><span class="dot"></span><strong>20+ Years</strong> Serving Michigan</div>
     <div class="strip-item"><span class="dot"></span><strong>Avvo Client's Choice</strong> Award Recipient</div>
     <div class="strip-item"><span class="dot"></span><strong>Distinguished Peer Rated</strong></div>
-    <div class="strip-item"><span class="dot"></span><strong>Two Offices</strong> &mdash; Grand Rapids &amp; Ann Arbor</div>
+    <div class="strip-item"><span class="dot"></span><strong>7 Offices</strong> Across Michigan</div>
   </div>
 </div>
 
@@ -712,7 +762,7 @@
       <div class="about-text">
         <div class="rule" style="margin: 0 0 24px;"></div>
         <h2>A practice built on relationships, not transactions.</h2>
-        <p>Founded by attorney Jennifer Coles, our firm has spent more than twenty years helping West Michigan families plan for the future and navigate the present with peace of mind. We believe estate planning should feel less like paperwork and more like a conversation &mdash; one where your goals, your family, and your values lead the way.</p>
+        <p>Founded by attorney Jennifer Coles, our firm has spent more than twenty years helping Michigan families plan for the future and navigate the present with peace of mind. From Grand Rapids to Ann Arbor and points between, we believe estate planning should feel less like paperwork and more like a conversation &mdash; one where your goals, your family, and your values lead the way.</p>
         <p>Whether you're drafting your first will, settling a loved one's estate, or planning for long-term care, we take the time to understand your story before we write a single page.</p>
         <div class="about-stats">
           <div class="stat">
@@ -724,11 +774,11 @@
             <div class="label">Families Served</div>
           </div>
           <div class="stat">
-            <div class="num">2</div>
+            <div class="num">7</div>
             <div class="label">Michigan Offices</div>
           </div>
           <div class="stat">
-            <div class="num">8</div>
+            <div class="num">7</div>
             <div class="label">Practice Areas</div>
           </div>
         </div>
@@ -752,49 +802,44 @@
     </div>
     <div class="practice-grid">
       <div class="practice-card">
-        <div class="practice-icon">E</div>
-        <h3>Estate Planning</h3>
-        <p>Comprehensive plans that protect your assets, honor your wishes, and provide for the people you love &mdash; tailored to your unique circumstances.</p>
+        <div class="practice-icon">T</div>
+        <h3>Revocable Living Trust</h3>
+        <p>Secure your estate while retaining full control during your lifetime &mdash; flexible planning that adapts as your circumstances change.</p>
       </div>
       <div class="practice-card">
         <div class="practice-icon">W</div>
-        <h3>Wills &amp; Trusts</h3>
-        <p>From simple wills to revocable living trusts and specialized planning vehicles, we draft documents designed to work the way you intend.</p>
+        <h3>Wills &amp; Codicils</h3>
+        <p>Create or update your will to reflect your wishes accurately, with codicils to amend existing documents as life evolves.</p>
       </div>
       <div class="practice-card">
-        <div class="practice-icon">P</div>
-        <h3>Probate</h3>
-        <p>Compassionate, efficient representation for personal representatives and families navigating the Michigan probate process.</p>
+        <div class="practice-icon">A</div>
+        <h3>Powers of Attorney</h3>
+        <p>Assign someone you trust to act on your behalf for financial and legal decisions when you are unable to do so yourself.</p>
       </div>
       <div class="practice-card">
         <div class="practice-icon">L</div>
         <h3>Elder Law</h3>
-        <p>Planning for long-term care, Medicaid eligibility, and the legal questions that accompany aging with dignity.</p>
+        <p>Navigate legal issues unique to aging and elder care &mdash; from advance directives to long-term planning.</p>
       </div>
       <div class="practice-card">
-        <div class="practice-icon">A</div>
-        <h3>Power of Attorney &amp; Patient Advocate</h3>
-        <p>Durable powers of attorney and patient advocate designations that put trusted decision-makers in place before they're needed.</p>
-      </div>
-      <div class="practice-card">
-        <div class="practice-icon">R</div>
-        <h3>Real Estate</h3>
-        <p>Residential transactions, deed preparation, and property transfers handled with attention to both legal precision and family dynamics.</p>
-      </div>
-      <div class="practice-card">
-        <div class="practice-icon">B</div>
-        <h3>Business Formation</h3>
-        <p>LLCs, corporations, and start-up counsel for Michigan entrepreneurs &mdash; from formation to ongoing governance.</p>
+        <div class="practice-icon">M</div>
+        <h3>Medicaid &amp; Medicare</h3>
+        <p>Get guidance on Medicaid and Medicare applications and benefits, with planning to help protect what you've worked to build.</p>
       </div>
       <div class="practice-card">
         <div class="practice-icon">G</div>
-        <h3>Business Law</h3>
-        <p>Practical advice for small and closely-held businesses, including contracts, succession planning, and day-to-day operations.</p>
+        <h3>Guardianships</h3>
+        <p>Establish guardianship to protect the vulnerable members of your family with compassionate, court-tested counsel.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">P</div>
+        <h3>Probate Estates</h3>
+        <p>Simplify the probate process with expert guidance through every step of administering a loved one's estate.</p>
       </div>
       <div class="practice-card" style="background: var(--navy); border-color: var(--navy); color: #fff;">
         <div class="practice-icon" style="background: var(--gold); color: var(--navy);">?</div>
         <h3 style="color: #fff;">Not sure where to begin?</h3>
-        <p style="color: rgba(255,255,255,0.8);">Most clients aren't &mdash; that's what we're here for. Schedule a consultation and we'll help you map out the right starting point.</p>
+        <p style="color: rgba(255,255,255,0.8);">Most clients aren't &mdash; that's what we're here for. Schedule a free consultation and we'll help you map out the right starting point.</p>
         <a href="#contact" style="display:inline-block; margin-top: 16px; color: var(--gold-soft); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">Get in touch &rarr;</a>
       </div>
     </div>
@@ -807,26 +852,44 @@
       <div class="eyebrow">Who We Are</div>
       <div class="rule"></div>
       <h2>Meet the Coles Law Team</h2>
-      <p>A small, experienced team that treats every client like a neighbor &mdash; because in West Michigan, many of them are.</p>
+      <p>Experienced leadership, dedicated staff, and ambitious interns &mdash; a team that treats every client like a neighbor.</p>
     </div>
     <div class="team-grid">
       <div class="team-card">
         <div class="team-photo"><span class="team-initial">J</span></div>
         <h3>Jennifer Coles</h3>
-        <div class="team-role">Founding Attorney</div>
-        <p class="team-bio">Jennifer founded the firm after earning her B.A. in Accounting from Michigan State University and her J.D. from the Maurer School of Law at Indiana University in 1993. She has practiced in Grand Rapids for over twenty years.</p>
+        <div class="team-role">Attorney</div>
+        <p class="team-bio">Jennifer has been practicing law in Grand Rapids for 20+ years. She earned her bachelor's in Accounting from Michigan State University (1990) and her J.D. from the Maurer School of Law at Indiana University (1993).</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="team-initial">B</span></div>
+        <h3>Brian Coles</h3>
+        <div class="team-role">Office Administrator</div>
+        <p class="team-bio">Brian earned his bachelor's from the University of Michigan in industrial and organizational psychology and a master's in finance from Wayne State. He previously served as Director of Operations at First American Title.</p>
       </div>
       <div class="team-card">
         <div class="team-photo"><span class="team-initial">K</span></div>
-        <h3>Kevin</h3>
-        <div class="team-role">Attorney</div>
-        <p class="team-bio">Kevin brings 20+ years of Grand Rapids legal experience, with a BBA from the University of Michigan and a J.D. from Notre Dame Law School (1992). He focuses on estate and business matters.</p>
+        <h3>Kevin Hansen</h3>
+        <div class="team-role">Of Counsel Attorney</div>
+        <p class="team-bio">Kevin brings 20+ years of Grand Rapids legal experience, with a BBA from the University of Michigan (1987) and a J.D. from Notre Dame Law School (1992).</p>
       </div>
       <div class="team-card">
         <div class="team-photo"><span class="team-initial">J</span></div>
-        <h3>Julie</h3>
-        <div class="team-role">Client Intake &amp; Accounting</div>
-        <p class="team-bio">Julie holds a B.S. in Business Administration with an accounting emphasis from Central Michigan University. She is often the first friendly voice clients hear when they call our office.</p>
+        <h3>Julie Turner</h3>
+        <div class="team-role">Client Intake &amp; Bookkeeping</div>
+        <p class="team-bio">Julie earned her B.S. in Business Administration with an accounting emphasis from Central Michigan University. She began her career at the public accounting firm Librand before transitioning into HR and now client services.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="team-initial">N</span></div>
+        <h3>Nicholas Coles</h3>
+        <div class="team-role">Technology &amp; Software Consultant</div>
+        <p class="team-bio">Nicholas is currently studying computer science at the University of Michigan. He has interned in marketing for local businesses and as a software engineer at the AI startup Knowbl.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="team-initial">M</span></div>
+        <h3>Mariya Jahan</h3>
+        <div class="team-role">Data Entry &amp; Client Outreach Intern</div>
+        <p class="team-bio">Mariya studies Politics, Philosophy, and Economics at the University of Michigan. She plans to attend law school and pursue a career in immigration law.</p>
       </div>
     </div>
   </div>
@@ -853,6 +916,11 @@
       </div>
       <div class="testimonial">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>My wife and I just finished up our last will and testament and trust documents. We cannot recommend Jennifer and Brian more. They are very thorough and knowledgeable. They made the creation of our family trust a painless process. They even came to us in Ann Arbor.</p>
+        <cite>&mdash; Coach Mason</cite>
+      </div>
+      <div class="testimonial">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>We had an excellent experience with Jennifer. Very thorough, professional and detailed. Would highly recommend working with her for any of your legal needs!</p>
         <cite>&mdash; Sarah F.</cite>
       </div>
@@ -860,6 +928,124 @@
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>We needed to set up a will and trust. Usually this is arduous and boring. Coles Law made the process easy, understandable, and even enjoyable. I would definitely recommend their services!</p>
         <cite>&mdash; Matthew Marvin</cite>
+      </div>
+      <div class="testimonial">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Getting an estate plan was easier than I thought. I should have done this years ago! Excellent attorney. I met with Jennifer Coles to get a will, power of attorney and patient advocate made. She discussed my options and explained how every document worked. It was a smooth process from start to finish.</p>
+        <cite>&mdash; Verified Google Review</cite>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <div style="display: inline-flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(214, 185, 122, 0.3); padding: 14px 24px;">
+        <span style="color: var(--gold-soft); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;">Google Reviews</span>
+        <span style="color: var(--gold-soft); letter-spacing: 3px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span style="color: rgba(255,255,255,0.85); font-size: 14px;">Rated <strong style="color:#fff;">Excellent</strong> by clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="locations">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Where to Find Us</div>
+      <div class="rule"></div>
+      <h2>Seven Michigan Offices</h2>
+      <p>From Lake Michigan to mid-state, we meet clients close to home. Call ahead and we'll schedule a visit at the location most convenient for you.</p>
+    </div>
+    <div class="locations-grid">
+      <div class="location-card">
+        <h4>Grand Rapids</h4>
+        <div class="city-rule"></div>
+        <address>
+          3501 Lake Eastbrook Blvd. SE<br>
+          Suite #140<br>
+          Grand Rapids, MI 49546
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card">
+        <h4>Ann Arbor</h4>
+        <div class="city-rule"></div>
+        <address>
+          2723 S. State St.<br>
+          Suite #150<br>
+          Ann Arbor, MI 48104
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card">
+        <h4>Lansing</h4>
+        <div class="city-rule"></div>
+        <address>
+          120 N. Washington<br>
+          Lansing, MI 48933
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card">
+        <h4>Kalamazoo</h4>
+        <div class="city-rule"></div>
+        <address>
+          251 N. Rose St.<br>
+          Suite #200<br>
+          Kalamazoo, MI 49007
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card">
+        <h4>Battle Creek</h4>
+        <div class="city-rule"></div>
+        <address>
+          7100 Tower Rd.<br>
+          Battle Creek, MI 49014
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card">
+        <h4>Muskegon</h4>
+        <div class="city-rule"></div>
+        <address>
+          800 E. Ellis Rd.<br>
+          Muskegon, MI 49441
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card">
+        <h4>Newaygo</h4>
+        <div class="city-rule"></div>
+        <address>
+          1 State Rd.<br>
+          Newaygo, MI 49337
+        </address>
+        <div class="loc-meta">
+          <div><strong>Phone:</strong> (616) 308-3509</div>
+          <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+        </div>
+      </div>
+      <div class="location-card" style="background: var(--navy); border-color: var(--navy); color: #fff; display: flex; flex-direction: column; justify-content: center;">
+        <h4 style="color: #fff;">Statewide</h4>
+        <div class="city-rule"></div>
+        <p style="color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6; margin-bottom: 18px;">Virtual consultations available throughout Michigan, with in-home visits arranged on request.</p>
+        <a href="#contact" style="color: var(--gold-soft); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">Schedule a meeting &rarr;</a>
       </div>
     </div>
   </div>
@@ -875,29 +1061,16 @@
     </div>
     <div class="contact-grid">
       <div class="contact-info">
-        <h3>Two Locations to Serve You</h3>
-        <p class="lead">Convenient offices in West and Southeast Michigan, with virtual meetings available statewide.</p>
-
-        <div class="office">
-          <h4>Grand Rapids</h4>
-          <address>
-            3501 Lake Eastbrook Blvd. SE, Suite #135<br>
-            Grand Rapids, MI 49546
-          </address>
-        </div>
-        <div class="office">
-          <h4>Ann Arbor</h4>
-          <address>
-            2723 S. State Street, Suite #150<br>
-            Ann Arbor, MI 48104
-          </address>
-        </div>
+        <h3>Get in Touch</h3>
+        <p class="lead">Schedule a visit at any one of our seven Michigan offices, or arrange a virtual consultation from anywhere statewide.</p>
 
         <div class="contact-meta">
           <div><span class="label">Phone</span><span class="val"><a href="tel:+16163083509">(616) 308-3509</a></span></div>
           <div><span class="label">Email</span><span class="val"><a href="mailto:jennifer@coleslawfirm.com">jennifer@coleslawfirm.com</a></span></div>
           <div><span class="label">Hours</span><span class="val">Monday &ndash; Friday, 9:00 AM &ndash; 5:00 PM</span></div>
         </div>
+
+        <p style="margin-top: 32px; color: var(--ink-soft); font-size: 15px;">Prefer to drop in? See our <a href="#locations" style="font-weight: 600;">full list of office locations &rarr;</a></p>
       </div>
 
       <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you. We will be in touch shortly.'); this.reset();">
@@ -919,13 +1092,13 @@
         <div class="field">
           <label for="topic">How Can We Help?</label>
           <select id="topic">
-            <option>Estate Planning</option>
-            <option>Wills &amp; Trusts</option>
-            <option>Probate</option>
+            <option>Revocable Living Trust</option>
+            <option>Wills &amp; Codicils</option>
+            <option>Powers of Attorney</option>
             <option>Elder Law</option>
-            <option>Power of Attorney / Patient Advocate</option>
-            <option>Real Estate</option>
-            <option>Business Formation</option>
+            <option>Medicaid &amp; Medicare</option>
+            <option>Guardianships</option>
+            <option>Probate Estates</option>
             <option>Other / Not Sure</option>
           </select>
         </div>
@@ -951,25 +1124,30 @@
             <div class="brand-sub">Estate Planning &middot; Probate</div>
           </div>
         </div>
-        <p>Serving West Michigan families with thoughtful estate planning, probate, and elder law counsel for over two decades.</p>
+        <p>Serving Michigan families with thoughtful estate planning, probate, and elder law counsel for over two decades.</p>
       </div>
       <div>
         <h5>Practice</h5>
         <ul>
-          <li><a href="#practice">Estate Planning</a></li>
-          <li><a href="#practice">Wills &amp; Trusts</a></li>
-          <li><a href="#practice">Probate</a></li>
+          <li><a href="#practice">Revocable Living Trust</a></li>
+          <li><a href="#practice">Wills &amp; Codicils</a></li>
+          <li><a href="#practice">Powers of Attorney</a></li>
           <li><a href="#practice">Elder Law</a></li>
-          <li><a href="#practice">Business Law</a></li>
+          <li><a href="#practice">Medicaid &amp; Medicare</a></li>
+          <li><a href="#practice">Guardianships</a></li>
+          <li><a href="#practice">Probate Estates</a></li>
         </ul>
       </div>
       <div>
-        <h5>Firm</h5>
+        <h5>Offices</h5>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#team">Our Team</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#locations">Grand Rapids</a></li>
+          <li><a href="#locations">Ann Arbor</a></li>
+          <li><a href="#locations">Lansing</a></li>
+          <li><a href="#locations">Kalamazoo</a></li>
+          <li><a href="#locations">Battle Creek</a></li>
+          <li><a href="#locations">Muskegon</a></li>
+          <li><a href="#locations">Newaygo</a></li>
         </ul>
       </div>
       <div>
@@ -977,8 +1155,8 @@
         <ul>
           <li><a href="tel:+16163083509">(616) 308-3509</a></li>
           <li><a href="mailto:jennifer@coleslawfirm.com">jennifer@coleslawfirm.com</a></li>
-          <li>Grand Rapids, MI</li>
-          <li>Ann Arbor, MI</li>
+          <li>M&ndash;F, 9 AM &ndash; 5 PM</li>
+          <li><a href="#contact">Schedule Consultation</a></li>
         </ul>
       </div>
     </div>

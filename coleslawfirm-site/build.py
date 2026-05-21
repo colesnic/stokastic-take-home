@@ -358,6 +358,97 @@ TESTIMONIALS = [
     },
 ]
 
+BLOG_POSTS = [
+    {
+        "slug": "do-i-need-a-will-or-a-trust",
+        "title": "Do I Need a Will, a Trust, or Both?",
+        "date": "2026-04-12",
+        "date_display": "April 12, 2026",
+        "author": "Jennifer Coles",
+        "excerpt": "One of the questions we hear most often. The honest answer: most Michigan families benefit from both, but the right balance depends on your goals.",
+        "body": [
+            "It's the question that brings most people to our office for the first time: do I need a will, a trust, or both? Like most legal questions, the honest answer is &mdash; it depends. But the framework for deciding is straightforward.",
+            "A <strong>will</strong> is a written instruction set that takes effect at your death. It names guardians for minor children, designates the person who will administer your estate (your personal representative), and directs how your assets should be distributed. Wills are familiar, flexible, and relatively inexpensive to prepare.",
+            "A <strong>revocable living trust</strong> is more like a container. You move your assets into the trust during your lifetime, keep complete control of them, and name a successor trustee to take over if you become incapacitated or pass away. Properly funded trusts avoid probate entirely.",
+            "<h2>When a will alone is enough</h2>",
+            "If your estate is modest, your beneficiaries are clear, and you don't mind your family going through probate, a well-drafted will may be sufficient. It's simple, low-cost, and easy to update.",
+            "<h2>When a trust is worth the investment</h2>",
+            "Trusts make the most sense when you want to: avoid probate (which in Michigan typically takes 6&ndash;12 months), maintain privacy (probate is public record), plan for incapacity, manage assets across generations, or coordinate complex family or business arrangements.",
+            "<h2>Most plans use both</h2>",
+            "The most common approach is a revocable living trust paired with a <em>pour-over will</em> that catches any assets you forgot to title in the trust. Together with powers of attorney and a patient advocate designation, this is a complete plan that covers the major scenarios.",
+            "<h2>Talk it through with us</h2>",
+            "Estate planning isn't one-size-fits-all. The right plan depends on your family, your assets, and what you want your legacy to look like. <a href=\"../../contact/\">Schedule a free consultation</a> and we'll help you think it through.",
+        ],
+    },
+    {
+        "slug": "michigan-probate-timeline",
+        "title": "How Long Does Probate Take in Michigan?",
+        "date": "2026-03-08",
+        "date_display": "March 8, 2026",
+        "author": "Jennifer Coles",
+        "excerpt": "Even the most straightforward Michigan probate estate takes months to close. Here's what to expect, and where most delays come from.",
+        "body": [
+            "Probate is the court-supervised process of administering a deceased person's estate. In Michigan, even the simplest probate matters take time &mdash; usually somewhere between six months and a year. Here's a realistic timeline.",
+            "<h2>Months 1&ndash;2: Opening the estate</h2>",
+            "After the death, the personal representative named in the will (or, if there's no will, a family member) files a petition with the probate court. The court issues Letters of Authority, which give the personal representative legal power to act on behalf of the estate.",
+            "<h2>Months 2&ndash;6: Notice to creditors and asset inventory</h2>",
+            "Michigan law requires a four-month notice period during which creditors can file claims against the estate. During this same window, the personal representative inventories the estate's assets, notifies beneficiaries, and begins managing whatever needs managing &mdash; insurance, mortgages, tax filings, and so on.",
+            "<h2>Months 6&ndash;9: Resolving claims and preparing for distribution</h2>",
+            "Once the creditor period closes, the personal representative pays valid claims, resolves disputes, and prepares a final accounting. If real estate needs to be sold, that often happens during this phase.",
+            "<h2>Months 9&ndash;12: Final accounting and closing</h2>",
+            "The personal representative files a final accounting with the court, distributes the remaining assets to beneficiaries, and petitions to close the estate.",
+            "<h2>What makes it longer</h2>",
+            "Common delays include: contested wills, unusual assets (closely-held businesses, real estate in multiple states), tax issues requiring an estate tax return, missing or hard-to-find beneficiaries, and disputes among heirs.",
+            "<h2>How to make it easier on your family</h2>",
+            "The single best way to spare your family from probate is to do estate planning while you're still well. A properly funded revocable living trust can move most or all of your assets outside the probate process entirely. <a href=\"../../practice-areas/revocable-living-trust/\">Read more about revocable living trusts &rarr;</a>",
+        ],
+    },
+    {
+        "slug": "medicaid-five-year-lookback",
+        "title": "Michigan Medicaid's Five-Year Look-Back, Explained",
+        "date": "2026-02-20",
+        "date_display": "February 20, 2026",
+        "author": "Jennifer Coles",
+        "excerpt": "If you're thinking about Medicaid for long-term care, the five-year look-back is the single most important rule to understand &mdash; and it's why early planning matters so much.",
+        "body": [
+            "Long-term care is one of the single largest financial risks most families face. A year in a Michigan skilled nursing facility can run $100,000 or more, and Medicare doesn't cover it once the short-term rehabilitation window closes.",
+            "Medicaid does cover long-term care, but qualifying for it requires meeting strict income and asset limits. That's where many families run into the <strong>five-year look-back period</strong>.",
+            "<h2>What the look-back is</h2>",
+            "When you apply for Medicaid long-term care benefits in Michigan, the state reviews your financial transactions for the prior 60 months &mdash; that's the look-back period. Transfers of assets made during this window for less than fair market value can trigger a penalty period during which you're ineligible for benefits.",
+            "<h2>Why this matters even if you're healthy now</h2>",
+            "Many people assume they'll figure out Medicaid planning if and when they need long-term care. But by then, the look-back rule may have eliminated the most useful strategies. The sooner you plan, the more options stay open.",
+            "<h2>What works</h2>",
+            "Common approaches include: setting up irrevocable trusts that protect assets while preserving Medicaid eligibility, restructuring asset ownership between spouses to take advantage of community spouse protections, and converting countable assets into exempt assets where appropriate.",
+            "<h2>What doesn't work</h2>",
+            "Last-minute transfers to children, fake \"loans,\" or simple gifting away of assets within the look-back window will almost always trigger penalties. The state has seen all of it before.",
+            "<h2>Start the conversation early</h2>",
+            "If long-term care planning is on your mind &mdash; for yourself or for an aging parent &mdash; the best time to talk to an attorney is before there's a crisis. <a href=\"../../practice-areas/medicaid-medicare/\">Read more about our Medicaid planning practice &rarr;</a>",
+        ],
+    },
+    {
+        "slug": "powers-of-attorney-vs-guardianship",
+        "title": "Powers of Attorney vs. Guardianship: Why the Difference Matters",
+        "date": "2026-01-15",
+        "date_display": "January 15, 2026",
+        "author": "Jennifer Coles",
+        "excerpt": "Both tools allow someone else to make decisions on your behalf. But one you choose proactively &mdash; and the other a court chooses for you.",
+        "body": [
+            "If someone becomes unable to manage their own affairs &mdash; from a stroke, dementia, an accident, or another cause &mdash; someone else has to step in. The legal mechanism for that step-in is either a <strong>power of attorney</strong> that the person established in advance, or a <strong>court-appointed guardian or conservator</strong> if they didn't.",
+            "The difference between the two paths is enormous, and it's why every adult should have powers of attorney in place.",
+            "<h2>Powers of attorney: you choose, in advance</h2>",
+            "A durable power of attorney lets you name a person (your \"agent\") to make financial decisions for you if you can't. A patient advocate designation does the same for healthcare decisions. You choose who. You define the scope. You can revoke or update at any time while you're competent.",
+            "<h2>Guardianship: the court chooses, after the fact</h2>",
+            "Without powers of attorney, when capacity is lost, the family has to petition the probate court for a guardian (for personal decisions) or a conservator (for financial matters). The court holds hearings, may appoint a guardian ad litem to investigate, and decides who is appointed &mdash; which may or may not be the family member you would have chosen.",
+            "<h2>The practical differences</h2>",
+            "Guardianship is <em>slow</em> (often months from filing to appointment), <em>expensive</em> (court filings, attorney fees, sometimes a bond), <em>public</em> (everything goes on the court record), and <em>ongoing</em> (annual accountings, court reporting requirements). Powers of attorney avoid all of that.",
+            "<h2>What to put in place</h2>",
+            "A complete plan typically includes: a durable financial power of attorney, a patient advocate designation, HIPAA authorizations, and clear successor designations in case your first-choice agent is unavailable.",
+            "<h2>Get them done</h2>",
+            "Powers of attorney are inexpensive to prepare and they expire only on your death (or when you revoke them). If you don't have them in place, this is the single highest-leverage estate planning step you can take today. <a href=\"../../practice-areas/powers-of-attorney/\">Read more about powers of attorney &rarr;</a>",
+        ],
+    },
+]
+
 FAQS = [
     {
         "q": "Do I really need an estate plan if I don't have a lot of assets?",
@@ -603,6 +694,13 @@ def organization_schema() -> dict:
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             "opens": "09:00", "closes": "17:00",
         }],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": str(len(TESTIMONIALS)),
+            "bestRating": "5",
+            "worstRating": "1",
+        },
         "priceRange": "$$",
         "sameAs": [],
     }
@@ -667,6 +765,24 @@ def faq_schema(faqs: list) -> dict:
                 "acceptedAnswer": {"@type": "Answer", "text": q["a"]},
             } for q in faqs
         ],
+    }
+
+def blog_post_schema(post: dict) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post["title"],
+        "datePublished": post["date"],
+        "dateModified": post["date"],
+        "author": {"@type": "Person", "name": post["author"]},
+        "publisher": {
+            "@type": "LegalService",
+            "name": SITE_NAME,
+            "logo": {"@type": "ImageObject", "url": SITE_URL + "/assets/og-image.svg"},
+        },
+        "url": url(f"/blog/{post['slug']}/"),
+        "description": post["excerpt"],
+        "image": SITE_URL + "/assets/og-image.svg",
     }
 
 def review_schemas(reviews: list) -> list[dict]:
@@ -797,8 +913,8 @@ def home_page():
         <div class="strip">
           <div class="container strip-inner">
             <div class="strip-item"><span class="dot"></span><strong>20+ Years</strong> Serving Michigan</div>
+            <div class="strip-item"><span class="dot"></span><span aria-hidden="true" style="color: var(--gold); letter-spacing: 2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>5.0</strong> on Google Reviews</div>
             <div class="strip-item"><span class="dot"></span><strong>Avvo Client's Choice</strong> Award Recipient</div>
-            <div class="strip-item"><span class="dot"></span><strong>Distinguished Peer Rated</strong></div>
             <div class="strip-item"><span class="dot"></span><strong>7 Offices</strong> Across Michigan</div>
           </div>
         </div>
@@ -1041,6 +1157,25 @@ def practice_detail_page(s: dict):
     ])
     body_html = "\n".join(f"            <p>{p}</p>" for p in s["body"])
     benefits_html = "\n".join(f"              <li>{b}</li>" for b in s["benefits"])
+    # Cross-link to all locations
+    loc_links = ", ".join(
+        f'<a href="{rel(depth, "locations/" + loc["slug"] + "/")}">{loc["name"]}</a>'
+        for loc in LOCATIONS
+    )
+    # Cross-link to other practice areas
+    other_practices = [p for p in PRACTICES if p["slug"] != s["slug"]]
+    related_cards = "\n".join(dedent(f"""\
+                <a class="related-card" href="{rel(depth, 'practice-areas/' + p['slug'] + '/')}">
+                  <span class="related-icon" aria-hidden="true">{p['icon']}</span>
+                  <span class="related-name">{p['name']}</span>
+                </a>""") for p in other_practices[:4])
+    # Relevant FAQs (heuristic: pick first 3)
+    relevant = FAQS[:3]
+    faqs_html = "\n".join(dedent(f"""\
+                <div class="faq-item">
+                  <h3>{f['q']}</h3>
+                  <p>{f['a']}</p>
+                </div>""") for f in relevant)
     body = dedent(f"""\
         <body>
         {site_header('practice', depth)}
@@ -1055,9 +1190,23 @@ def practice_detail_page(s: dict):
             <ul>
         {benefits_html}
             </ul>
+
+            <h2>Common questions</h2>
+            <div class="faq-list" style="margin: 20px 0;">
+        {faqs_html}
+            </div>
+
+            <h2>Available across Michigan</h2>
+            <p>We provide {s['name'].lower()} services at all seven of our Michigan offices: {loc_links}. Virtual consultations are available statewide; in-home visits can be arranged on request.</p>
+
+            <h2>Related practice areas</h2>
+            <div class="related-grid">
+        {related_cards}
+            </div>
+
             <h2>Ready to begin?</h2>
             <p>The earliest stages of estate planning are usually the most consequential. Schedule a free consultation and we'll talk through whether {s['name']} is the right fit for your situation, or whether a different starting point makes more sense.</p>
-            <p><a href="{rel(depth, 'contact/')}">Schedule a consultation &rarr;</a></p>
+            <p><a href="{rel(depth, 'contact/')}" class="btn btn-dark" style="display: inline-block;">Schedule a Consultation</a></p>
           </article>
         </div>
         </main>
@@ -1065,7 +1214,8 @@ def practice_detail_page(s: dict):
         </body>
         </html>
         """).rstrip()
-    page(f"practice-areas/{s['slug']}/index.html", head(title, desc, f"/practice-areas/{s['slug']}/", depth, [bc_schema, service_schema(s)]) + "\n" + body)
+    extras = [bc_schema, service_schema(s), faq_schema(relevant)]
+    page(f"practice-areas/{s['slug']}/index.html", head(title, desc, f"/practice-areas/{s['slug']}/", depth, extras) + "\n" + body)
 
 def locations_index_page():
     depth = 1
@@ -1130,6 +1280,16 @@ def location_detail_page(loc: dict):
         (loc["name"], None),
     ])
     suite = f"<br>{loc['suite']}" if loc['suite'] else ""
+    services_html = "\n".join(
+        f'                  <li><a href="{rel(depth, "practice-areas/" + s["slug"] + "/")}">{s["name"]}</a> &mdash; {s["tagline"]}</li>'
+        for s in PRACTICES
+    )
+    map_query = (loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + city_state + ' ' + loc['zip']).replace(' ', '+')
+    other_offices = [o for o in LOCATIONS if o["slug"] != loc["slug"]]
+    other_links = " &middot; ".join(
+        f'<a href="{rel(depth, "locations/" + o["slug"] + "/")}">{o["name"]}</a>'
+        for o in other_offices
+    )
     body = dedent(f"""\
         <body>
         {site_header('locations', depth)}
@@ -1146,14 +1306,19 @@ def location_detail_page(loc: dict):
                   {loc['street']}{suite}<br>
                   {loc['city']}, {loc['state']} {loc['zip']}
                 </address>
-                <p>Our {loc['name']} office offers the full range of Coles Law Firm services, including:</p>
+                <p>Call us at <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> to schedule a visit, or use our <a href="{rel(depth, 'contact/')}">contact form</a> to request a consultation. <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Get directions on Google Maps &rarr;</a></p>
+
+                <h2>Services available at our {loc['name']} office</h2>
+                <p>Our {loc['name']} office offers the full range of Coles Law Firm services:</p>
                 <ul>
-                  <li>Revocable living trusts and trust funding</li>
-                  <li>Wills, codicils, and probate</li>
-                  <li>Powers of attorney and patient advocate designations</li>
-                  <li>Elder law, Medicaid planning, and guardianships</li>
+        {services_html}
                 </ul>
-                <p>Call us at <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> to schedule a visit, or use our <a href="{rel(depth, 'contact/')}">contact form</a> to request a consultation.</p>
+
+                <h2>Other Michigan offices</h2>
+                <p>If our {loc['name']} office isn't convenient, we may have a location closer to you: {other_links}.</p>
+
+                <h2>Schedule a visit</h2>
+                <p>We schedule consultations by appointment so our team can give you their full attention. Call <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> or <a href="{rel(depth, 'contact/')}">submit our contact form</a> &mdash; we'll be in touch within one business day.</p>
               </div>
               <aside class="location-card-side">
                 <h3>Office Information</h3>
@@ -1161,6 +1326,7 @@ def location_detail_page(loc: dict):
                 <div class="meta-line"><strong>Email</strong><a href="mailto:{FIRM_EMAIL}">{FIRM_EMAIL}</a></div>
                 <div class="meta-line"><strong>Hours</strong>Monday &ndash; Friday, 9:00 AM &ndash; 5:00 PM</div>
                 <div class="meta-line"><strong>Address</strong>{loc['street']}{', ' + loc['suite'] if loc['suite'] else ''}, {city_state} {loc['zip']}</div>
+                <div class="meta-line"><strong>Directions</strong><a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps</a></div>
                 <p style="margin-top: 24px;"><a href="{rel(depth, 'contact/')}" class="loc-link" style="color: var(--gold-soft); display: inline-block;">Schedule a consultation &rarr;</a></p>
               </aside>
             </div>
@@ -1284,6 +1450,21 @@ def blog_page():
     title = "Blog | Coles Law Firm | Estate Planning Insights"
     desc = "Estate planning, probate, and elder law insights from the attorneys at Coles Law Firm in Michigan."
     bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("Blog", None)])
+    cards = []
+    for post in BLOG_POSTS:
+        cards.append(dedent(f"""\
+            <article class="blog-card">
+              <div class="blog-meta">
+                <time datetime="{post['date']}">{post['date_display']}</time>
+                <span class="dot-sep">&middot;</span>
+                <span>{post['author']}</span>
+              </div>
+              <h2><a href="{rel(depth, 'blog/' + post['slug'] + '/')}">{post['title']}</a></h2>
+              <p>{post['excerpt']}</p>
+              <a class="blog-more" href="{rel(depth, 'blog/' + post['slug'] + '/')}">Read more &rarr;</a>
+            </article>
+            """).rstrip())
+    cards_html = "\n".join(cards)
     body = dedent(f"""\
         <body>
         {site_header('blog', depth)}
@@ -1297,8 +1478,9 @@ def blog_page():
         </section>
         <section>
           <div class="container">
-            <p style="text-align: center; color: var(--ink-soft); font-size: 17px; max-width: 640px; margin: 0 auto 32px;">New posts coming soon. In the meantime, our <a href="{rel(depth, 'faq/')}">FAQ</a> covers many of the questions clients ask most often.</p>
-            <p style="text-align: center;"><a href="{rel(depth, 'contact/')}" class="btn btn-dark">Schedule a Consultation</a></p>
+            <div class="blog-list">
+        {cards_html}
+            </div>
           </div>
         </section>
         </main>
@@ -1307,6 +1489,74 @@ def blog_page():
         </html>
         """).rstrip()
     page("blog/index.html", head(title, desc, "/blog/", depth, [bc_schema]) + "\n" + body)
+
+def blog_post_page(post: dict):
+    depth = 2
+    title = f"{post['title']} | Coles Law Firm Blog"
+    desc = post["excerpt"]
+    bc_html, bc_schema = breadcrumbs(depth, [
+        ("Home", ""),
+        ("Blog", "blog/"),
+        (post["title"], None),
+    ])
+    body_html = "\n".join(
+        (f"            {b}" if b.startswith("<h") else f"            <p>{b}</p>")
+        for b in post["body"]
+    )
+    body = dedent(f"""\
+        <body>
+        {site_header('blog', depth)}
+        {bc_html}
+        <main id="main">
+        <div class="container">
+          <article class="article">
+            <div class="blog-meta" style="margin-bottom: 12px;">
+              <time datetime="{post['date']}">{post['date_display']}</time>
+              <span class="dot-sep">&middot;</span>
+              <span>By {post['author']}</span>
+            </div>
+            <h1>{post['title']}</h1>
+            <p class="lede">{post['excerpt']}</p>
+        {body_html}
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--rule);">
+            <p style="font-size: 14px; color: var(--ink-soft);">This article is provided for general information only and does not constitute legal advice. For guidance specific to your situation, please <a href="{rel(depth, 'contact/')}">schedule a consultation</a>.</p>
+            <p><a href="{rel(depth, 'blog/')}">&larr; Back to all posts</a></p>
+          </article>
+        </div>
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page(f"blog/{post['slug']}/index.html", head(title, desc, f"/blog/{post['slug']}/", depth, [bc_schema, blog_post_schema(post)]) + "\n" + body)
+
+def not_found_page():
+    depth = 0
+    title = "Page Not Found | Coles Law Firm"
+    desc = "The page you were looking for can't be found. Browse our practice areas, locations, or contact us for help."
+    body = dedent(f"""\
+        <body>
+        {site_header('home', depth)}
+        <main id="main">
+        <section class="hero hero-compact">
+          <div class="container" style="text-align: center;">
+            <h1>404 &mdash; Page Not Found</h1>
+            <p>The page you were looking for can't be found. It may have moved, or the link may be incorrect.</p>
+          </div>
+        </section>
+        <section>
+          <div class="container" style="text-align: center; max-width: 720px;">
+            <h2 style="margin-bottom: 16px;">A few helpful places to start:</h2>
+            <p style="margin-bottom: 28px;"><a href="{rel(depth, '')}">Home</a> &middot; <a href="{rel(depth, 'practice-areas/')}">Practice Areas</a> &middot; <a href="{rel(depth, 'meet-the-team/')}">Meet the Team</a> &middot; <a href="{rel(depth, 'locations/')}">Locations</a> &middot; <a href="{rel(depth, 'faq/')}">FAQ</a> &middot; <a href="{rel(depth, 'blog/')}">Blog</a></p>
+            <p><a href="{rel(depth, 'contact/')}" class="btn btn-dark">Contact Us</a></p>
+          </div>
+        </section>
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page("404.html", head(title, desc, "/404", depth) + "\n" + body)
 
 # -------- sitemap & robots ------------------------------------------------
 
@@ -1325,6 +1575,7 @@ def sitemap():
     urls += [f"/team/{t['slug']}/" for t in TEAM]
     urls += [f"/practice-areas/{p['slug']}/" for p in PRACTICES]
     urls += [f"/locations/{loc['slug']}/" for loc in LOCATIONS]
+    urls += [f"/blog/{post['slug']}/" for post in BLOG_POSTS]
 
     entries = "\n".join(
         f'  <url><loc>{url(u)}</loc><changefreq>monthly</changefreq><priority>{"1.0" if u == "/" else "0.8"}</priority></url>'
@@ -1367,6 +1618,9 @@ def main():
     contact_page()
     faq_page()
     blog_page()
+    for post in BLOG_POSTS:
+        blog_post_page(post)
+    not_found_page()
     sitemap()
     robots()
     print("Done.")

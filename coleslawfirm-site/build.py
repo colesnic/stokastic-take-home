@@ -1280,7 +1280,7 @@ def location_detail_page(loc: dict):
         ("Locations", "locations/"),
         (loc["name"], None),
     ])
-    suite = f"<br>{loc['suite']}" if loc['suite'] else ""
+    suite_inline = (', ' + loc['suite']) if loc['suite'] else ''
     full_address = loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + city_state + ' ' + loc['zip']
     map_query = urllib.parse.quote_plus(full_address)
 
@@ -1305,68 +1305,73 @@ def location_detail_page(loc: dict):
         <section class="location-hero">
           <div class="container">
             <div class="city-label">{city_state} Office</div>
-            <h1>{loc['name']} Estate Planning Attorneys</h1>
+            <h1>{loc['name']} Estate Planning &amp; Probate Attorneys</h1>
             <p class="blurb">{loc['blurb']}</p>
-            <address>
-              {loc['street']}{suite}<br>
-              {loc['city']}, {loc['state']} {loc['zip']}
-            </address>
+            <div class="quick-meta">
+              <div>
+                <strong>Address</strong>
+                <div class="val">{loc['street']}{suite_inline}, {city_state} {loc['zip']}</div>
+              </div>
+              <div>
+                <strong>Phone</strong>
+                <div class="val"><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
+              </div>
+              <div>
+                <strong>Hours</strong>
+                <div class="val">Monday &ndash; Friday, 9 AM &ndash; 5 PM</div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section class="location-detail">
+        <section class="location-map-section">
           <div class="container">
-            <div class="location-detail-grid">
-              <div class="map-embed">
-                <div class="map-embed-header">
-                  <span class="label-tag">Office Location</span>
-                  <span class="office-name">{loc['name']}</span>
-                </div>
-                <iframe
-                  title="Map of Coles Law Firm {loc['name']} office"
-                  src="https://maps.google.com/maps?q={map_query}&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="map-embed-caption">
-                  <span>Street-level view &mdash; click to interact</span>
-                  <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps &rarr;</a>
+            <div class="map-embed">
+              <iframe
+                title="Map of Coles Law Firm {loc['name']} office"
+                src="https://maps.google.com/maps?q={map_query}&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="map-embed-caption">
+                <span class="addr"><strong>Coles Law Firm &mdash; {loc['name']}</strong> &middot; {loc['street']}{suite_inline}, {city_state} {loc['zip']}</span>
+                <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Get Directions &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="location-body">
+          <div class="container">
+            <div class="content">
+              <div class="section-block">
+                <h2>Services at our {loc['name']} office</h2>
+                <p>Our {loc['name']} office offers the full range of Coles Law Firm services.</p>
+                <ul class="services-list">
+        {services_html}
+                </ul>
+              </div>
+
+              <div class="section-block">
+                <h2>Our other Michigan offices</h2>
+                <p>If {loc['name']} isn't convenient, we may have a location closer to you.</p>
+                <div class="other-offices">
+        {other_chips}
                 </div>
               </div>
-              <aside class="location-info-card">
-                <div class="card-header">Office Information</div>
-                <div class="card-body">
-                  <div class="meta-line"><strong>Phone</strong><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
-                  <div class="meta-line"><strong>Email</strong><a href="mailto:{FIRM_EMAIL}">{FIRM_EMAIL}</a></div>
-                  <div class="meta-line"><strong>Hours</strong>Monday &ndash; Friday<br>9:00 AM &ndash; 5:00 PM</div>
-                  <div class="meta-line"><strong>Address</strong>{loc['street']}{', ' + loc['suite'] if loc['suite'] else ''}<br>{city_state} {loc['zip']}</div>
-                  <div class="meta-line"><strong>Directions</strong><a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Open in Google Maps &rarr;</a></div>
-                </div>
-                <div class="card-cta">
-                  <a href="{rel(depth, 'contact/')}">Schedule a Consultation</a>
-                </div>
-              </aside>
             </div>
           </div>
         </section>
 
-        <div class="container">
-          <div class="location-body">
-            <h2>Services available at our {loc['name']} office</h2>
-            <p>Our {loc['name']} office offers the full range of Coles Law Firm services.</p>
-            <ul class="services-list">
-        {services_html}
-            </ul>
-
-            <h2>Other Michigan offices</h2>
-            <p>If our {loc['name']} office isn't convenient, we may have a location closer to you.</p>
-            <div class="other-offices">
-        {other_chips}
+        <section class="location-cta-band">
+          <div class="container">
+            <h2>Schedule a visit to our {loc['name']} office</h2>
+            <p>Consultations are by appointment so our team can give you their full attention. We'll respond within one business day.</p>
+            <div class="cta-row">
+              <a href="tel:{FIRM_PHONE_TEL}" class="btn btn-primary">Call {FIRM_PHONE}</a>
+              <a href="{rel(depth, 'contact/')}" class="btn btn-ghost">Send a Message</a>
             </div>
-
-            <h2>Schedule a visit</h2>
-            <p>We schedule consultations by appointment so our team can give you their full attention. Call <a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a> or <a href="{rel(depth, 'contact/')}">submit our contact form</a> &mdash; we'll be in touch within one business day.</p>
           </div>
-        </div>
+        </section>
 
         </main>
         {site_footer(depth)}

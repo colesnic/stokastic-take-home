@@ -130,6 +130,8 @@ PRACTICES = [
         "icon": "T",
         "tagline": "Secure your estate while retaining full control.",
         "summary": "Secure your estate while retaining full control during your lifetime — flexible planning that adapts as your circumstances change.",
+        "pricing_range": "$1,500 – $3,500",
+        "pricing_note": "Flat fee depending on complexity, asset count, and whether trust funding is included.",
         "body": [
             "A revocable living trust is one of the most flexible and powerful tools in estate planning. It allows you to retain complete control of your assets during your lifetime while providing a clear, private framework for managing and transferring them when you're no longer able to.",
             "Unlike a will alone, a properly funded revocable trust can help your family avoid the time, cost, and public exposure of probate court — often saving months of delay and significant legal expense.",
@@ -148,6 +150,8 @@ PRACTICES = [
         "icon": "W",
         "tagline": "Make sure your wishes are clearly recorded.",
         "summary": "Create or update your will to reflect your wishes accurately, with codicils to amend existing documents as life evolves.",
+        "pricing_range": "$250 – $750",
+        "pricing_note": "Flat fee. Simple wills start at the lower end; more involved plans with multiple bequests or guardianship provisions are higher.",
         "body": [
             "Your last will and testament is the foundation of any estate plan. It names guardians for minor children, designates a personal representative for your estate, and directs how your assets should be distributed.",
             "Life changes — marriages, births, deaths, moves, and shifts in financial circumstances all warrant a fresh look at your documents. We help clients prepare new wills and execute codicils (formal amendments) that keep their plans current.",
@@ -166,6 +170,8 @@ PRACTICES = [
         "icon": "A",
         "tagline": "Put trusted decision-makers in place before they're needed.",
         "summary": "Assign someone you trust to act on your behalf for financial and legal decisions when you are unable to do so yourself.",
+        "pricing_range": "$150 – $400",
+        "pricing_note": "Flat fee per document. Bundled discounts available when prepared alongside a will or trust.",
         "body": [
             "A power of attorney designates a trusted person to act on your behalf for financial, legal, or healthcare matters. Without one in place, your family may need to petition for a court-appointed guardian or conservator — a process that is slow, costly, and public.",
             "We prepare both durable powers of attorney for financial matters and patient advocate designations for healthcare decisions, tailored to your situation and family dynamics.",
@@ -184,6 +190,8 @@ PRACTICES = [
         "icon": "L",
         "tagline": "Counsel for the legal questions aging brings.",
         "summary": "Navigate legal issues unique to aging and elder care — from advance directives to long-term planning.",
+        "pricing_range": "Starts at $275/hour",
+        "pricing_note": "Most elder law matters are billed hourly. We discuss expected scope and rough budget at the initial consultation.",
         "body": [
             "Elder law sits at the intersection of estate planning, healthcare, and government benefits. Our work in this area focuses on protecting older clients and their families through transitions that often combine emotional, financial, and legal complexity.",
             "We help clients plan ahead for long-term care, evaluate options for skilled nursing or in-home services, and address legal concerns that arise as family roles shift.",
@@ -202,6 +210,8 @@ PRACTICES = [
         "icon": "M",
         "tagline": "Plan ahead to protect what you've worked to build.",
         "summary": "Get guidance on Medicaid and Medicare applications and benefits, with planning to help protect what you've worked to build.",
+        "pricing_range": "$2,500 – $5,000+",
+        "pricing_note": "Flat fee for straightforward applications; crisis planning or asset protection trusts are quoted after an initial review.",
         "body": [
             "Medicaid and Medicare rules are complex, and the cost of getting them wrong can be enormous. We guide clients through the application process and, when appropriate, design planning strategies that help preserve assets while meeting eligibility requirements.",
             "Because Medicaid uses a look-back period for transfers, the earlier we begin planning, the more options remain on the table.",
@@ -220,6 +230,8 @@ PRACTICES = [
         "icon": "G",
         "tagline": "Protect the vulnerable members of your family.",
         "summary": "Establish guardianship to protect the vulnerable members of your family with compassionate, court-tested counsel.",
+        "pricing_range": "$1,500 – $3,500",
+        "pricing_note": "Flat fee for uncontested guardianship petitions. Contested matters quoted separately.",
         "body": [
             "When a loved one cannot safely make decisions for themselves — due to age, illness, disability, or injury — a guardianship or conservatorship may be the right legal protection.",
             "We represent families through every step: filing the petition, attending court hearings, and meeting the ongoing reporting requirements that come with serving as guardian or conservator.",
@@ -238,6 +250,8 @@ PRACTICES = [
         "icon": "P",
         "tagline": "Compassionate guidance through a difficult process.",
         "summary": "Simplify the probate process with expert guidance through every step of administering a loved one's estate.",
+        "pricing_range": "$2,500 – $10,000+",
+        "pricing_note": "Varies with estate size and complexity. Some matters are billed flat; others by the hour. We discuss the structure that fits before engaging.",
         "body": [
             "Losing a loved one is hard enough without the added weight of legal proceedings. We work alongside personal representatives and families to administer Michigan estates efficiently — from opening the estate to final distribution.",
             "Whether your matter is informal, formal, supervised, or contested, we tailor our involvement to what your family actually needs.",
@@ -450,6 +464,14 @@ BLOG_POSTS = [
     },
 ]
 
+TRUST_BADGES = [
+    {"slug": "avvo", "label": "Avvo", "sub": "Client's Choice 2024", "shape": "circle"},
+    {"slug": "super-lawyers", "label": "Super Lawyers", "sub": "Rising Star", "shape": "shield"},
+    {"slug": "state-bar-mi", "label": "State Bar", "sub": "of Michigan, Member", "shape": "circle"},
+    {"slug": "martindale", "label": "Martindale-Hubbell", "sub": "AV Preeminent", "shape": "shield"},
+    {"slug": "bbb", "label": "BBB", "sub": "Accredited Business A+", "shape": "circle"},
+]
+
 FAQS = [
     {
         "q": "Do I really need an estate plan if I don't have a lot of assets?",
@@ -547,6 +569,7 @@ def site_header(active: str, depth: int) -> str:
         ("team", "Our Team", "meet-the-team/"),
         ("practice", "Practice Areas", "practice-areas/"),
         ("locations", "Locations", "locations/"),
+        ("expect", "What to Expect", "what-to-expect/"),
         ("faq", "FAQ", "faq/"),
     ]
     li = []
@@ -628,6 +651,8 @@ def site_footer(depth: int) -> str:
             </div>
           </div>
         </footer>
+        {render_lead_magnet(depth, inline=False)}
+        {render_sticky_call_bar(depth)}
         """).rstrip()
 
 def breadcrumbs(depth: int, items: list[tuple[str, str | None]]) -> tuple[str, dict]:
@@ -866,6 +891,132 @@ def render_locations_grid(depth: int) -> str:
         """).rstrip())
     return '<div class="locations-grid">\n' + "\n".join(cards) + '\n</div>'
 
+def render_trust_badges(eyebrow: str = "Recognized By") -> str:
+    badges = []
+    for b in TRUST_BADGES:
+        if b["shape"] == "circle":
+            svg = (
+                '<svg viewBox="0 0 100 100" aria-hidden="true">'
+                '<circle cx="50" cy="50" r="46" fill="none" stroke="#b58a3a" stroke-width="2"/>'
+                '<circle cx="50" cy="50" r="40" fill="none" stroke="#b58a3a" stroke-width="0.5"/>'
+                f'<text x="50" y="42" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="700" fill="#0f2742">{b["label"]}</text>'
+                f'<text x="50" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" letter-spacing="0.5" fill="#0f2742">{b["sub"].upper()}</text>'
+                '</svg>'
+            )
+        else:  # shield
+            svg = (
+                '<svg viewBox="0 0 100 100" aria-hidden="true">'
+                '<path d="M50 4 L92 18 L92 54 Q92 80 50 96 Q8 80 8 54 L8 18 Z" fill="none" stroke="#b58a3a" stroke-width="2"/>'
+                '<path d="M50 10 L86 22 L86 54 Q86 76 50 90 Q14 76 14 54 L14 22 Z" fill="none" stroke="#b58a3a" stroke-width="0.5"/>'
+                f'<text x="50" y="46" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" font-weight="700" fill="#0f2742">{b["label"]}</text>'
+                f'<text x="50" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" letter-spacing="0.5" fill="#0f2742">{b["sub"].upper()}</text>'
+                '</svg>'
+            )
+        badges.append(f'<div class="trust-badge" title="{esc(b["label"] + " — " + b["sub"])}">{svg}</div>')
+    badges_html = "\n          ".join(badges)
+    return dedent(f"""\
+        <section class="trust-band">
+          <div class="container">
+            <div class="trust-eyebrow">{eyebrow}</div>
+            <div class="trust-badges">
+          {badges_html}
+            </div>
+          </div>
+        </section>""")
+
+def render_lead_magnet(depth: int, inline: bool = True) -> str:
+    """Subtle, non-pushy lead magnet card. Dismissible if non-inline (banner)."""
+    href = rel(depth, "resources/estate-planning-checklist/")
+    if inline:
+        return dedent(f"""\
+            <aside class="lead-magnet" aria-label="Free estate planning resource">
+              <div class="lm-mark" aria-hidden="true">&#9776;</div>
+              <div class="lm-body">
+                <div class="lm-title">A short Michigan estate-planning checklist</div>
+                <p>Plain-English. Three pages. The things most families forget, and a few questions to answer before your first meeting. Free to read or download &mdash; no email required.</p>
+                <a class="lm-link" href="{href}">Read or download the checklist &rarr;</a>
+              </div>
+            </aside>""")
+    # dismissible bottom banner version
+    return dedent(f"""\
+        <div id="lead-magnet-banner" class="lead-banner" role="complementary" aria-label="Free resource">
+          <button class="lm-close" type="button" aria-label="Dismiss" onclick="this.parentNode.style.display='none'; try{{localStorage.setItem('lm-dismissed','1');}}catch(e){{}}">&times;</button>
+          <div class="lm-banner-inner">
+            <div>
+              <div class="lm-title">A short Michigan estate-planning checklist</div>
+              <p>Three pages, plain English, no email required.</p>
+            </div>
+            <a class="lm-link" href="{href}">Open the checklist &rarr;</a>
+          </div>
+        </div>
+        <script>
+          try {{ if (localStorage.getItem('lm-dismissed')) {{
+            document.getElementById('lead-magnet-banner').style.display='none';
+          }} }} catch(e) {{}}
+        </script>""")
+
+def render_sticky_call_bar(depth: int) -> str:
+    return dedent(f"""\
+        <a class="mobile-call-bar" href="tel:{FIRM_PHONE_TEL}" aria-label="Call Coles Law Firm">
+          <span class="mcb-icon" aria-hidden="true">&#9742;</span>
+          <span class="mcb-text">Tap to call &mdash; <strong>{FIRM_PHONE}</strong></span>
+        </a>""")
+
+def render_mock_calendly(depth: int) -> str:
+    """Static visual mock of a Calendly embed.
+
+    TODO when going live: replace the .calendly-mock block with the real
+    Calendly inline embed. The script + div are commented at the bottom
+    of this function so the swap is one paste.
+    """
+    return dedent("""\
+        <div class="calendly-mock" aria-label="Schedule a consultation">
+          <div class="cm-header">
+            <div class="cm-brand">
+              <span class="cm-logo" aria-hidden="true">&#128197;</span>
+              <span>Schedule a free consultation</span>
+            </div>
+            <div class="cm-badge">MOCK &mdash; connect real Calendly here</div>
+          </div>
+          <div class="cm-body">
+            <div class="cm-left">
+              <div class="cm-attorney">Jennifer Coles</div>
+              <div class="cm-duration"><span aria-hidden="true">&#9201;</span> 30 min &middot; Free</div>
+              <p class="cm-desc">A no-pressure conversation about your situation. In person, by phone, or by video &mdash; your choice.</p>
+              <ul class="cm-meta">
+                <li><span>Format</span> Phone / Video / In-Person</li>
+                <li><span>Location</span> Any of our 7 offices, or virtual</li>
+                <li><span>Cost</span> Free initial consultation</li>
+              </ul>
+            </div>
+            <div class="cm-right">
+              <div class="cm-month-label">Select a Time</div>
+              <div class="cm-day-strip">
+                <button type="button" class="cm-day"><span class="cm-dow">MON</span><span class="cm-num">2</span></button>
+                <button type="button" class="cm-day cm-active"><span class="cm-dow">TUE</span><span class="cm-num">3</span></button>
+                <button type="button" class="cm-day"><span class="cm-dow">WED</span><span class="cm-num">4</span></button>
+                <button type="button" class="cm-day"><span class="cm-dow">THU</span><span class="cm-num">5</span></button>
+                <button type="button" class="cm-day"><span class="cm-dow">FRI</span><span class="cm-num">6</span></button>
+              </div>
+              <div class="cm-slots">
+                <button type="button" class="cm-slot">9:00 AM</button>
+                <button type="button" class="cm-slot">10:00 AM</button>
+                <button type="button" class="cm-slot">11:30 AM</button>
+                <button type="button" class="cm-slot">1:00 PM</button>
+                <button type="button" class="cm-slot">2:30 PM</button>
+                <button type="button" class="cm-slot">4:00 PM</button>
+              </div>
+              <div class="cm-tz">All times shown in Eastern Time (ET)</div>
+            </div>
+          </div>
+        </div>
+        <!--
+          To go live, replace the .calendly-mock block above with:
+
+          <div class="calendly-inline-widget" data-url="https://calendly.com/coleslawfirm/consultation" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        -->""")
+
 def render_testimonials(limit: int | None = None) -> str:
     items = TESTIMONIALS if limit is None else TESTIMONIALS[:limit]
     cards = []
@@ -966,6 +1117,14 @@ def home_page():
               <p>Experienced leadership, dedicated staff, and ambitious interns &mdash; a team that treats every client like a neighbor.</p>
             </div>
             {render_team_grid(depth)}
+          </div>
+        </section>
+
+        {render_trust_badges()}
+
+        <section class="lead-magnet-band">
+          <div class="container">
+            {render_lead_magnet(depth, inline=True)}
           </div>
         </section>
 
@@ -1192,6 +1351,13 @@ def practice_detail_page(s: dict):
         {benefits_html}
             </ul>
 
+            <aside class="pricing-callout">
+              <div class="pc-label">Typical Investment</div>
+              <div class="pc-range">{s['pricing_range']}</div>
+              <p class="pc-note">{s['pricing_note']}</p>
+              <p class="pc-fine">Full pricing details and what's included are discussed at your free initial consultation. <a href="{rel(depth, 'what-to-expect/')}">See what to expect &rarr;</a></p>
+            </aside>
+
             <h2>Common questions</h2>
             <div class="faq-list" style="margin: 20px 0;">
         {faqs_html}
@@ -1403,8 +1569,25 @@ def contact_page():
             <p>Tell us a little about your situation and we'll be in touch to set up a confidential conversation &mdash; in person, by phone, or by video.</p>
           </div>
         </section>
-        <section>
+
+        <section class="calendly-section">
           <div class="container">
+            <div class="section-head" style="margin-bottom: 32px;">
+              <div class="eyebrow">Pick a Time</div>
+              <h2 style="font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 8px;">Book a free 30-minute consultation</h2>
+              <p style="font-size: 16px;">No pressure, no obligation. Choose the time that works for you.</p>
+            </div>
+            {render_mock_calendly(depth)}
+          </div>
+        </section>
+
+        <section style="background: var(--cream);">
+          <div class="container">
+            <div class="section-head" style="margin-bottom: 32px;">
+              <div class="eyebrow">Or Send Us a Message</div>
+              <h2 style="font-size: clamp(26px, 3vw, 34px);">Prefer to write?</h2>
+              <p style="font-size: 16px;">We respond to messages within one business day.</p>
+            </div>
             <div class="contact-grid">
               <div class="contact-info">
                 <h3>Get in Touch</h3>
@@ -1599,6 +1782,228 @@ def not_found_page():
         """).rstrip()
     page("404.html", head(title, desc, "/404", depth) + "\n" + body)
 
+def what_to_expect_page():
+    depth = 1
+    title = "What to Expect | Coles Law Firm | First Consultation"
+    desc = "What to expect when you reach out to Coles Law Firm: how the first meeting works, what to bring, how long things take, and what it costs."
+    bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("What to Expect", None)])
+    pricing_rows = "\n".join(
+        f'                  <tr><td><a href="{rel(depth, "practice-areas/" + p["slug"] + "/")}">{p["name"]}</a></td><td><strong>{p["pricing_range"]}</strong></td></tr>'
+        for p in PRACTICES
+    )
+    body = dedent(f"""\
+        <body>
+        {site_header('home', depth)}
+        {bc_html}
+        <main id="main">
+        <section class="hero hero-compact">
+          <div class="container">
+            <h1>What to Expect</h1>
+            <p>Most people reaching out to a law firm for the first time are a little anxious. Here's exactly how the process works, so there are no surprises.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <div class="wte-grid">
+              <div class="wte-step">
+                <div class="wte-num">01</div>
+                <h3>You reach out</h3>
+                <p>Call us, use the contact form, or pick a time directly on the calendar. We'll confirm your appointment within one business day.</p>
+              </div>
+              <div class="wte-step">
+                <div class="wte-num">02</div>
+                <h3>Your first consultation is free</h3>
+                <p>Thirty to forty-five minutes. Phone, video, or in person at any of our seven Michigan offices. No fee, no pressure, no obligation to hire us.</p>
+              </div>
+              <div class="wte-step">
+                <div class="wte-num">03</div>
+                <h3>We listen, then explain</h3>
+                <p>You tell us about your family and your goals. We explain how the relevant law works, what options exist, and what each one would cost.</p>
+              </div>
+              <div class="wte-step">
+                <div class="wte-num">04</div>
+                <h3>You decide</h3>
+                <p>No high-pressure sales. If we're the right fit, we send a clear engagement letter with a flat fee or hourly estimate. If we're not, we'll often suggest who is.</p>
+              </div>
+              <div class="wte-step">
+                <div class="wte-num">05</div>
+                <h3>The work begins</h3>
+                <p>Most estate plans take 2&ndash;4 weeks from engagement to signing. We send drafts ahead of every meeting so you can review at your own pace.</p>
+              </div>
+              <div class="wte-step">
+                <div class="wte-num">06</div>
+                <h3>We stay in touch</h3>
+                <p>Your plan should grow with you. We'll check in periodically to review it as your family, finances, or Michigan law changes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style="background: var(--cream);">
+          <div class="container">
+            <div class="wte-cols">
+              <div>
+                <h2>What to bring to your first meeting</h2>
+                <ul class="wte-list">
+                  <li>Any existing estate planning documents (even old ones)</li>
+                  <li>A rough list of your assets and approximate values</li>
+                  <li>Names of people you'd want as personal representatives, trustees, guardians, or agents</li>
+                  <li>Questions &mdash; the more specific, the better</li>
+                </ul>
+                <p style="color: var(--ink-soft); font-size: 15px;">Don't have all of this yet? That's fine. We can work from what you have and fill in the rest together.</p>
+              </div>
+              <div>
+                <h2>What it costs</h2>
+                <p>Most of our work is flat-fee. You'll know the number before you commit. A few matters (probate administration, contested guardianships) are hourly, and we discuss expected budget at the consultation.</p>
+                <table class="pricing-table">
+                  <thead>
+                    <tr><th>Service</th><th>Typical Range</th></tr>
+                  </thead>
+                  <tbody>
+        {pricing_rows}
+                  </tbody>
+                </table>
+                <p class="pricing-disclaimer">Ranges shown are typical engagements. Your actual fee is quoted in writing after the initial consultation.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="location-cta-band">
+          <div class="container">
+            <h2>Ready when you are.</h2>
+            <p>Free initial consultation. No pressure. Pick a time or send us a note.</p>
+            <div class="cta-row">
+              <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Schedule Consultation</a>
+              <a href="tel:{FIRM_PHONE_TEL}" class="btn btn-ghost">Call {FIRM_PHONE}</a>
+            </div>
+          </div>
+        </section>
+
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page("what-to-expect/index.html", head(title, desc, "/what-to-expect/", depth, [bc_schema]) + "\n" + body)
+
+def checklist_page():
+    depth = 2
+    title = "Michigan Estate Planning Checklist | Coles Law Firm"
+    desc = "A short, plain-English Michigan estate planning checklist — the things most families forget, and questions to answer before your first attorney meeting. Free, no email required."
+    bc_html, bc_schema = breadcrumbs(depth, [
+        ("Home", ""),
+        ("Resources", "resources/"),
+        ("Estate Planning Checklist", None),
+    ])
+    body = dedent(f"""\
+        <body>
+        {site_header('home', depth)}
+        {bc_html}
+        <main id="main">
+        <div class="container">
+          <article class="article checklist-article">
+            <div class="checklist-banner">
+              <div>
+                <div class="cb-eyebrow">Free Resource &middot; No Email Required</div>
+                <h1>Michigan Estate Planning Checklist</h1>
+                <p class="lede">A short, plain-English starter. Three sections, no fluff &mdash; the things most families forget, and a few questions to answer before your first attorney meeting.</p>
+              </div>
+              <div class="cb-actions">
+                <button class="btn btn-dark" onclick="window.print()">Print or Save as PDF</button>
+              </div>
+            </div>
+
+            <h2>1. The five core documents</h2>
+            <p>Most complete estate plans rest on five documents. If you have all five, properly executed under Michigan law, you've covered the major scenarios.</p>
+            <ul class="check-list">
+              <li><strong>Last Will &amp; Testament</strong> &mdash; names guardians for minor children, a personal representative, and directs distribution.</li>
+              <li><strong>Revocable Living Trust</strong> &mdash; manages assets during life and avoids probate at death (when properly funded).</li>
+              <li><strong>Durable Financial Power of Attorney</strong> &mdash; names someone to handle finances if you're incapacitated.</li>
+              <li><strong>Patient Advocate Designation</strong> &mdash; Michigan's healthcare power of attorney.</li>
+              <li><strong>HIPAA Authorization</strong> &mdash; lets your loved ones access your medical information.</li>
+            </ul>
+
+            <h2>2. Things people commonly forget</h2>
+            <ul class="check-list">
+              <li><strong>Trust funding.</strong> A trust only works for assets actually titled in its name. Most plans go wrong here, not in the drafting.</li>
+              <li><strong>Beneficiary designations.</strong> Retirement accounts, life insurance, and bank PODs pass outside your will. Check them annually.</li>
+              <li><strong>Digital assets.</strong> Email, photos, password manager, crypto, social accounts &mdash; make a list, and decide who can access what.</li>
+              <li><strong>Pets.</strong> Michigan recognizes pet trusts. Even informally, name a caregiver and provide for their costs.</li>
+              <li><strong>Out-of-state property.</strong> Real estate in another state can trigger separate (ancillary) probate. A trust solves this.</li>
+              <li><strong>Letters of instruction.</strong> Non-binding, but enormously helpful for your family. Where things are, what your wishes are, who to call.</li>
+            </ul>
+
+            <h2>3. Questions to think about before your first attorney meeting</h2>
+            <ul class="check-list">
+              <li>Who would you name as guardian for any minor children?</li>
+              <li>Who would you trust to make financial decisions for you?</li>
+              <li>Who would you trust to make medical decisions for you?</li>
+              <li>What matters most to you about how your estate is divided?</li>
+              <li>Are there family complications &mdash; second marriages, estranged relatives, special-needs beneficiaries &mdash; that need to be addressed?</li>
+              <li>What's your rough net worth, and where are your assets held?</li>
+              <li>Do you have long-term care concerns for yourself or a parent?</li>
+            </ul>
+
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--rule);">
+            <p style="text-align: center; font-size: 14px; color: var(--ink-soft);">Want to talk through any of the above? <a href="{rel(depth, 'contact/')}">Schedule a free 30-minute consultation.</a> No pressure.</p>
+          </article>
+        </div>
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page("resources/estate-planning-checklist/index.html", head(title, desc, "/resources/estate-planning-checklist/", depth, [bc_schema]) + "\n" + body)
+
+def resources_index_page():
+    depth = 1
+    title = "Resources | Coles Law Firm"
+    desc = "Free, plain-English resources from Coles Law Firm: estate planning checklists, FAQs, and articles on Michigan probate and elder law."
+    bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("Resources", None)])
+    body = dedent(f"""\
+        <body>
+        {site_header('home', depth)}
+        {bc_html}
+        <main id="main">
+        <section class="hero hero-compact">
+          <div class="container">
+            <h1>Resources</h1>
+            <p>Plain-English guides, checklists, and articles. Free to read or share &mdash; no email required.</p>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="resources-grid">
+              <a class="resource-card" href="{rel(depth, 'resources/estate-planning-checklist/')}">
+                <div class="rc-label">Checklist</div>
+                <h2>Michigan Estate Planning Checklist</h2>
+                <p>A short, plain-English starter covering the five core documents, common gaps, and questions to think through before your first attorney meeting.</p>
+                <span class="rc-link">Open the checklist &rarr;</span>
+              </a>
+              <a class="resource-card" href="{rel(depth, 'blog/')}">
+                <div class="rc-label">Articles</div>
+                <h2>From Our Blog</h2>
+                <p>Estate planning, probate, Medicaid, and elder law explained without jargon.</p>
+                <span class="rc-link">Browse articles &rarr;</span>
+              </a>
+              <a class="resource-card" href="{rel(depth, 'faq/')}">
+                <div class="rc-label">FAQ</div>
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to the questions we hear most often from prospective clients.</p>
+                <span class="rc-link">Read the FAQ &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </section>
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page("resources/index.html", head(title, desc, "/resources/", depth, [bc_schema]) + "\n" + body)
+
 # -------- sitemap & robots ------------------------------------------------
 
 def sitemap():
@@ -1612,6 +2017,9 @@ def sitemap():
         "/contact/",
         "/faq/",
         "/blog/",
+        "/what-to-expect/",
+        "/resources/",
+        "/resources/estate-planning-checklist/",
     ]
     urls += [f"/team/{t['slug']}/" for t in TEAM]
     urls += [f"/practice-areas/{p['slug']}/" for p in PRACTICES]
@@ -1661,6 +2069,9 @@ def main():
     blog_page()
     for post in BLOG_POSTS:
         blog_post_page(post)
+    what_to_expect_page()
+    resources_index_page()
+    checklist_page()
     not_found_page()
     sitemap()
     robots()

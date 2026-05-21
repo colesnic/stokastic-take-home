@@ -740,6 +740,462 @@ footer.site {
   font-size: 12px; color: rgba(255,255,255,0.45);
 }
 
+/* Trust badges */
+.trust-band {
+  padding: 56px 0;
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.trust-eyebrow {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+.trust-badge {
+  width: 86px;
+  height: 86px;
+  opacity: 0.7;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.trust-badge:hover { opacity: 1; transform: scale(1.05); }
+.trust-badge svg { width: 100%; height: 100%; }
+
+/* Lead magnet */
+.lead-magnet-band { padding: 64px 0; background: var(--cream); }
+.lead-magnet {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold);
+  box-shadow: var(--shadow);
+  align-items: start;
+}
+.lead-magnet .lm-mark {
+  width: 56px; height: 56px;
+  background: var(--navy);
+  color: var(--gold-soft);
+  display: grid; place-items: center;
+  font-size: 24px;
+  border-radius: 4px;
+}
+.lead-magnet .lm-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.lead-magnet p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.lead-magnet .lm-link {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lead-magnet .lm-link:hover { color: var(--navy); }
+
+/* Lead magnet banner (dismissible, bottom of page) */
+.lead-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  max-width: 460px;
+  margin-left: auto;
+  z-index: 80;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold);
+  box-shadow: 0 16px 50px rgba(15, 39, 66, 0.18);
+  padding: 18px 22px 18px 18px;
+}
+.lead-banner .lm-close {
+  position: absolute;
+  top: 6px; right: 8px;
+  background: none; border: 0;
+  font-size: 24px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  width: 32px; height: 32px;
+  line-height: 1;
+  padding: 0;
+}
+.lead-banner .lm-close:hover { color: var(--navy); }
+.lead-banner .lm-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.lead-banner .lm-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.lead-banner p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.lead-banner .lm-link {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+/* Mobile sticky call bar */
+.mobile-call-bar {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;
+  background: var(--navy);
+  color: #fff !important;
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+}
+.mobile-call-bar:hover { color: var(--gold-soft) !important; }
+.mobile-call-bar .mcb-icon { color: var(--gold-soft); margin-right: 8px; font-size: 18px; }
+.mobile-call-bar strong { color: var(--gold-soft); }
+
+/* Calendly mock */
+.calendly-section { padding: 64px 0 32px; }
+.calendly-mock {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cm-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--gold);
+}
+.cm-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+}
+.cm-logo { font-size: 22px; color: var(--gold-soft); }
+.cm-badge {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  border: 1px solid var(--gold);
+  padding: 4px 10px;
+  background: rgba(181, 138, 58, 0.12);
+}
+.cm-body {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+}
+.cm-left {
+  padding: 32px;
+  border-right: 1px solid var(--rule);
+}
+.cm-attorney {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--navy);
+  font-weight: 600;
+}
+.cm-duration {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 6px 0 18px;
+  display: flex; align-items: center; gap: 6px;
+}
+.cm-duration span { color: var(--gold); }
+.cm-desc { color: var(--ink-soft); font-size: 14px; margin-bottom: 22px; }
+.cm-meta { list-style: none; padding: 0; display: grid; gap: 10px; }
+.cm-meta li {
+  font-size: 13px;
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+}
+.cm-meta li span {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.cm-right { padding: 32px; }
+.cm-month-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.cm-day-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.cm-day {
+  background: var(--bone);
+  border: 1px solid var(--rule);
+  padding: 10px 4px;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+  transition: all .15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cm-day:hover { border-color: var(--gold); }
+.cm-day.cm-active { background: var(--navy); border-color: var(--navy); }
+.cm-day.cm-active .cm-dow, .cm-day.cm-active .cm-num { color: #fff; }
+.cm-day .cm-dow { font-size: 10px; letter-spacing: 0.14em; color: var(--ink-soft); }
+.cm-day .cm-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.cm-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.cm-slot {
+  background: #fff;
+  border: 1px solid var(--gold);
+  color: var(--navy);
+  padding: 12px 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.cm-slot:hover { background: var(--gold); color: #fff; }
+.cm-tz { font-size: 12px; color: var(--ink-soft); text-align: right; }
+
+/* Pricing callout (practice areas) */
+.pricing-callout {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 26px 30px;
+  margin: 32px 0;
+}
+.pricing-callout .pc-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pricing-callout .pc-range {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.pricing-callout .pc-note { color: var(--ink); font-size: 15px; margin-bottom: 10px; }
+.pricing-callout .pc-fine { font-size: 13px; color: var(--ink-soft); margin: 0; }
+.pricing-callout .pc-fine a { font-weight: 600; }
+
+/* What to Expect */
+.wte-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.wte-step {
+  padding: 28px 0;
+  border-top: 2px solid var(--gold);
+}
+.wte-step .wte-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.wte-step h3 { font-size: 22px; margin-bottom: 8px; }
+.wte-step p { color: var(--ink-soft); font-size: 15px; }
+.wte-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.wte-cols h2 { font-size: 28px; margin-bottom: 16px; }
+.wte-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 18px;
+}
+.wte-list li {
+  padding: 12px 0 12px 28px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  font-size: 15px;
+}
+.wte-list li::before {
+  content: '\\2713';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+.pricing-table th, .pricing-table td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+}
+.pricing-table th {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.pricing-table td:last-child { text-align: right; }
+.pricing-table td a { color: var(--navy); font-weight: 500; }
+.pricing-table td a:hover { color: var(--gold); }
+.pricing-disclaimer { font-size: 13px; color: var(--ink-soft); margin-top: 12px; }
+
+/* Resources */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.resource-card {
+  display: block;
+  padding: 32px 28px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  text-decoration: none !important;
+  transition: all .25s ease;
+}
+.resource-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.resource-card .rc-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.resource-card h2 { font-size: 26px; margin-bottom: 10px; color: var(--navy); }
+.resource-card p { color: var(--ink-soft); font-size: 15px; margin-bottom: 18px; }
+.resource-card .rc-link {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.resource-card:hover .rc-link { color: var(--navy); }
+
+/* Checklist page */
+.checklist-banner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.checklist-banner .cb-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.checklist-banner h1 { margin-bottom: 10px; }
+.checklist-banner .lede { margin-bottom: 0; }
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 28px;
+}
+.check-list li {
+  padding: 12px 0 12px 30px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  font-size: 16px;
+}
+.check-list li::before {
+  content: '\\25A2';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 20px;
+  line-height: 1;
+}
+@media print {
+  header.site, footer.site, .mobile-call-bar, .lead-banner, .checklist-banner .cb-actions, .crumbs { display: none !important; }
+  body { background: #fff; }
+  .checklist-article { max-width: 100%; padding: 0; }
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   nav.primary ul { display: none; }
@@ -758,12 +1214,25 @@ footer.site {
   .practice-grid, .team-grid, .testimonial-grid { grid-template-columns: 1fr; }
   .locations-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .wte-grid, .wte-cols { grid-template-columns: 1fr; gap: 28px; }
+  .resources-grid { grid-template-columns: 1fr; }
+  .cm-body { grid-template-columns: 1fr; }
+  .cm-left { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .lead-magnet { grid-template-columns: 1fr; padding: 24px; }
+  .lead-magnet .lm-mark { width: 44px; height: 44px; font-size: 20px; }
+  .checklist-banner { grid-template-columns: 1fr; gap: 16px; }
   section { padding: 70px 0; }
   .hero { padding: 90px 0; }
+  .mobile-call-bar { display: block; }
+  body { padding-bottom: 56px; }
+  .lead-banner { bottom: 72px; }
 }
 @media (max-width: 600px) {
   .container { padding: 0 22px; }
   .footer-grid { grid-template-columns: 1fr; }
   .locations-grid { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr; }
+  .trust-badges { gap: 18px; }
+  .trust-badge { width: 64px; height: 64px; }
+  .cm-slots { grid-template-columns: repeat(2, 1fr); }
 }

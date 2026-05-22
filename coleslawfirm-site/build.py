@@ -1024,60 +1024,29 @@ def render_sticky_call_bar(depth: int) -> str:
           <span class="mcb-text">Tap to call &mdash; <strong>{FIRM_PHONE}</strong></span>
         </a>""")
 
-def render_mock_calendly(depth: int) -> str:
-    """Static visual mock of a Calendly embed.
+CALENDLY_URL = "https://calendly.com/coleslawfirm/new-meeting"
 
-    TODO when going live: replace the .calendly-mock block with the real
-    Calendly inline embed. The script + div are commented at the bottom
-    of this function so the swap is one paste.
+def render_calendly(depth: int) -> str:
+    """Inline Calendly scheduling widget.
+
+    Uses Calendly's public inline embed — no API key required. To
+    change which event type is shown, update CALENDLY_URL above to
+    the new public scheduling URL from the firm's Calendly account.
     """
-    return dedent("""\
-        <div class="calendly-mock" aria-label="Schedule a consultation">
-          <div class="cm-header">
-            <div class="cm-brand">
-              <span class="cm-logo" aria-hidden="true">&#128197;</span>
-              <span>Schedule a free consultation</span>
-            </div>
-            <div class="cm-badge">MOCK &mdash; connect real Calendly here</div>
-          </div>
-          <div class="cm-body">
-            <div class="cm-left">
-              <div class="cm-attorney">Jennifer Coles</div>
-              <div class="cm-duration"><span aria-hidden="true">&#9201;</span> 30 min &middot; Free</div>
-              <p class="cm-desc">A no-pressure conversation about your situation. In person, by phone, or by video &mdash; your choice.</p>
-              <ul class="cm-meta">
-                <li><span>Format</span> Phone / Video / In-Person</li>
-                <li><span>Location</span> Any of our 7 offices, or virtual</li>
-                <li><span>Cost</span> Free initial consultation</li>
-              </ul>
-            </div>
-            <div class="cm-right">
-              <div class="cm-month-label">Select a Time</div>
-              <div class="cm-day-strip">
-                <button type="button" class="cm-day"><span class="cm-dow">MON</span><span class="cm-num">2</span></button>
-                <button type="button" class="cm-day cm-active"><span class="cm-dow">TUE</span><span class="cm-num">3</span></button>
-                <button type="button" class="cm-day"><span class="cm-dow">WED</span><span class="cm-num">4</span></button>
-                <button type="button" class="cm-day"><span class="cm-dow">THU</span><span class="cm-num">5</span></button>
-                <button type="button" class="cm-day"><span class="cm-dow">FRI</span><span class="cm-num">6</span></button>
-              </div>
-              <div class="cm-slots">
-                <button type="button" class="cm-slot">9:00 AM</button>
-                <button type="button" class="cm-slot">10:00 AM</button>
-                <button type="button" class="cm-slot">11:30 AM</button>
-                <button type="button" class="cm-slot">1:00 PM</button>
-                <button type="button" class="cm-slot">2:30 PM</button>
-                <button type="button" class="cm-slot">4:00 PM</button>
-              </div>
-              <div class="cm-tz">All times shown in Eastern Time (ET)</div>
-            </div>
-          </div>
-        </div>
-        <!--
-          To go live, replace the .calendly-mock block above with:
-
-          <div class="calendly-inline-widget" data-url="https://calendly.com/coleslawfirm/consultation" style="min-width:320px;height:700px;"></div>
+    return dedent(f"""\
+        <div class="calendly-wrapper">
+          <div class="calendly-inline-widget"
+               data-url="{CALENDLY_URL}?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=0f2742"
+               style="min-width:320px;height:760px;"></div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        -->""")
+          <noscript>
+            <p style="text-align: center; padding: 24px; background: var(--cream); border: 1px solid var(--rule);">
+              Online scheduling requires JavaScript. To book a free consultation, please
+              <a href="tel:{FIRM_PHONE_TEL}">call {FIRM_PHONE}</a> or
+              email <a href="mailto:{FIRM_EMAIL}">{FIRM_EMAIL}</a>.
+            </p>
+          </noscript>
+        </div>""")
 
 def render_testimonials(limit: int | None = None) -> str:
     items = TESTIMONIALS if limit is None else TESTIMONIALS[:limit]
@@ -1639,7 +1608,7 @@ def contact_page():
               <h2 style="font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 8px;">Book a free 30-minute consultation</h2>
               <p style="font-size: 16px;">No pressure, no obligation. Choose the time that works for you.</p>
             </div>
-            {render_mock_calendly(depth)}
+            {render_calendly(depth)}
           </div>
         </section>
 

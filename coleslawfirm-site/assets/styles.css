@@ -891,8 +891,18 @@ footer.site {
 .mobile-call-bar .mcb-icon { color: var(--gold-soft); margin-right: 8px; font-size: 18px; }
 .mobile-call-bar strong { color: var(--gold-soft); }
 
-/* Calendly mock */
+/* Calendly inline embed */
 .calendly-section { padding: 64px 0 32px; }
+.calendly-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.calendly-inline-widget { background: #fff; }
+/* Legacy mock styles (kept temporarily for any cached page; safe to remove) */
 .calendly-mock {
   max-width: 960px;
   margin: 0 auto;

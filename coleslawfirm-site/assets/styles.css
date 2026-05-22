@@ -1550,7 +1550,7 @@ footer.site {
   .team-card { flex: 0 0 calc(50% - 16px); max-width: 200px; }
   .team-photo { width: 150px; height: 150px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-portrait { order: -1; max-width: 260px; }
+  .hero-portrait { max-width: 220px; }
   .hero-portrait img { aspect-ratio: 1 / 1; }
   .hero-split { padding: 70px 0 80px; }
   .locations-grid { grid-template-columns: 1fr 1fr; }

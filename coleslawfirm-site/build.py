@@ -125,7 +125,7 @@ TEAM = [
     {
         "slug": "katie-coles",
         "name": "Katie Coles",
-        "role": "Client Outreach Coordinator",
+        "role": "Client Outreach",
         "initial": "K",
         "short": "Katie leads our client outreach, helping current and prospective clients stay connected to the firm.",
         "long": [

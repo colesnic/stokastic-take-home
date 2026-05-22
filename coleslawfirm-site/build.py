@@ -23,6 +23,12 @@ ROOT = Path(__file__).resolve().parent
 
 # -------- Data ------------------------------------------------------------
 
+# TODO: Replace initial-letter placeholders with real headshots.
+#       Jennifer's photo is the highest priority — it appears on the
+#       homepage, /about/, /meet-the-team/, /team/jennifer-coles/, and
+#       inside several testimonials. Once received, add a `photo` field
+#       (relative path under /assets/team/) and update team_card /
+#       profile renderers to use <img> when present.
 TEAM = [
     {
         "slug": "jennifer-coles",
@@ -89,36 +95,6 @@ TEAM = [
         "credentials": [
             ("Education", "B.S., Business Administration (Accounting) — Central Michigan University"),
             ("Prior Roles", "Public accounting (Librand); HR for multiple firms"),
-        ],
-    },
-    {
-        "slug": "nicholas-coles",
-        "name": "Nicholas Coles",
-        "role": "Technology & Software Consultant",
-        "initial": "N",
-        "short": "Nicholas advises the firm on technology, software, and process automation while pursuing his computer science degree.",
-        "long": [
-            "Nicholas Coles supports Coles Law, PLLC as the firm's technology and software consultant. He focuses on identifying tools and automations that let the legal team spend more time with clients and less time on administrative work.",
-            "Nicholas is currently studying computer science at the University of Michigan and has prior internship experience in marketing and software engineering, including time at the AI startup Knowbl.",
-        ],
-        "credentials": [
-            ("Education", "B.S., Computer Science (in progress) — University of Michigan"),
-            ("Prior Work", "Software engineering intern at Knowbl; marketing internships with local businesses"),
-        ],
-    },
-    {
-        "slug": "mariya-jahan",
-        "name": "Mariya Jahan",
-        "role": "Data Entry & Client Outreach Intern",
-        "initial": "M",
-        "short": "Mariya supports the firm's client outreach and recordkeeping while preparing for a future career in immigration law.",
-        "long": [
-            "Mariya Jahan handles client outreach and data entry for Coles Law, PLLC, helping the firm stay organized and responsive across all seven Michigan offices.",
-            "She is currently studying Politics, Philosophy, and Economics at the University of Michigan and plans to attend law school with the goal of practicing immigration law.",
-        ],
-        "credentials": [
-            ("Education", "B.A., Politics, Philosophy & Economics (in progress) — University of Michigan"),
-            ("Goal", "Pursuing law school with a focus on immigration law"),
         ],
     },
 ]
@@ -222,26 +198,6 @@ PRACTICES = [
             "Asset and income planning strategies",
             "Application preparation and submission support",
             "Coordination with skilled nursing facilities",
-        ],
-    },
-    {
-        "slug": "guardianships",
-        "name": "Guardianships",
-        "icon": "G",
-        "tagline": "Protect the vulnerable members of your family.",
-        "summary": "Establish guardianship to protect the vulnerable members of your family with compassionate, court-tested counsel.",
-        "pricing_range": "$1,500 – $3,500",
-        "pricing_note": "Flat fee for uncontested guardianship petitions. Contested matters quoted separately.",
-        "body": [
-            "When a loved one cannot safely make decisions for themselves — due to age, illness, disability, or injury — a guardianship or conservatorship may be the right legal protection.",
-            "We represent families through every step: filing the petition, attending court hearings, and meeting the ongoing reporting requirements that come with serving as guardian or conservator.",
-        ],
-        "benefits": [
-            "Adult guardianships and conservatorships",
-            "Guardianships for minors",
-            "Court petitions, hearings, and reporting",
-            "Less restrictive alternatives where appropriate",
-            "Coordination with care providers and family members",
         ],
     },
     {
@@ -450,27 +406,19 @@ SEO_SERVICES = [
         "intro": "Durable financial powers of attorney and patient advocate designations that put trusted decision-makers in place before they're needed.",
         "what_we_do": "We draft both financial and healthcare powers of attorney, with successor agents and clear scope of authority tailored to your situation.",
     },
-    {
-        "slug": "guardianship-attorney",
-        "name": "Guardianship Attorney",
-        "short": "guardianships",
-        "practice_slug": "guardianships",
-        "intro": "Adult and minor guardianships filed in the appropriate Michigan probate court, with ongoing reporting support.",
-        "what_we_do": "We handle uncontested guardianship petitions, conservatorships, and the annual reporting requirements that come with appointment.",
-    },
 ]
 
 TESTIMONIALS = [
     {
-        "author": "John Pellegrini",
+        "author": "John P.",
         "text": "We've had excellent advice from Jen. She is fantastic at explaining how estates, wills, trusts, and deeds are created, as well as what all the terminology means. She also helped us with advice on other issues that come up, and how to prepare an estate trust so that everything is covered properly. We highly recommend her!",
     },
     {
-        "author": "Rebecca Kitchen",
+        "author": "Rebecca K.",
         "text": "Jennifer prepared my estate documents for me. She was very patient in explaining everything to me, and I felt great peace of mind that everything had been covered completely. She was very knowledgeable about MI probate law, and helped me make informed choices regarding my estate. Very calm and pleasant to work with!",
     },
     {
-        "author": "Coach Mason",
+        "author": "Coach M.",
         "text": "My wife and I just finished up our last will and testament and trust documents. We cannot recommend Jennifer and Brian more. They are very thorough and knowledgeable. They made the creation of our family trust a painless process. They even came to us in Ann Arbor.",
     },
     {
@@ -478,7 +426,7 @@ TESTIMONIALS = [
         "text": "We had an excellent experience with Jennifer. Very thorough, professional and detailed. Would highly recommend working with her for any of your legal needs!",
     },
     {
-        "author": "Matthew Marvin",
+        "author": "Matthew M.",
         "text": "We needed to set up a will and trust. Usually this is arduous and boring. Coles Law made the process easy, understandable, and even enjoyable. I would definitely recommend their services!",
     },
     {
@@ -1196,7 +1144,7 @@ def home_page():
                 <p><a href="{rel(depth, 'about/')}" class="more" style="font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px;">More about the firm &rarr;</a></p>
                 <div class="about-stats">
                   <div class="stat"><div class="num">20+</div><div class="label">Years of Practice</div></div>
-                  <div class="stat"><div class="num">1,000s</div><div class="label">Families Served</div></div>
+                  <div class="stat"><div class="num">1,000+</div><div class="label">Families Served</div></div>
                   <div class="stat"><div class="num">7</div><div class="label">Michigan Offices</div></div>
                   <div class="stat"><div class="num">7</div><div class="label">Practice Areas</div></div>
                 </div>
@@ -2112,10 +2060,6 @@ def what_to_expect_page():
     title = "What to Expect | Coles Law Firm | First Consultation"
     desc = "What to expect when you reach out to Coles Law Firm: how the first meeting works, what to bring, how long things take, and what it costs."
     bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("What to Expect", None)])
-    pricing_rows = "\n".join(
-        f'                  <tr><td><a href="{rel(depth, "practice-areas/" + p["slug"] + "/")}">{p["name"]}</a></td><td><strong>{p["pricing_range"]}</strong></td></tr>'
-        for p in PRACTICES
-    )
     body = dedent(f"""\
         <body>
         {site_header('home', depth)}
@@ -2180,16 +2124,8 @@ def what_to_expect_page():
               </div>
               <div>
                 <h2>What it costs</h2>
-                <p>Most of our work is flat-fee. You'll know the number before you commit. A few matters (probate administration, contested guardianships) are hourly, and we discuss expected budget at the consultation.</p>
-                <table class="pricing-table">
-                  <thead>
-                    <tr><th>Service</th><th>Typical Range</th></tr>
-                  </thead>
-                  <tbody>
-        {pricing_rows}
-                  </tbody>
-                </table>
-                <p class="pricing-disclaimer">Ranges shown are typical engagements. Your actual fee is quoted in writing after the initial consultation.</p>
+                <p>Most of our work is flat-fee. You'll know the number before you commit. A few matters (such as probate administration) are billed hourly, and we discuss expected budget at the consultation.</p>
+                <p class="pricing-disclaimer">Your actual fee is quoted in writing after the initial consultation, with no surprise bills.</p>
               </div>
             </div>
           </div>

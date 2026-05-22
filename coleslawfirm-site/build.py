@@ -35,6 +35,7 @@ TEAM = [
         "name": "Jennifer Coles",
         "role": "Attorney",
         "initial": "J",
+        "photo": "assets/team/jennifer-coles.jpg",
         "short": "Jennifer has been practicing law in Grand Rapids for 20+ years, focusing on estate planning, probate, and elder law.",
         "long": [
             "Jennifer Coles is the founding attorney of Coles Law, PLLC. For more than two decades, she has guided Michigan families through estate planning, probate, trust administration, and elder law matters.",
@@ -910,12 +911,28 @@ def render_practice_grid(depth: int, with_cta: bool = True) -> str:
             """).rstrip())
     return '<div class="practice-grid">\n' + "\n".join(cards) + '\n</div>'
 
+def _team_photo_html(t: dict, depth: int) -> str:
+    """Render an <img> when a photo is configured; fall back to the
+    initial-letter placeholder otherwise. Photo paths are relative to
+    the site root, so we adjust with rel() per page depth."""
+    if t.get("photo"):
+        return (
+            f'<div class="team-photo team-photo-img">'
+            f'<img src="{rel(depth, t["photo"])}" alt="Headshot of {esc(t["name"])}" loading="lazy">'
+            f'</div>'
+        )
+    return (
+        f'<div class="team-photo" aria-hidden="true">'
+        f'<span class="team-initial">{t["initial"]}</span>'
+        f'</div>'
+    )
+
 def render_team_grid(depth: int) -> str:
     cards = []
     for t in TEAM:
         cards.append(dedent(f"""\
             <article class="team-card">
-              <div class="team-photo" aria-hidden="true"><span class="team-initial">{t['initial']}</span></div>
+              {_team_photo_html(t, depth)}
               <h3>{t['name']}</h3>
               <div class="team-role">{t['role']}</div>
               <p class="team-bio">{t['short']}</p>
@@ -1284,9 +1301,7 @@ def team_member_page(p: dict):
         <main id="main">
         <div class="container">
           <div class="profile-grid">
-            <div class="profile-photo" aria-hidden="true">
-              <span class="initial">{p['initial']}</span>
-            </div>
+            {('<div class="profile-photo profile-photo-img"><img src="' + rel(depth, p['photo']) + '" alt="Headshot of ' + esc(p['name']) + '"></div>') if p.get('photo') else ('<div class="profile-photo" aria-hidden="true"><span class="initial">' + p['initial'] + '</span></div>')}
             <div class="profile-info">
               <h1>{p['name']}</h1>
               <div class="role">{p['role']}</div>

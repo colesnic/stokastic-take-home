@@ -285,6 +285,13 @@ section { padding: 100px 0; }
   font-family: 'Cormorant Garamond', serif;
   font-size: 84px; color: var(--gold-soft); font-weight: 600;
 }
+.team-photo-img { background: var(--cream); }
+.team-photo-img img {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .team-card h3 { font-size: 24px; margin-bottom: 4px; }
 .team-role {
   color: var(--gold);
@@ -436,6 +443,13 @@ section { padding: 100px 0; }
 }
 .profile-photo::after { content: ''; position: absolute; inset: 12px; border: 1px solid rgba(214, 185, 122, 0.35); }
 .profile-photo .initial { font-family: 'Cormorant Garamond', serif; font-size: 140px; color: var(--gold-soft); }
+.profile-photo-img { background: var(--cream); overflow: hidden; }
+.profile-photo-img img {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .profile-info h1 { font-size: clamp(36px, 4.5vw, 52px); margin-bottom: 8px; }
 .profile-info .role {
   color: var(--gold); font-size: 13px;

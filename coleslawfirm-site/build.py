@@ -100,6 +100,39 @@ TEAM = [
             ("Prior Roles", "Public accounting (Librand); HR for multiple firms"),
         ],
     },
+    {
+        "slug": "jennifer-buelken",
+        "name": "Jennifer Buelken",
+        "role": "Legal Assistant",
+        "initial": "J",
+        "short": "Jennifer supports the firm's attorneys with document preparation, case organization, and client follow-through.",
+        "long": [
+            "Jennifer Buelken serves as a legal assistant at Coles Law, PLLC, helping the attorneys deliver thorough, well-prepared work for every client. She supports document drafting, case organization, scheduling, and the day-to-day details that keep matters moving.",
+        ],
+        "credentials": [],
+    },
+    {
+        "slug": "sophie-cuidon",
+        "name": "Sophie Cuidon",
+        "role": "Client Service Coordinator",
+        "initial": "S",
+        "short": "Sophie coordinates client intake, scheduling, and ongoing communications across all of our Michigan offices.",
+        "long": [
+            "Sophie Cuidon coordinates client services at Coles Law, PLLC. She manages intake conversations, appointment scheduling, and the steady communication that helps clients feel informed and supported from first contact through the close of their matter.",
+        ],
+        "credentials": [],
+    },
+    {
+        "slug": "katie-coles",
+        "name": "Katie Coles",
+        "role": "Client Outreach Coordinator",
+        "initial": "K",
+        "short": "Katie leads our client outreach, helping current and prospective clients stay connected to the firm.",
+        "long": [
+            "Katie Coles coordinates client outreach for Coles Law, PLLC. She manages the firm's communication with current clients, prospective clients, and the broader community - making sure the people we serve always know how to reach us.",
+        ],
+        "credentials": [],
+    },
 ]
 
 PRACTICES = [
@@ -1307,6 +1340,16 @@ def team_member_page(p: dict):
         f'                  <li><strong>{label}:</strong> {value}</li>'
         for label, value in p["credentials"]
     )
+    credentials_block = (
+        dedent(f"""\
+              <div class="profile-credentials">
+                <h3>Background</h3>
+                <ul>
+        {credentials_html}
+                </ul>
+              </div>""")
+        if p["credentials"] else ""
+    )
     long_html = "\n".join(f"            <p>{para}</p>" for para in p["long"])
     body = dedent(f"""\
         <body>
@@ -1320,12 +1363,7 @@ def team_member_page(p: dict):
               <h1>{p['name']}</h1>
               <div class="role">{p['role']}</div>
         {long_html}
-              <div class="profile-credentials">
-                <h3>Background</h3>
-                <ul>
-        {credentials_html}
-                </ul>
-              </div>
+        {credentials_block}
               <p><a href="{rel(depth, 'contact/')}">Contact our team &rarr;</a></p>
             </div>
           </div>

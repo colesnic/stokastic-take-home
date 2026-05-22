@@ -343,8 +343,16 @@ section { padding: 100px 0; }
 .practice-cta-card .practice-icon { background: var(--gold); color: var(--navy); }
 .practice-cta-card .more { color: var(--gold-soft); }
 
-/* Team */
-.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+/* Team
+   Flex (not grid) so a partial last row centers nicely - matters when
+   the team count doesn't divide evenly by 4. */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px 28px;
+}
+.team-card { flex: 0 0 calc(25% - 21px); max-width: 240px; }
 .team-card { text-align: center; }
 .team-photo {
   width: 180px;
@@ -1539,7 +1547,7 @@ footer.site {
   .location-hero .quick-meta { gap: 20px; }
   .map-embed iframe { aspect-ratio: 4 / 3; }
   .practice-grid, .testimonial-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .team-card { flex: 0 0 calc(50% - 16px); max-width: 200px; }
   .team-photo { width: 150px; height: 150px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-portrait { order: -1; max-width: 260px; }

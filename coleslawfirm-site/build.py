@@ -290,15 +290,15 @@ LOCATIONS = [
         "blurb": "Convenient Washtenaw County office serving Ann Arbor, Ypsilanti, and the surrounding Southeast Michigan communities.",
     },
     {
-        "slug": "lansing",
-        "name": "Lansing",
+        "slug": "east-lansing",
+        "name": "East Lansing",
         "street": "120 N. Washington",
         "suite": None,
-        "city": "Lansing",
+        "city": "East Lansing",
         "state": "MI",
         "zip": "48933",
         "is_main": False,
-        "blurb": "Downtown Lansing office serving Ingham County and Michigan's capital region.",
+        "blurb": "East Lansing office serving Ingham County and Michigan's capital region.",
     },
     {
         "slug": "kalamazoo",
@@ -343,6 +343,120 @@ LOCATIONS = [
         "zip": "49337",
         "is_main": False,
         "blurb": "Newaygo County office serving the rural communities north of Grand Rapids.",
+    },
+]
+
+# Augment each location with SEO data used by the service x city landing
+# pages: county, the local probate court name, and a list of nearby
+# communities. Stored separately from the LOCATIONS literal to keep that
+# literal scannable.
+_LOC_SEO = {
+    "grand-rapids": {
+        "county": "Kent County",
+        "probate_court": "Kent County Probate Court",
+        "communities": ["Wyoming", "Kentwood", "Caledonia", "Forest Hills", "East Grand Rapids", "Walker", "Rockford", "Cascade", "Ada", "Byron Center", "Hudsonville", "Grandville"],
+    },
+    "ann-arbor": {
+        "county": "Washtenaw County",
+        "probate_court": "Washtenaw County Probate Court",
+        "communities": ["Ypsilanti", "Saline", "Dexter", "Chelsea", "Pittsfield Township", "Scio Township", "Manchester", "Whitmore Lake"],
+    },
+    "east-lansing": {
+        "county": "Ingham County",
+        "probate_court": "Ingham County Probate Court",
+        "communities": ["Lansing", "Okemos", "Mason", "Holt", "Williamston", "DeWitt", "Haslett", "Meridian Township", "Grand Ledge"],
+    },
+    "kalamazoo": {
+        "county": "Kalamazoo County",
+        "probate_court": "Kalamazoo County Probate Court",
+        "communities": ["Portage", "Galesburg", "Comstock", "Parchment", "Oshtemo", "Mattawan", "Vicksburg", "Schoolcraft", "Plainwell"],
+    },
+    "battle-creek": {
+        "county": "Calhoun County",
+        "probate_court": "Calhoun County Probate Court",
+        "communities": ["Marshall", "Albion", "Springfield", "Bedford", "Augusta", "Pennfield", "Tekonsha", "Homer"],
+    },
+    "muskegon": {
+        "county": "Muskegon County",
+        "probate_court": "Muskegon County Probate Court",
+        "communities": ["Norton Shores", "North Muskegon", "Whitehall", "Fruitport", "Grand Haven", "Spring Lake", "Roosevelt Park", "Montague"],
+    },
+    "newaygo": {
+        "county": "Newaygo County",
+        "probate_court": "Newaygo County Probate Court",
+        "communities": ["White Cloud", "Fremont", "Big Rapids", "Grant", "Hesperia", "Bitely", "Croton", "Howard City"],
+    },
+}
+for _loc in LOCATIONS:
+    _loc.update(_LOC_SEO[_loc["slug"]])
+
+# Search-keyword services. One page per service x city combination is
+# generated for hyper-local SEO; the umbrella "estate-planning-attorney"
+# is the broadest term, the others target specific practice areas.
+SEO_SERVICES = [
+    {
+        "slug": "estate-planning-attorney",
+        "name": "Estate Planning Attorney",
+        "short": "estate planning",
+        "practice_slug": None,
+        "intro": "Wills, trusts, powers of attorney, and the full picture of how your assets pass to the people you love.",
+        "what_we_do": "We help families build complete estate plans — typically a will, a revocable living trust, durable powers of attorney, and a patient advocate designation — coordinated so each piece does its job.",
+    },
+    {
+        "slug": "trust-attorney",
+        "name": "Trust Attorney",
+        "short": "trusts",
+        "practice_slug": "revocable-living-trust",
+        "intro": "Revocable living trusts, trust funding, and trust administration designed to avoid probate and keep your estate private.",
+        "what_we_do": "We draft revocable living trusts, help fund them properly (the step most plans skip), and administer trusts after a settlor's death.",
+    },
+    {
+        "slug": "wills-attorney",
+        "name": "Wills Attorney",
+        "short": "wills",
+        "practice_slug": "wills-codicils",
+        "intro": "Last wills and testaments, codicils, and guardianship designations drafted to Michigan probate code requirements.",
+        "what_we_do": "We prepare wills, update existing wills through codicils, and counsel families on choosing personal representatives and guardians.",
+    },
+    {
+        "slug": "probate-attorney",
+        "name": "Probate Attorney",
+        "short": "probate",
+        "practice_slug": "probate-estates",
+        "intro": "Compassionate representation of personal representatives and beneficiaries through Michigan's informal and formal probate processes.",
+        "what_we_do": "We open estates, manage creditor notice periods, prepare inventories and accountings, and close estates in a timely and orderly way.",
+    },
+    {
+        "slug": "elder-law-attorney",
+        "name": "Elder Law Attorney",
+        "short": "elder law",
+        "practice_slug": "elder-law",
+        "intro": "Legal counsel for the questions aging brings — long-term care planning, advance directives, and family transitions.",
+        "what_we_do": "We help older clients and their families plan for long-term care, navigate skilled-nursing decisions, and coordinate legal documents with financial planning.",
+    },
+    {
+        "slug": "medicaid-planning-attorney",
+        "name": "Medicaid Planning Attorney",
+        "short": "Medicaid planning",
+        "practice_slug": "medicaid-medicare",
+        "intro": "Medicaid eligibility planning under Michigan's rules, including the five-year look-back period and spousal protections.",
+        "what_we_do": "We design Medicaid planning strategies that fit your timeline — from advance planning years before need to crisis planning after a sudden diagnosis.",
+    },
+    {
+        "slug": "power-of-attorney-lawyer",
+        "name": "Power of Attorney Lawyer",
+        "short": "powers of attorney",
+        "practice_slug": "powers-of-attorney",
+        "intro": "Durable financial powers of attorney and patient advocate designations that put trusted decision-makers in place before they're needed.",
+        "what_we_do": "We draft both financial and healthcare powers of attorney, with successor agents and clear scope of authority tailored to your situation.",
+    },
+    {
+        "slug": "guardianship-attorney",
+        "name": "Guardianship Attorney",
+        "short": "guardianships",
+        "practice_slug": "guardianships",
+        "intro": "Adult and minor guardianships filed in the appropriate Michigan probate court, with ongoing reporting support.",
+        "what_we_do": "We handle uncontested guardianship petitions, conservatorships, and the annual reporting requirements that come with appointment.",
     },
 ]
 
@@ -1052,7 +1166,7 @@ def home_page():
         <main id="main">
         <section class="hero">
           <div class="container hero-inner">
-            <div class="kicker">Offices in Grand Rapids &middot; Ann Arbor &middot; Lansing &middot; Kalamazoo &middot; Battle Creek &middot; Muskegon &middot; Newaygo</div>
+            <div class="kicker">Offices in Grand Rapids &middot; Ann Arbor &middot; East Lansing &middot; Kalamazoo &middot; Battle Creek &middot; Muskegon &middot; Newaygo</div>
             <h1>Experienced, proven, and <em>trusted</em>.</h1>
             <p>Make sure your estate is in the right hands. Put your trust in 20+ years of experience and thousands of happy clients across Michigan.</p>
             <div class="hero-actions">
@@ -1188,7 +1302,7 @@ def about_page():
             <p>From there, we design plans that are clear, durable, and honest about trade-offs. We explain what each document does, what it costs, and where the limits are. You will never be handed a stack of paper and asked to trust us.</p>
 
             <h2>Who we serve</h2>
-            <p>We serve clients across Michigan from offices in Grand Rapids, Ann Arbor, Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo. For clients who can't easily travel, we offer secure video consultations and, when appropriate, in-home visits.</p>
+            <p>We serve clients across Michigan from offices in Grand Rapids, Ann Arbor, East Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo. For clients who can't easily travel, we offer secure video consultations and, when appropriate, in-home visits.</p>
 
             <h2>What we believe</h2>
             <p>We believe good estate planning is an act of love &mdash; a way to take care of the people you care about, long after you're able to be there yourself. We believe the legal profession should be approachable, not intimidating. And we believe that twenty years of doing this work is most useful when it's still applied one family at a time.</p>
@@ -1387,7 +1501,7 @@ def practice_detail_page(s: dict):
 def locations_index_page():
     depth = 1
     title = "Office Locations | Coles Law Firm | 7 Michigan Offices"
-    desc = "Coles Law Firm offices across Michigan: Grand Rapids, Ann Arbor, Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo. Schedule a visit today."
+    desc = "Coles Law Firm offices across Michigan: Grand Rapids, Ann Arbor, East Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo. Schedule a visit today."
     bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("Locations", None)])
     extras = [bc_schema] + [location_schema(loc) for loc in LOCATIONS]
     body = dedent(f"""\
@@ -1754,6 +1868,217 @@ def blog_post_page(post: dict):
         """).rstrip()
     page(f"blog/{post['slug']}/index.html", head(title, desc, f"/blog/{post['slug']}/", depth, [bc_schema, blog_post_schema(post)]) + "\n" + body)
 
+def service_city_page(svc: dict, loc: dict):
+    """Hyper-local landing page for a service + city combination.
+
+    URL: /{city-slug}-{service-slug}/ — flat structure keeps the
+    keyword close to the domain root, which matters for local SEO.
+    """
+    depth = 1
+    slug = f"{loc['slug']}-{svc['slug']}"
+    canonical = f"/{slug}/"
+    title = f"{loc['name']} {svc['name']} | Coles Law Firm | {loc['county']}, MI"
+    desc = (
+        f"Looking for a {loc['name']} {svc['name'].lower()}? Coles Law Firm has served "
+        f"{loc['county']} families for 20+ years from our {loc['name']} office. "
+        f"Free initial consultation."
+    )
+    full_address = loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + loc['city'] + ', ' + loc['state'] + ' ' + loc['zip']
+    map_query = urllib.parse.quote_plus(full_address)
+
+    bc_html, bc_schema = breadcrumbs(depth, [
+        ("Home", ""),
+        (loc["name"] + " Office", f"locations/{loc['slug']}/"),
+        (f"{loc['name']} {svc['name']}", None),
+    ])
+
+    communities = loc["communities"]
+    communities_chips = "\n".join(
+        f'              <span class="community-chip">{c}</span>' for c in communities
+    )
+
+    # Cross-link to other SEO services for this city
+    other_svcs = [s for s in SEO_SERVICES if s["slug"] != svc["slug"]]
+    other_links = "\n".join(
+        f'                  <li><a href="{rel(depth, loc["slug"] + "-" + s["slug"] + "/")}">{loc["name"]} {s["name"]}</a></li>'
+        for s in other_svcs
+    )
+    # Cross-link to same service in other cities
+    other_cities = [l for l in LOCATIONS if l["slug"] != loc["slug"]]
+    other_city_links = "\n".join(
+        f'                  <li><a href="{rel(depth, l["slug"] + "-" + svc["slug"] + "/")}">{l["name"]} {svc["name"]}</a></li>'
+        for l in other_cities
+    )
+
+    practice_href = (
+        rel(depth, f"practice-areas/{svc['practice_slug']}/")
+        if svc["practice_slug"] else
+        rel(depth, "practice-areas/")
+    )
+
+    schema_service = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": f"{svc['name']} in {loc['name']}, MI",
+        "serviceType": svc["name"],
+        "provider": location_schema(loc),
+        "description": desc,
+        "areaServed": {
+            "@type": "City",
+            "name": loc["city"],
+            "containedInPlace": {"@type": "AdministrativeArea", "name": loc["county"]},
+        },
+        "url": url(canonical),
+    }
+
+    body = dedent(f"""\
+        <body>
+        {site_header('locations', depth)}
+        {bc_html}
+        <main id="main">
+
+        <section class="sc-hero">
+          <div class="container">
+            <div class="sc-eyebrow">{loc['name']}, MI &middot; {loc['county']}</div>
+            <h1>{loc['name']} {svc['name']}</h1>
+            <p class="sc-lede">{svc['intro']} Serving {loc['name']} and {loc['county']} for over 20 years from our {loc['name']} office.</p>
+            <div class="sc-actions">
+              <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Schedule Free Consultation</a>
+              <a href="tel:{FIRM_PHONE_TEL}" class="btn btn-ghost">Call {FIRM_PHONE}</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="sc-body">
+          <div class="container">
+            <div class="sc-grid">
+              <article class="sc-content">
+                <h2>{svc['name'].split()[0]} services in {loc['name']}</h2>
+                <p>{svc['what_we_do']} Our {loc['name']} office handles {svc['short']} matters across {loc['county']} and the surrounding region, from initial consultation through final document signing or court closing.</p>
+
+                <h2>Local court &amp; jurisdiction</h2>
+                <p>{loc['name']} {svc['short'].capitalize()} matters that go before a court are typically filed with the <strong>{loc['probate_court']}</strong>. We've worked with the {loc['county']} probate bench for two decades and know the local procedures &mdash; from filing requirements to typical hearing timelines.</p>
+
+                <h2>Communities we serve from our {loc['name']} office</h2>
+                <p>Clients reach our {loc['name']} office from across {loc['county']} and nearby communities, including:</p>
+                <div class="community-chips">
+        {communities_chips}
+                </div>
+
+                <h2>Why families in {loc['name']} choose Coles Law</h2>
+                <p>For more than twenty years, families in {loc['name']} have trusted Jennifer Coles and our team with their {svc['short']} matters. A few reasons clients tell us they came back &mdash; or referred a friend:</p>
+                <ul>
+                  <li><strong>Local presence.</strong> Our {loc['name']} office is staffed by attorneys who actually work in {loc['county']} &mdash; not a call center answering from another state.</li>
+                  <li><strong>Plain English.</strong> We explain {svc['short']} in language you can understand, with time to ask questions.</li>
+                  <li><strong>Flat fees where possible.</strong> No surprise bills. You'll know the cost before we begin work.</li>
+                  <li><strong>Long-term relationship.</strong> Estate plans evolve. We're here years from now to update yours as life changes.</li>
+                </ul>
+
+                <p style="margin-top: 32px;"><a href="{practice_href}">Read more about our {svc['name'].lower() if svc['practice_slug'] else 'estate planning'} practice &rarr;</a></p>
+              </article>
+
+              <aside class="sc-aside">
+                <div class="sc-office-card">
+                  <div class="card-header">{loc['name']} Office</div>
+                  <div class="card-body">
+                    <p style="margin-bottom: 14px;">{loc['blurb']}</p>
+                    <div class="meta-line"><strong>Address</strong>{loc['street']}{', ' + loc['suite'] if loc['suite'] else ''}<br>{loc['city']}, {loc['state']} {loc['zip']}</div>
+                    <div class="meta-line"><strong>Phone</strong><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
+                    <div class="meta-line"><strong>Hours</strong>Mon&ndash;Fri, 9 AM &ndash; 5 PM</div>
+                    <div class="meta-line"><strong>Service area</strong>{loc['county']} &amp; surrounding</div>
+                  </div>
+                  <div class="card-cta">
+                    <a href="{rel(depth, 'locations/' + loc['slug'] + '/')}">Office details &amp; map &rarr;</a>
+                  </div>
+                </div>
+
+                <div class="sc-related">
+                  <div class="sc-related-label">Other {loc['name']} services</div>
+                  <ul>
+        {other_links}
+                  </ul>
+                </div>
+              </aside>
+            </div>
+
+            <div class="sc-related-cities">
+              <h3>{svc['name']} in other Michigan cities</h3>
+              <ul>
+        {other_city_links}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="location-cta-band">
+          <div class="container">
+            <h2>{loc['name']} {svc['name']}, ready when you are.</h2>
+            <p>Free initial consultation. No pressure. Pick a time or call our {loc['name']} office.</p>
+            <div class="cta-row">
+              <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Schedule Consultation</a>
+              <a href="tel:{FIRM_PHONE_TEL}" class="btn btn-ghost">Call {FIRM_PHONE}</a>
+            </div>
+          </div>
+        </section>
+
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page(f"{slug}/index.html", head(title, desc, canonical, depth, [bc_schema, schema_service]) + "\n" + body)
+
+
+def local_index_page():
+    """Hub page listing all city x service combinations as a matrix."""
+    depth = 1
+    title = "Local Coverage | Coles Law Firm | Michigan City & Service Index"
+    desc = "Find a Coles Law Firm landing page for your city and the legal service you need. Estate planning, probate, trusts, elder law and more — across seven Michigan cities."
+    bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("Local Coverage", None)])
+
+    rows = []
+    for loc in LOCATIONS:
+        cells = []
+        for svc in SEO_SERVICES:
+            cells.append(
+                f'<a class="mx-cell" href="{rel(depth, loc["slug"] + "-" + svc["slug"] + "/")}">{svc["name"]}</a>'
+            )
+        rows.append(dedent(f"""\
+            <div class="mx-row">
+              <div class="mx-city">
+                <a href="{rel(depth, 'locations/' + loc['slug'] + '/')}"><strong>{loc['name']}</strong><span>{loc['county']}</span></a>
+              </div>
+              <div class="mx-cells">
+                {''.join(cells)}
+              </div>
+            </div>"""))
+
+    body = dedent(f"""\
+        <body>
+        {site_header('locations', depth)}
+        {bc_html}
+        <main id="main">
+        <section class="hero hero-compact">
+          <div class="container">
+            <h1>Local Coverage</h1>
+            <p>Every service we offer, broken down by Michigan city. Tap any combination to jump to a page tailored for that area.</p>
+          </div>
+        </section>
+        <section style="background: var(--cream);">
+          <div class="container">
+            <div class="matrix">
+        {chr(10).join(rows)}
+            </div>
+          </div>
+        </section>
+        </main>
+        {site_footer(depth)}
+        </body>
+        </html>
+        """).rstrip()
+    page("local/index.html", head(title, desc, "/local/", depth, [bc_schema]) + "\n" + body)
+
+
 def not_found_page():
     depth = 0
     title = "Page Not Found | Coles Law Firm"
@@ -2025,6 +2350,11 @@ def sitemap():
     urls += [f"/practice-areas/{p['slug']}/" for p in PRACTICES]
     urls += [f"/locations/{loc['slug']}/" for loc in LOCATIONS]
     urls += [f"/blog/{post['slug']}/" for post in BLOG_POSTS]
+    urls += [
+        f"/{loc['slug']}-{svc['slug']}/"
+        for loc in LOCATIONS for svc in SEO_SERVICES
+    ]
+    urls += ["/local/"]
 
     entries = "\n".join(
         f'  <url><loc>{url(u)}</loc><changefreq>monthly</changefreq><priority>{"1.0" if u == "/" else "0.8"}</priority></url>'
@@ -2072,6 +2402,10 @@ def main():
     what_to_expect_page()
     resources_index_page()
     checklist_page()
+    for loc in LOCATIONS:
+        for svc in SEO_SERVICES:
+            service_city_page(svc, loc)
+    local_index_page()
     not_found_page()
     sitemap()
     robots()

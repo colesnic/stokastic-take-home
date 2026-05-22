@@ -27,7 +27,7 @@
   <url><loc>https://www.coleslawfirm.com/practice-areas/probate-estates/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/locations/grand-rapids/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/locations/ann-arbor/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.coleslawfirm.com/locations/lansing/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/locations/east-lansing/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/locations/kalamazoo/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/locations/battle-creek/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/locations/muskegon/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -36,4 +36,61 @@
   <url><loc>https://www.coleslawfirm.com/blog/michigan-probate-timeline/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/blog/medicaid-five-year-lookback/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.coleslawfirm.com/blog/powers-of-attorney-vs-guardianship/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/grand-rapids-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/ann-arbor-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/east-lansing-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/kalamazoo-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/battle-creek-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/muskegon-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-estate-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-trust-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-wills-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-probate-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-elder-law-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-medicaid-planning-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-power-of-attorney-lawyer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/newaygo-guardianship-attorney/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.coleslawfirm.com/local/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

@@ -35,7 +35,7 @@ TEAM = [
         "name": "Jennifer Coles",
         "role": "Attorney",
         "initial": "J",
-        "photo": "assets/team/jennifer-coles.jpg",
+        "photo": "assets/team/jennifer-headshot.webp",
         "short": "Jennifer has been practicing law in Grand Rapids for 20+ years, focusing on estate planning, probate, and elder law.",
         "long": [
             "Jennifer Coles is the founding attorney of Coles Law, PLLC. For more than two decades, she has guided Michigan families through estate planning, probate, trust administration, and elder law matters.",

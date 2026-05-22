@@ -235,16 +235,35 @@ section { padding: 100px 0; }
 .section-head p { color: var(--ink-soft); font-size: 17px; }
 .rule { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 22px; }
 
-/* Article (content pages) */
+/* Article (content pages)
+   Use Cormorant Garamond throughout so headings and body share the
+   same family. Inter is reserved for navigation, UI chrome, and the
+   home page hero/practice card grids. */
 .article { max-width: 760px; margin: 0 auto; padding: 80px 0; }
 .article h1 { font-size: clamp(34px, 4.5vw, 50px); margin-bottom: 14px; }
-.article .lede { font-size: 19px; color: var(--ink-soft); margin-bottom: 32px; }
+.article .lede {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin-bottom: 32px;
+}
 .article h2 { font-size: 28px; margin: 40px 0 14px; }
 .article h3 { font-size: 22px; margin: 28px 0 10px; }
-.article p, .article li { font-size: 16.5px; color: var(--ink); margin-bottom: 14px; }
+.article p, .article li {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
 .article ul, .article ol { padding-left: 24px; margin-bottom: 20px; }
 .article ul li, .article ol li { margin-bottom: 8px; }
 .article a { color: var(--gold); border-bottom: 1px solid currentColor; }
+.article strong { font-weight: 700; color: var(--navy); }
 
 /* About */
 .about-grid {

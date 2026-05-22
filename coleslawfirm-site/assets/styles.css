@@ -84,16 +84,20 @@ nav.primary a:hover, nav.primary a[aria-current="page"] {
   color: var(--gold); border-bottom-color: var(--gold);
 }
 .cta {
-  background: var(--navy); color: #fff !important;
-  padding: 14px 28px; border-radius: 2px;
-  font-weight: 600; font-size: 13px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  border: 1px solid var(--navy);
+  background: #1d5eb0;
+  color: #fff !important;
+  padding: 18px 36px;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #1d5eb0;
   line-height: 1;
   transition: all .2s ease;
   display: inline-block;
 }
-.cta:hover { background: var(--gold); border-color: var(--gold); }
+.cta:hover { background: #154582; border-color: #154582; }
 
 /* Mobile nav toggle */
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }

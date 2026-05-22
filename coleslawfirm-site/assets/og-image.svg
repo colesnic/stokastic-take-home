@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f2742"/>
+      <stop offset="1" stop-color="#081a30"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#b58a3a" stroke-opacity="0.4" stroke-width="2"/>
+  <circle cx="600" cy="220" r="64" fill="none" stroke="#b58a3a" stroke-width="3"/>
+  <text x="600" y="248" text-anchor="middle" font-family="Georgia, serif" font-size="84" font-weight="700" fill="#d6b97a">C</text>
+  <text x="600" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#ffffff">Coles Law Firm</text>
+  <text x="600" y="440" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-style="italic" fill="#d6b97a">Serving Michigan for over 20 years</text>
+  <text x="600" y="510" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" letter-spacing="4" fill="#ffffff" fill-opacity="0.8">ESTATE PLANNING &#8226; PROBATE &#8226; ELDER LAW</text>
+</svg>

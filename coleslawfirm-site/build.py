@@ -55,6 +55,7 @@ TEAM = [
         "name": "Brian Coles",
         "role": "Office Administrator",
         "initial": "B",
+        "photo": "assets/team/brian-headshot.jpg",
         "short": "Brian leads firm operations after a career in title industry leadership and a background in finance and organizational psychology.",
         "long": [
             "Brian Coles oversees the day-to-day operations of Coles Law, PLLC, ensuring every client matter is staffed, scheduled, and supported with attention to detail.",
@@ -72,6 +73,7 @@ TEAM = [
         "name": "Kevin Hansen",
         "role": "Of Counsel Attorney",
         "initial": "K",
+        "photo": "assets/team/kevin-headshot.jpg",
         "short": "Kevin brings 20+ years of Grand Rapids legal experience as Of Counsel, supporting clients on estate and trust matters.",
         "long": [
             "Kevin Hansen serves as Of Counsel to Coles Law, PLLC, bringing more than two decades of Grand Rapids legal experience to the firm's estate and trust practice.",

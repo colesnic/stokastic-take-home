@@ -33,7 +33,7 @@ TEAM = [
     {
         "slug": "jennifer-coles",
         "name": "Jennifer Coles",
-        "role": "Attorney",
+        "role": "Founding Attorney",
         "initial": "J",
         "photo": "assets/team/jennifer-headshot.webp",
         "short": "Jennifer has been practicing law in Grand Rapids for 30+ years, focusing on estate planning, probate, and elder law.",

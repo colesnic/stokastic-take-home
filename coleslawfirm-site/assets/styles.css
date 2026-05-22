@@ -127,6 +127,60 @@ nav.primary a:hover, nav.primary a[aria-current="page"] {
 .hero-compact { padding: 80px 0 70px; }
 .hero-compact h1 { font-size: clamp(34px, 4.5vw, 52px); margin-bottom: 18px; }
 .hero-compact p { font-size: 18px; margin-bottom: 0; }
+
+/* Split hero (text + portrait) */
+.hero-split { padding: 110px 0 120px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-text { max-width: 620px; }
+.hero-portrait {
+  margin: 0;
+  position: relative;
+  max-width: 360px;
+  justify-self: center;
+}
+.hero-portrait::before {
+  content: '';
+  position: absolute;
+  inset: -14px -14px 28px 14px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-portrait img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+.hero-portrait figcaption {
+  position: relative;
+  z-index: 2;
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-portrait .hp-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--gold-soft);
+}
+.hero-portrait .hp-role {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn {
   display: inline-block; padding: 14px 30px;
@@ -268,22 +322,27 @@ section { padding: 100px 0; }
 .practice-cta-card .more { color: var(--gold-soft); }
 
 /* Team */
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
 .team-card { text-align: center; }
 .team-photo {
-  width: 100%; aspect-ratio: 3 / 4;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
   display: grid; place-items: center;
-  margin-bottom: 22px;
   position: relative; overflow: hidden;
+  box-shadow: 0 6px 24px rgba(15, 39, 66, 0.12);
 }
 .team-photo::after {
-  content: ''; position: absolute; inset: 12px;
-  border: 1px solid rgba(214, 185, 122, 0.35);
+  content: ''; position: absolute; inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--gold-soft);
+  pointer-events: none;
 }
 .team-initial {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 84px; color: var(--gold-soft); font-weight: 600;
+  font-size: 64px; color: var(--gold-soft); font-weight: 600;
 }
 .team-photo-img { background: var(--cream); }
 .team-photo-img img {
@@ -291,6 +350,7 @@ section { padding: 100px 0; }
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 50%;
 }
 .team-card h3 { font-size: 24px; margin-bottom: 4px; }
 .team-role {
@@ -1456,7 +1516,13 @@ footer.site {
   .services-list { grid-template-columns: 1fr; }
   .location-hero .quick-meta { gap: 20px; }
   .map-embed iframe { aspect-ratio: 4 / 3; }
-  .practice-grid, .team-grid, .testimonial-grid { grid-template-columns: 1fr; }
+  .practice-grid, .testimonial-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .team-photo { width: 150px; height: 150px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-portrait { order: -1; max-width: 260px; }
+  .hero-portrait img { aspect-ratio: 1 / 1; }
+  .hero-split { padding: 70px 0 80px; }
   .locations-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .wte-grid, .wte-cols { grid-template-columns: 1fr; gap: 28px; }

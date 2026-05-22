@@ -1098,15 +1098,24 @@ def home_page():
         <body>
         {site_header('home', depth)}
         <main id="main">
-        <section class="hero">
-          <div class="container hero-inner">
-            <div class="kicker">Offices in Grand Rapids &middot; Ann Arbor &middot; East Lansing &middot; Kalamazoo &middot; Battle Creek &middot; Muskegon &middot; Newaygo</div>
-            <h1>Experienced, proven, and <em>trusted</em>.</h1>
-            <p>Make sure your estate is in the right hands. Put your trust in 20+ years of experience and thousands of happy clients across Michigan.</p>
-            <div class="hero-actions">
-              <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Start Your Estate Plan Today</a>
-              <a href="{rel(depth, 'practice-areas/')}" class="btn btn-ghost">Explore Our Services</a>
+        <section class="hero hero-split">
+          <div class="container hero-grid">
+            <div class="hero-text">
+              <div class="kicker">Offices in Grand Rapids &middot; Ann Arbor &middot; East Lansing &middot; Kalamazoo &middot; Battle Creek &middot; Muskegon &middot; Newaygo</div>
+              <h1>Experienced, proven, and <em>trusted</em>.</h1>
+              <p>Make sure your estate is in the right hands. Put your trust in 20+ years of experience and thousands of happy clients across Michigan.</p>
+              <div class="hero-actions">
+                <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Start Your Estate Plan Today</a>
+                <a href="{rel(depth, 'practice-areas/')}" class="btn btn-ghost">Explore Our Services</a>
+              </div>
             </div>
+            <figure class="hero-portrait">
+              <img src="{rel(depth, 'assets/team/jennifer-headshot.webp')}" alt="Jennifer Coles, founding attorney at Coles Law Firm" loading="eager" fetchpriority="high">
+              <figcaption>
+                <span class="hp-name">Jennifer Coles</span>
+                <span class="hp-role">Founding Attorney</span>
+              </figcaption>
+            </figure>
           </div>
         </section>
 

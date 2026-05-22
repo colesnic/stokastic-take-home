@@ -101,7 +101,8 @@ class RiskReport:
             peak_val_at_trough = rolling_max.iloc[trough_idx]
             after_trough       = curve.iloc[trough_idx:]
             recovered          = after_trough[after_trough >= peak_val_at_trough]
-            recovery_days      = int(recovered.index[0] - curve.index[trough_idx]).days if len(recovered) > 0 else None
+            delta = recovered.index[0] - curve.index[trough_idx]
+            recovery_days = int(pd.Timedelta(delta).days) if len(recovered) > 0 else None
 
         # ── Average holding period ─────────────────────────────────────
         avg_holding = None

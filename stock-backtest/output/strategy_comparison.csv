@@ -1,0 +1,8 @@
+strategy,monthly_return_pct,annualized_return_pct,sharpe_ratio,max_drawdown_pct,calmar_ratio,win_rate_pct,profit_factor,n_trades
+MomentumBreakout,4.37,67.16,3.08,-14.46,4.64,45.56,2.23,248
+MACD_Momentum,1.57,20.55,0.81,-27.65,0.74,33.43,1.31,335
+RSI_MeanReversion,0.14,1.72,-2.48,-0.89,1.94,84.62,5.99,13
+SqueezeBreakout,0.63,7.81,0.28,-8.78,0.89,36.36,1.56,55
+TrendFollowing,0.35,4.27,-0.13,-4.8,0.89,33.33,1.87,21
+BollingerMomentum,2.4,32.87,1.42,-11.92,2.76,37.85,1.46,288
+Combo_2of4,2.8,39.22,1.81,-14.83,2.64,40.35,1.72,228

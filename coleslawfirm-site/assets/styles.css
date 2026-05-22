@@ -139,14 +139,17 @@ nav.primary a:hover, nav.primary a[aria-current="page"] {
 .hero-text { max-width: 620px; }
 .hero-portrait {
   margin: 0;
-  position: relative;
   max-width: 360px;
   justify-self: center;
 }
-.hero-portrait::before {
+.hero-portrait .hp-img-wrap {
+  position: relative;
+  display: block;
+}
+.hero-portrait .hp-img-wrap::before {
   content: '';
   position: absolute;
-  inset: -14px -14px 28px 14px;
+  inset: -12px;
   border: 1px solid var(--gold);
   pointer-events: none;
   z-index: 0;
@@ -163,7 +166,7 @@ nav.primary a:hover, nav.primary a[aria-current="page"] {
 .hero-portrait figcaption {
   position: relative;
   z-index: 2;
-  margin-top: 16px;
+  margin-top: 28px;
   text-align: center;
   display: flex;
   flex-direction: column;

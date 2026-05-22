@@ -17,14 +17,14 @@ SITE_NAME = "Coles Law Firm"
 FIRM_PHONE = "(616) 308-3509"
 FIRM_PHONE_TEL = "+16163083509"
 FIRM_EMAIL = "jennifer@coleslawfirm.com"
-FIRM_TAGLINE = "Serving Michigan for over 20 years"
+FIRM_TAGLINE = "Serving Michigan for over 30 years"
 
 ROOT = Path(__file__).resolve().parent
 
 # -------- Data ------------------------------------------------------------
 
 # TODO: Replace initial-letter placeholders with real headshots.
-#       Jennifer's photo is the highest priority — it appears on the
+#       Jennifer's photo is the highest priority - it appears on the
 #       homepage, /about/, /meet-the-team/, /team/jennifer-coles/, and
 #       inside several testimonials. Once received, add a `photo` field
 #       (relative path under /assets/team/) and update team_card /
@@ -36,16 +36,16 @@ TEAM = [
         "role": "Attorney",
         "initial": "J",
         "photo": "assets/team/jennifer-headshot.webp",
-        "short": "Jennifer has been practicing law in Grand Rapids for 20+ years, focusing on estate planning, probate, and elder law.",
+        "short": "Jennifer has been practicing law in Grand Rapids for 30+ years, focusing on estate planning, probate, and elder law.",
         "long": [
-            "Jennifer Coles is the founding attorney of Coles Law, PLLC. For more than two decades, she has guided Michigan families through estate planning, probate, trust administration, and elder law matters.",
-            "Her practice is grounded in the belief that estate planning should feel less like paperwork and more like a conversation — one where each client's goals, family dynamics, and values lead the way.",
+            "Jennifer Coles is the founding attorney of Coles Law, PLLC. For more than three decades, she has guided Michigan families through estate planning, probate, trust administration, and elder law matters.",
+            "Her practice is grounded in the belief that estate planning should feel less like paperwork and more like a conversation - one where each client's goals, family dynamics, and values lead the way.",
             "Jennifer is known for explaining complex legal concepts in plain English, taking the time to ensure every client understands the documents they sign and the choices they're making.",
         ],
         "credentials": [
-            ("Education", "B.A., Accounting — Michigan State University (1990)"),
-            ("Law Degree", "J.D. — Maurer School of Law, Indiana University (1993)"),
-            ("Experience", "20+ years practicing in Grand Rapids, MI"),
+            ("Education", "B.A., Accounting - Michigan State University (1990)"),
+            ("Law Degree", "J.D. - Maurer School of Law, Indiana University (1993)"),
+            ("Experience", "30+ years practicing in Grand Rapids, MI"),
             ("Recognition", "Avvo Client's Choice Award; Distinguished Peer Rated"),
             ("Practice", "Estate Planning, Wills & Trusts, Probate, Elder Law"),
         ],
@@ -63,8 +63,8 @@ TEAM = [
             "His combined background in finance and organizational psychology informs the firm's client-first systems and processes.",
         ],
         "credentials": [
-            ("Education", "B.A., Industrial & Organizational Psychology — University of Michigan"),
-            ("Graduate", "M.S., Finance — Wayne State University"),
+            ("Education", "B.A., Industrial & Organizational Psychology - University of Michigan"),
+            ("Graduate", "M.S., Finance - Wayne State University"),
             ("Prior Role", "Director of Operations, First American Title"),
         ],
     },
@@ -74,15 +74,15 @@ TEAM = [
         "role": "Of Counsel Attorney",
         "initial": "K",
         "photo": "assets/team/kevin-headshot.jpg",
-        "short": "Kevin brings 20+ years of Grand Rapids legal experience as Of Counsel, supporting clients on estate and trust matters.",
+        "short": "Kevin brings 30+ years of Grand Rapids legal experience as Of Counsel, supporting clients on estate and trust matters.",
         "long": [
-            "Kevin Hansen serves as Of Counsel to Coles Law, PLLC, bringing more than two decades of Grand Rapids legal experience to the firm's estate and trust practice.",
+            "Kevin Hansen serves as Of Counsel to Coles Law, PLLC, bringing more than three decades of Grand Rapids legal experience to the firm's estate and trust practice.",
             "He works closely with Jennifer on complex matters and provides additional capacity during high-volume periods, ensuring clients always receive timely, thorough representation.",
         ],
         "credentials": [
-            ("Education", "BBA — University of Michigan (1987)"),
-            ("Law Degree", "J.D. — Notre Dame Law School (1992)"),
-            ("Experience", "20+ years practicing in Grand Rapids, MI"),
+            ("Education", "BBA - University of Michigan (1987)"),
+            ("Law Degree", "J.D. - Notre Dame Law School (1992)"),
+            ("Experience", "30+ years practicing in Grand Rapids, MI"),
         ],
     },
     {
@@ -92,11 +92,11 @@ TEAM = [
         "initial": "J",
         "short": "Julie is the welcoming first voice clients hear and the firm's behind-the-scenes accounting backbone.",
         "long": [
-            "Julie Turner manages client intake and bookkeeping for Coles Law, PLLC. For most prospective clients, Julie is the first friendly voice they encounter — a role she takes seriously.",
+            "Julie Turner manages client intake and bookkeeping for Coles Law, PLLC. For most prospective clients, Julie is the first friendly voice they encounter - a role she takes seriously.",
             "Her professional path includes time at the public accounting firm Librand and several years in human resources, giving her a rare combination of financial discipline and people skills.",
         ],
         "credentials": [
-            ("Education", "B.S., Business Administration (Accounting) — Central Michigan University"),
+            ("Education", "B.S., Business Administration (Accounting) - Central Michigan University"),
             ("Prior Roles", "Public accounting (Librand); HR for multiple firms"),
         ],
     },
@@ -108,12 +108,12 @@ PRACTICES = [
         "name": "Revocable Living Trust",
         "icon": "T",
         "tagline": "Secure your estate while retaining full control.",
-        "summary": "Secure your estate while retaining full control during your lifetime — flexible planning that adapts as your circumstances change.",
+        "summary": "Secure your estate while retaining full control during your lifetime - flexible planning that adapts as your circumstances change.",
         "pricing_range": "$1,500 – $3,500",
         "pricing_note": "Flat fee depending on complexity, asset count, and whether trust funding is included.",
         "body": [
             "A revocable living trust is one of the most flexible and powerful tools in estate planning. It allows you to retain complete control of your assets during your lifetime while providing a clear, private framework for managing and transferring them when you're no longer able to.",
-            "Unlike a will alone, a properly funded revocable trust can help your family avoid the time, cost, and public exposure of probate court — often saving months of delay and significant legal expense.",
+            "Unlike a will alone, a properly funded revocable trust can help your family avoid the time, cost, and public exposure of probate court - often saving months of delay and significant legal expense.",
         ],
         "benefits": [
             "Avoid probate for assets titled in the trust",
@@ -133,7 +133,7 @@ PRACTICES = [
         "pricing_note": "Flat fee. Simple wills start at the lower end; more involved plans with multiple bequests or guardianship provisions are higher.",
         "body": [
             "Your last will and testament is the foundation of any estate plan. It names guardians for minor children, designates a personal representative for your estate, and directs how your assets should be distributed.",
-            "Life changes — marriages, births, deaths, moves, and shifts in financial circumstances all warrant a fresh look at your documents. We help clients prepare new wills and execute codicils (formal amendments) that keep their plans current.",
+            "Life changes - marriages, births, deaths, moves, and shifts in financial circumstances all warrant a fresh look at your documents. We help clients prepare new wills and execute codicils (formal amendments) that keep their plans current.",
         ],
         "benefits": [
             "Properly executed wills under Michigan law",
@@ -152,7 +152,7 @@ PRACTICES = [
         "pricing_range": "$150 – $400",
         "pricing_note": "Flat fee per document. Bundled discounts available when prepared alongside a will or trust.",
         "body": [
-            "A power of attorney designates a trusted person to act on your behalf for financial, legal, or healthcare matters. Without one in place, your family may need to petition for a court-appointed guardian or conservator — a process that is slow, costly, and public.",
+            "A power of attorney designates a trusted person to act on your behalf for financial, legal, or healthcare matters. Without one in place, your family may need to petition for a court-appointed guardian or conservator - a process that is slow, costly, and public.",
             "We prepare both durable powers of attorney for financial matters and patient advocate designations for healthcare decisions, tailored to your situation and family dynamics.",
         ],
         "benefits": [
@@ -168,12 +168,12 @@ PRACTICES = [
         "name": "Elder Law",
         "icon": "L",
         "tagline": "Counsel for the legal questions aging brings.",
-        "summary": "Navigate legal issues unique to aging and elder care — from advance directives to long-term planning.",
+        "summary": "Navigate legal issues unique to aging and elder care - from advance directives to long-term planning.",
         "pricing_range": "Starts at $275/hour",
         "pricing_note": "Most elder law matters are billed hourly. We discuss expected scope and rough budget at the initial consultation.",
         "body": [
             "Elder law sits at the intersection of estate planning, healthcare, and government benefits. Our work in this area focuses on protecting older clients and their families through transitions that often combine emotional, financial, and legal complexity.",
-            "We help clients plan ahead for long-term care, evaluate options for skilled nursing or in-home services, and address legal concerns that arise as family roles shift.",
+            "We help clients plan ahead for long-term care, evaluate skilled-nursing options, and address legal concerns that arise as family roles shift.",
         ],
         "benefits": [
             "Long-term care planning",
@@ -184,15 +184,15 @@ PRACTICES = [
         ],
     },
     {
-        "slug": "medicaid-medicare",
-        "name": "Medicaid & Medicare Planning",
+        "slug": "medicaid",
+        "name": "Medicaid Planning",
         "icon": "M",
         "tagline": "Plan ahead to protect what you've worked to build.",
-        "summary": "Get guidance on Medicaid and Medicare applications and benefits, with planning to help protect what you've worked to build.",
+        "summary": "Get guidance on Medicaid applications and benefits, with planning to help protect what you've worked to build.",
         "pricing_range": "$2,500 – $5,000+",
         "pricing_note": "Flat fee for straightforward applications; crisis planning or asset protection trusts are quoted after an initial review.",
         "body": [
-            "Medicaid and Medicare rules are complex, and the cost of getting them wrong can be enormous. We guide clients through the application process and, when appropriate, design planning strategies that help preserve assets while meeting eligibility requirements.",
+            "Medicaid rules are complex, and the cost of getting them wrong can be enormous. We guide clients through the application process and, when appropriate, design planning strategies that help preserve assets while meeting eligibility requirements.",
             "Because Medicaid uses a look-back period for transfers, the earlier we begin planning, the more options remain on the table.",
         ],
         "benefits": [
@@ -212,7 +212,7 @@ PRACTICES = [
         "pricing_range": "$2,500 – $10,000+",
         "pricing_note": "Varies with estate size and complexity. Some matters are billed flat; others by the hour. We discuss the structure that fits before engaging.",
         "body": [
-            "Losing a loved one is hard enough without the added weight of legal proceedings. We work alongside personal representatives and families to administer Michigan estates efficiently — from opening the estate to final distribution.",
+            "Losing a loved one is hard enough without the added weight of legal proceedings. We work alongside personal representatives and families to administer Michigan estates efficiently - from opening the estate to final distribution.",
             "Whether your matter is informal, formal, supervised, or contested, we tailor our involvement to what your family actually needs.",
         ],
         "benefits": [
@@ -235,7 +235,7 @@ LOCATIONS = [
         "state": "MI",
         "zip": "49546",
         "is_main": True,
-        "blurb": "Our flagship office in West Michigan, serving Kent County and the greater Grand Rapids area for over 20 years.",
+        "blurb": "Our flagship office in West Michigan, serving Kent County and the greater Grand Rapids area for over 30 years.",
     },
     {
         "slug": "ann-arbor",
@@ -251,11 +251,11 @@ LOCATIONS = [
     {
         "slug": "east-lansing",
         "name": "East Lansing",
-        "street": "120 N. Washington",
+        "street": "325 East Grand River Avenue",
         "suite": None,
         "city": "East Lansing",
         "state": "MI",
-        "zip": "48933",
+        "zip": "48823",
         "is_main": False,
         "blurb": "East Lansing office serving Ingham County and Michigan's capital region.",
     },
@@ -323,7 +323,7 @@ _LOC_SEO = {
     "east-lansing": {
         "county": "Ingham County",
         "probate_court": "Ingham County Probate Court",
-        "communities": ["Lansing", "Okemos", "Mason", "Holt", "Williamston", "DeWitt", "Haslett", "Meridian Township", "Grand Ledge"],
+        "communities": ["Okemos", "Meridian Township", "Mason", "Holt", "Williamston", "DeWitt", "Haslett", "Grand Ledge", "Charlotte"],
     },
     "kalamazoo": {
         "county": "Kalamazoo County",
@@ -359,7 +359,7 @@ SEO_SERVICES = [
         "short": "estate planning",
         "practice_slug": None,
         "intro": "Wills, trusts, powers of attorney, and the full picture of how your assets pass to the people you love.",
-        "what_we_do": "We help families build complete estate plans — typically a will, a revocable living trust, durable powers of attorney, and a patient advocate designation — coordinated so each piece does its job.",
+        "what_we_do": "We help families build complete estate plans - typically a will, a revocable living trust, durable powers of attorney, and a patient advocate designation - coordinated so each piece does its job.",
     },
     {
         "slug": "trust-attorney",
@@ -390,16 +390,16 @@ SEO_SERVICES = [
         "name": "Elder Law Attorney",
         "short": "elder law",
         "practice_slug": "elder-law",
-        "intro": "Legal counsel for the questions aging brings — long-term care planning, advance directives, and family transitions.",
+        "intro": "Legal counsel for the questions aging brings - long-term care planning, advance directives, and family transitions.",
         "what_we_do": "We help older clients and their families plan for long-term care, navigate skilled-nursing decisions, and coordinate legal documents with financial planning.",
     },
     {
         "slug": "medicaid-planning-attorney",
         "name": "Medicaid Planning Attorney",
         "short": "Medicaid planning",
-        "practice_slug": "medicaid-medicare",
+        "practice_slug": "medicaid",
         "intro": "Medicaid eligibility planning under Michigan's rules, including the five-year look-back period and spousal protections.",
-        "what_we_do": "We design Medicaid planning strategies that fit your timeline — from advance planning years before need to crisis planning after a sudden diagnosis.",
+        "what_we_do": "We design Medicaid planning strategies that fit your timeline - from advance planning years before need to crisis planning after a sudden diagnosis.",
     },
     {
         "slug": "power-of-attorney-lawyer",
@@ -447,7 +447,7 @@ BLOG_POSTS = [
         "author": "Jennifer Coles",
         "excerpt": "One of the questions we hear most often. The honest answer: most Michigan families benefit from both, but the right balance depends on your goals.",
         "body": [
-            "It's the question that brings most people to our office for the first time: do I need a will, a trust, or both? Like most legal questions, the honest answer is &mdash; it depends. But the framework for deciding is straightforward.",
+            "It's the question that brings most people to our office for the first time: do I need a will, a trust, or both? Like most legal questions, the honest answer is - it depends. But the framework for deciding is straightforward.",
             "A <strong>will</strong> is a written instruction set that takes effect at your death. It names guardians for minor children, designates the person who will administer your estate (your personal representative), and directs how your assets should be distributed. Wills are familiar, flexible, and relatively inexpensive to prepare.",
             "A <strong>revocable living trust</strong> is more like a container. You move your assets into the trust during your lifetime, keep complete control of them, and name a successor trustee to take over if you become incapacitated or pass away. Properly funded trusts avoid probate entirely.",
             "<h2>When a will alone is enough</h2>",
@@ -468,11 +468,11 @@ BLOG_POSTS = [
         "author": "Jennifer Coles",
         "excerpt": "Even the most straightforward Michigan probate estate takes months to close. Here's what to expect, and where most delays come from.",
         "body": [
-            "Probate is the court-supervised process of administering a deceased person's estate. In Michigan, even the simplest probate matters take time &mdash; usually somewhere between six months and a year. Here's a realistic timeline.",
+            "Probate is the court-supervised process of administering a deceased person's estate. In Michigan, even the simplest probate matters take time - usually somewhere between six months and a year. Here's a realistic timeline.",
             "<h2>Months 1&ndash;2: Opening the estate</h2>",
             "After the death, the personal representative named in the will (or, if there's no will, a family member) files a petition with the probate court. The court issues Letters of Authority, which give the personal representative legal power to act on behalf of the estate.",
             "<h2>Months 2&ndash;6: Notice to creditors and asset inventory</h2>",
-            "Michigan law requires a four-month notice period during which creditors can file claims against the estate. During this same window, the personal representative inventories the estate's assets, notifies beneficiaries, and begins managing whatever needs managing &mdash; insurance, mortgages, tax filings, and so on.",
+            "Michigan law requires a four-month notice period during which creditors can file claims against the estate. During this same window, the personal representative inventories the estate's assets, notifies beneficiaries, and begins managing whatever needs managing - insurance, mortgages, tax filings, and so on.",
             "<h2>Months 6&ndash;9: Resolving claims and preparing for distribution</h2>",
             "Once the creditor period closes, the personal representative pays valid claims, resolves disputes, and prepares a final accounting. If real estate needs to be sold, that often happens during this phase.",
             "<h2>Months 9&ndash;12: Final accounting and closing</h2>",
@@ -489,12 +489,12 @@ BLOG_POSTS = [
         "date": "2026-02-20",
         "date_display": "February 20, 2026",
         "author": "Jennifer Coles",
-        "excerpt": "If you're thinking about Medicaid for long-term care, the five-year look-back is the single most important rule to understand &mdash; and it's why early planning matters so much.",
+        "excerpt": "If you're thinking about Medicaid for long-term care, the five-year look-back is the single most important rule to understand - and it's why early planning matters so much.",
         "body": [
-            "Long-term care is one of the single largest financial risks most families face. A year in a Michigan skilled nursing facility can run $100,000 or more, and Medicare doesn't cover it once the short-term rehabilitation window closes.",
+            "Long-term care is one of the single largest financial risks most families face. A year in a Michigan skilled nursing facility can run $100,000 or more, and most insurance won't cover it once the short-term rehabilitation window closes.",
             "Medicaid does cover long-term care, but qualifying for it requires meeting strict income and asset limits. That's where many families run into the <strong>five-year look-back period</strong>.",
             "<h2>What the look-back is</h2>",
-            "When you apply for Medicaid long-term care benefits in Michigan, the state reviews your financial transactions for the prior 60 months &mdash; that's the look-back period. Transfers of assets made during this window for less than fair market value can trigger a penalty period during which you're ineligible for benefits.",
+            "When you apply for Medicaid long-term care benefits in Michigan, the state reviews your financial transactions for the prior 60 months - that's the look-back period. Transfers of assets made during this window for less than fair market value can trigger a penalty period during which you're ineligible for benefits.",
             "<h2>Why this matters even if you're healthy now</h2>",
             "Many people assume they'll figure out Medicaid planning if and when they need long-term care. But by then, the look-back rule may have eliminated the most useful strategies. The sooner you plan, the more options stay open.",
             "<h2>What works</h2>",
@@ -502,7 +502,7 @@ BLOG_POSTS = [
             "<h2>What doesn't work</h2>",
             "Last-minute transfers to children, fake \"loans,\" or simple gifting away of assets within the look-back window will almost always trigger penalties. The state has seen all of it before.",
             "<h2>Start the conversation early</h2>",
-            "If long-term care planning is on your mind &mdash; for yourself or for an aging parent &mdash; the best time to talk to an attorney is before there's a crisis. <a href=\"../../practice-areas/medicaid-medicare/\">Read more about our Medicaid planning practice &rarr;</a>",
+            "If long-term care planning is on your mind - for yourself or for an aging parent - the best time to talk to an attorney is before there's a crisis. <a href=\"../../practice-areas/medicaid/\">Read more about our Medicaid planning practice &rarr;</a>",
         ],
     },
     {
@@ -511,14 +511,14 @@ BLOG_POSTS = [
         "date": "2026-01-15",
         "date_display": "January 15, 2026",
         "author": "Jennifer Coles",
-        "excerpt": "Both tools allow someone else to make decisions on your behalf. But one you choose proactively &mdash; and the other a court chooses for you.",
+        "excerpt": "Both tools allow someone else to make decisions on your behalf. But one you choose proactively - and the other a court chooses for you.",
         "body": [
-            "If someone becomes unable to manage their own affairs &mdash; from a stroke, dementia, an accident, or another cause &mdash; someone else has to step in. The legal mechanism for that step-in is either a <strong>power of attorney</strong> that the person established in advance, or a <strong>court-appointed guardian or conservator</strong> if they didn't.",
+            "If someone becomes unable to manage their own affairs - from a stroke, dementia, an accident, or another cause - someone else has to step in. The legal mechanism for that step-in is either a <strong>power of attorney</strong> that the person established in advance, or a <strong>court-appointed guardian or conservator</strong> if they didn't.",
             "The difference between the two paths is enormous, and it's why every adult should have powers of attorney in place.",
             "<h2>Powers of attorney: you choose, in advance</h2>",
             "A durable power of attorney lets you name a person (your \"agent\") to make financial decisions for you if you can't. A patient advocate designation does the same for healthcare decisions. You choose who. You define the scope. You can revoke or update at any time while you're competent.",
             "<h2>Guardianship: the court chooses, after the fact</h2>",
-            "Without powers of attorney, when capacity is lost, the family has to petition the probate court for a guardian (for personal decisions) or a conservator (for financial matters). The court holds hearings, may appoint a guardian ad litem to investigate, and decides who is appointed &mdash; which may or may not be the family member you would have chosen.",
+            "Without powers of attorney, when capacity is lost, the family has to petition the probate court for a guardian (for personal decisions) or a conservator (for financial matters). The court holds hearings, may appoint a guardian ad litem to investigate, and decides who is appointed - which may or may not be the family member you would have chosen.",
             "<h2>The practical differences</h2>",
             "Guardianship is <em>slow</em> (often months from filing to appointment), <em>expensive</em> (court filings, attorney fees, sometimes a bond), <em>public</em> (everything goes on the court record), and <em>ongoing</em> (annual accountings, court reporting requirements). Powers of attorney avoid all of that.",
             "<h2>What to put in place</h2>",
@@ -544,7 +544,7 @@ FAQS = [
     },
     {
         "q": "What's the difference between a will and a trust?",
-        "a": "A will takes effect at death and typically goes through probate court. A revocable living trust takes effect immediately, can manage your assets if you're incapacitated, and — if properly funded — allows your estate to bypass probate entirely. Most plans use both.",
+        "a": "A will takes effect at death and typically goes through probate court. A revocable living trust takes effect immediately, can manage your assets if you're incapacitated, and - if properly funded - allows your estate to bypass probate entirely. Most plans use both.",
     },
     {
         "q": "How long does probate take in Michigan?",
@@ -556,7 +556,7 @@ FAQS = [
     },
     {
         "q": "What is Medicaid's 'look-back period' and why does it matter?",
-        "a": "When you apply for Medicaid long-term care benefits, the state reviews your financial transactions from the prior five years. Transfers made during that window can delay your eligibility. Planning ahead — ideally years in advance — expands your options significantly.",
+        "a": "When you apply for Medicaid long-term care benefits, the state reviews your financial transactions from the prior five years. Transfers made during that window can delay your eligibility. Planning ahead - ideally years in advance - expands your options significantly.",
     },
     {
         "q": "Do you offer free consultations?",
@@ -564,7 +564,7 @@ FAQS = [
     },
     {
         "q": "Can we meet virtually or do we need to come to an office?",
-        "a": "Both. We have seven offices across Michigan and also offer secure video consultations. For some clients (particularly those with mobility challenges), we can arrange in-home visits as well.",
+        "a": "Both. We have seven offices across Michigan and also offer secure video consultations.",
     },
     {
         "q": "What should I bring to my first meeting?",
@@ -686,7 +686,7 @@ def site_footer(depth: int) -> str:
                     <div class="brand-sub">Estate Planning &middot; Probate</div>
                   </div>
                 </div>
-                <p>Serving Michigan families with thoughtful estate planning, probate, and elder law counsel for over two decades.</p>
+                <p>Serving Michigan families with thoughtful estate planning, probate, and elder law counsel for over three decades.</p>
               </div>
               <div>
                 <h5>Practice</h5>
@@ -766,7 +766,7 @@ def organization_schema() -> dict:
         "email": FIRM_EMAIL,
         "image": SITE_URL + "/assets/og-image.svg",
         "logo": SITE_URL + "/assets/og-image.svg",
-        "description": "Michigan estate planning, wills, trusts, probate, and elder law attorneys serving clients for over 20 years.",
+        "description": "Michigan estate planning, wills, trusts, probate, and elder law attorneys serving clients for over 30 years.",
         "areaServed": {"@type": "State", "name": "Michigan"},
         "address": [
             {
@@ -798,10 +798,10 @@ def organization_schema() -> dict:
 
 def location_schema(loc: dict) -> dict:
     street = loc["street"] + (", " + loc["suite"] if loc["suite"] else "")
-    return {
+    schema = {
         "@context": "https://schema.org",
         "@type": "Attorney",
-        "name": f"{SITE_NAME} — {loc['name']}",
+        "name": f"{SITE_NAME} - {loc['name']}",
         "parentOrganization": {"@type": "LegalService", "name": SITE_NAME, "url": SITE_URL},
         "url": url(f"/locations/{loc['slug']}/"),
         "telephone": FIRM_PHONE,
@@ -815,12 +815,14 @@ def location_schema(loc: dict) -> dict:
             "addressCountry": "US",
         },
         "areaServed": {"@type": "City", "name": loc["city"]},
-        "openingHoursSpecification": [{
+    }
+    if loc.get("is_main"):
+        schema["openingHoursSpecification"] = [{
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             "opens": "09:00", "closes": "17:00",
-        }],
-    }
+        }]
+    return schema
 
 def person_schema(p: dict) -> dict:
     return {
@@ -907,7 +909,7 @@ def render_practice_grid(depth: int, with_cta: bool = True) -> str:
             <article class="practice-card practice-cta-card">
               <div class="practice-icon" aria-hidden="true">?</div>
               <h3>Not sure where to begin?</h3>
-              <p>Most clients aren't &mdash; that's what we're here for. Schedule a free consultation and we'll help you map out the right starting point.</p>
+              <p>Most clients aren't - that's what we're here for. Schedule a free consultation and we'll help you map out the right starting point.</p>
               <a class="more" href="{rel(depth, 'contact/')}">Get in touch &rarr;</a>
             </article>
             """).rstrip())
@@ -957,7 +959,7 @@ def render_locations_grid(depth: int) -> str:
               </address>
               <div class="loc-meta">
                 <div><strong>Phone:</strong> {FIRM_PHONE}</div>
-                <div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>
+                {'<div><strong>Hours:</strong> M&ndash;F, 9 AM &ndash; 5 PM</div>' if loc.get('is_main') else '<div>By Appointment</div>'}
               </div>
               <a class="loc-link" href="{rel(depth, 'locations/' + loc['slug'] + '/')}">Office details &rarr;</a>
             </article>
@@ -966,7 +968,7 @@ def render_locations_grid(depth: int) -> str:
         <article class="location-card location-statewide">
           <h4>Statewide</h4>
           <div class="city-rule"></div>
-          <p>Virtual consultations available throughout Michigan, with in-home visits arranged on request.</p>
+          <p>Virtual consultations available throughout Michigan.</p>
           <a class="loc-link" href="{rel(depth, 'contact/')}">Schedule a meeting &rarr;</a>
         </article>
         """).rstrip())
@@ -993,7 +995,7 @@ def render_trust_badges(eyebrow: str = "Recognized By") -> str:
                 f'<text x="50" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" letter-spacing="0.5" fill="#0f2742">{b["sub"].upper()}</text>'
                 '</svg>'
             )
-        badges.append(f'<div class="trust-badge" title="{esc(b["label"] + " — " + b["sub"])}">{svg}</div>')
+        badges.append(f'<div class="trust-badge" title="{esc(b["label"] + " - " + b["sub"])}">{svg}</div>')
     badges_html = "\n          ".join(badges)
     return dedent(f"""\
         <section class="trust-band">
@@ -1014,7 +1016,7 @@ def render_lead_magnet(depth: int, inline: bool = True) -> str:
               <div class="lm-mark" aria-hidden="true">&#9776;</div>
               <div class="lm-body">
                 <div class="lm-title">A short Michigan estate-planning checklist</div>
-                <p>Plain-English. Three pages. The things most families forget, and a few questions to answer before your first meeting. Free to read or download &mdash; no email required.</p>
+                <p>Plain-English. Three pages. The things most families forget, and a few questions to answer before your first meeting. Free to read or download - no email required.</p>
                 <a class="lm-link" href="{href}">Read or download the checklist &rarr;</a>
               </div>
             </aside>""")
@@ -1040,7 +1042,7 @@ def render_sticky_call_bar(depth: int) -> str:
     return dedent(f"""\
         <a class="mobile-call-bar" href="tel:{FIRM_PHONE_TEL}" aria-label="Call Coles Law Firm">
           <span class="mcb-icon" aria-hidden="true">&#9742;</span>
-          <span class="mcb-text">Tap to call &mdash; <strong>{FIRM_PHONE}</strong></span>
+          <span class="mcb-text">Tap to call - <strong>{FIRM_PHONE}</strong></span>
         </a>""")
 
 CALENDLY_URL = "https://calendly.com/coleslawfirm/new-meeting"
@@ -1048,7 +1050,7 @@ CALENDLY_URL = "https://calendly.com/coleslawfirm/new-meeting"
 def render_calendly(depth: int) -> str:
     """Inline Calendly scheduling widget.
 
-    Uses Calendly's public inline embed — no API key required. To
+    Uses Calendly's public inline embed - no API key required. To
     change which event type is shown, update CALENDLY_URL above to
     the new public scheduling URL from the firm's Calendly account.
     """
@@ -1075,7 +1077,7 @@ def render_testimonials(limit: int | None = None) -> str:
             <figure class="testimonial">
               <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <blockquote><p>{t['text']}</p></blockquote>
-              <figcaption><cite>&mdash; {t['author']}</cite></figcaption>
+              <figcaption><cite>- {t['author']}</cite></figcaption>
             </figure>
             """).rstrip())
     return '<div class="testimonial-grid">\n' + "\n".join(cards) + '\n</div>'
@@ -1091,7 +1093,7 @@ def page(path: str, html: str):
 def home_page():
     depth = 0
     title = "Coles Law Firm | Michigan Estate Planning, Probate & Elder Law Attorneys"
-    desc = "Coles Law Firm has served Michigan families for over 20 years with estate planning, wills, trusts, probate, and elder law. Seven offices across Michigan."
+    desc = "Coles Law Firm has served Michigan families for over 30 years with estate planning, wills, trusts, probate, and elder law. Seven offices across Michigan."
     extra = (
         review_schemas(TESTIMONIALS)
         + [location_schema(loc) for loc in LOCATIONS]
@@ -1105,14 +1107,16 @@ def home_page():
             <div class="hero-text">
               <div class="kicker">Offices in Grand Rapids &middot; Ann Arbor &middot; East Lansing &middot; Kalamazoo &middot; Battle Creek &middot; Muskegon &middot; Newaygo</div>
               <h1>Experienced, proven, and <em>trusted</em>.</h1>
-              <p>Make sure your estate is in the right hands. Put your trust in 20+ years of experience and thousands of happy clients across Michigan.</p>
+              <p>Make sure your estate is in the right hands. Put your trust in 30+ years of experience and thousands of happy clients across Michigan.</p>
               <div class="hero-actions">
                 <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Start Your Estate Plan Today</a>
                 <a href="{rel(depth, 'practice-areas/')}" class="btn btn-ghost">Explore Our Services</a>
               </div>
             </div>
             <figure class="hero-portrait">
-              <img src="{rel(depth, 'assets/team/jennifer-headshot.webp')}" alt="Jennifer Coles, founding attorney at Coles Law Firm" loading="eager" fetchpriority="high">
+              <span class="hp-img-wrap">
+                <img src="{rel(depth, 'assets/team/jennifer-headshot.webp')}" alt="Jennifer Coles, founding attorney at Coles Law Firm" loading="eager" fetchpriority="high">
+              </span>
               <figcaption>
                 <span class="hp-name">Jennifer Coles</span>
                 <span class="hp-role">Founding Attorney</span>
@@ -1123,7 +1127,7 @@ def home_page():
 
         <div class="strip">
           <div class="container strip-inner">
-            <div class="strip-item"><span class="dot"></span><strong>20+ Years</strong> Serving Michigan</div>
+            <div class="strip-item"><span class="dot"></span><strong>30+ Years</strong> Serving Michigan</div>
             <div class="strip-item"><span class="dot"></span><span aria-hidden="true" style="color: var(--gold); letter-spacing: 2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>5.0</strong> on Google Reviews</div>
             <div class="strip-item"><span class="dot"></span><strong>Avvo Client's Choice</strong> Award Recipient</div>
             <div class="strip-item"><span class="dot"></span><strong>7 Offices</strong> Across Michigan</div>
@@ -1136,20 +1140,20 @@ def home_page():
               <div class="about-text">
                 <div class="rule" style="margin: 0 0 24px;"></div>
                 <h2>A practice built on relationships, not transactions.</h2>
-                <p>Founded by attorney Jennifer Coles, our firm has spent more than twenty years helping Michigan families plan for the future and navigate the present with peace of mind. From Grand Rapids to Ann Arbor and points between, we believe estate planning should feel less like paperwork and more like a conversation &mdash; one where your goals, your family, and your values lead the way.</p>
+                <p>Founded by attorney Jennifer Coles, our firm has spent more than thirty years helping Michigan families plan for the future and navigate the present with peace of mind. From Grand Rapids to Ann Arbor and points between, we believe estate planning should feel less like paperwork and more like a conversation - one where your goals, your family, and your values lead the way.</p>
                 <p>Whether you're drafting your first will, settling a loved one's estate, or planning for long-term care, we take the time to understand your story before we write a single page.</p>
                 <p><a href="{rel(depth, 'about/')}" class="more" style="font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px;">More about the firm &rarr;</a></p>
                 <div class="about-stats">
-                  <div class="stat"><div class="num">20+</div><div class="label">Years of Practice</div></div>
-                  <div class="stat"><div class="num">1,000+</div><div class="label">Families Served</div></div>
+                  <div class="stat"><div class="num">30+</div><div class="label">Years of Practice</div></div>
+                  <div class="stat"><div class="num">Thousands</div><div class="label">of Families Served</div></div>
                   <div class="stat"><div class="num">7</div><div class="label">Michigan Offices</div></div>
-                  <div class="stat"><div class="num">7</div><div class="label">Practice Areas</div></div>
+                  <div class="stat"><div class="num">6</div><div class="label">Practice Areas</div></div>
                 </div>
               </div>
               <aside class="about-card">
                 <div class="quote-mark" aria-hidden="true">&ldquo;</div>
-                <blockquote>Estate planning is, at its heart, an act of love &mdash; a way to take care of the people you care about, long after you're able to be there yourself.</blockquote>
-                <cite>&mdash; Jennifer Coles, Founding Attorney</cite>
+                <blockquote>Estate planning is, at its heart, an act of love - a way to take care of the people you care about, long after you're able to be there yourself.</blockquote>
+                <cite>- Jennifer Coles, Founding Attorney</cite>
               </aside>
             </div>
           </div>
@@ -1173,7 +1177,7 @@ def home_page():
               <div class="eyebrow">Who We Are</div>
               <div class="rule"></div>
               <h2>Meet the Coles Law Team</h2>
-              <p>Experienced leadership, dedicated staff, and ambitious interns &mdash; a team that treats every client like a neighbor.</p>
+              <p>Experienced leadership, dedicated staff, and ambitious interns - a team that treats every client like a neighbor.</p>
             </div>
             {render_team_grid(depth)}
           </div>
@@ -1193,7 +1197,7 @@ def home_page():
               <div class="eyebrow">In Their Words</div>
               <div class="rule"></div>
               <h2>What Our Clients Say</h2>
-              <p>Two decades of trust, built one family at a time.</p>
+              <p>Three decades of trust, built one family at a time.</p>
             </div>
             {render_testimonials()}
             <div class="reviews-badge">
@@ -1227,8 +1231,8 @@ def home_page():
 
 def about_page():
     depth = 1
-    title = "About Coles Law Firm | 20+ Years Serving Michigan Families"
-    desc = "Learn about Coles Law Firm — founded by Jennifer Coles, serving Michigan families with estate planning, probate, and elder law counsel for over two decades."
+    title = "About Coles Law Firm | 30+ Years Serving Michigan Families"
+    desc = "Learn about Coles Law Firm - founded by Jennifer Coles, serving Michigan families with estate planning, probate, and elder law counsel for over three decades."
     bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("About", None)])
     body = dedent(f"""\
         <body>
@@ -1240,17 +1244,17 @@ def about_page():
             <h1>About Coles Law Firm</h1>
             <p class="lede">A small, experienced Michigan law practice built on the belief that estate planning should feel less like paperwork and more like a conversation.</p>
 
-            <p>Coles Law, PLLC was founded by attorney Jennifer Coles to bring careful, plain-spoken legal counsel to Michigan families navigating some of life's most important decisions. For more than twenty years, our practice has focused on estate planning, wills, trusts, probate, elder law, and the legal questions that shape how families care for one another across generations.</p>
+            <p>Coles Law, PLLC was founded by attorney Jennifer Coles to bring careful, plain-spoken legal counsel to Michigan families navigating some of life's most important decisions. For more than thirty years, our practice has focused on estate planning, wills, trusts, probate, elder law, and the legal questions that shape how families care for one another across generations.</p>
 
             <h2>How we work</h2>
             <p>Most of our clients come to us during a transition: a new baby, a parent's diagnosis, a move into retirement, or the loss of a loved one. We've found that the best legal work in moments like these starts with listening. Before we write a single document, we want to understand your family, your goals, and what keeps you up at night.</p>
             <p>From there, we design plans that are clear, durable, and honest about trade-offs. We explain what each document does, what it costs, and where the limits are. You will never be handed a stack of paper and asked to trust us.</p>
 
             <h2>Who we serve</h2>
-            <p>We serve clients across Michigan from offices in Grand Rapids, Ann Arbor, East Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo. For clients who can't easily travel, we offer secure video consultations and, when appropriate, in-home visits.</p>
+            <p>We serve clients across Michigan from offices in Grand Rapids, Ann Arbor, East Lansing, Kalamazoo, Battle Creek, Muskegon, and Newaygo. For clients who can't easily travel, we offer secure video consultations.</p>
 
             <h2>What we believe</h2>
-            <p>We believe good estate planning is an act of love &mdash; a way to take care of the people you care about, long after you're able to be there yourself. We believe the legal profession should be approachable, not intimidating. And we believe that twenty years of doing this work is most useful when it's still applied one family at a time.</p>
+            <p>We believe good estate planning is an act of love - a way to take care of the people you care about, long after you're able to be there yourself. We believe the legal profession should be approachable, not intimidating. And we believe that thirty years of doing this work is most useful when it's still applied one family at a time.</p>
 
             <p><a href="{rel(depth, 'contact/')}">Schedule a consultation &rarr;</a></p>
           </article>
@@ -1265,7 +1269,7 @@ def about_page():
 def team_index_page():
     depth = 1
     title = "Meet the Team | Coles Law Firm Attorneys & Staff"
-    desc = "Meet the attorneys and staff of Coles Law Firm — Jennifer Coles, Brian Coles, Kevin Hansen, Julie Turner, and our team of professionals serving Michigan."
+    desc = "Meet the attorneys and staff of Coles Law Firm - Jennifer Coles, Brian Coles, Kevin Hansen, Julie Turner, and our team of professionals serving Michigan."
     bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("Meet the Team", None)])
     extras = [bc_schema] + [person_schema(t) for t in TEAM]
     body = dedent(f"""\
@@ -1276,7 +1280,7 @@ def team_index_page():
         <section class="hero hero-compact">
           <div class="container">
             <h1>Meet the Coles Law Team</h1>
-            <p>Experienced leadership, dedicated staff, and ambitious interns &mdash; serving Michigan families with care.</p>
+            <p>Experienced leadership, dedicated staff, and ambitious interns - serving Michigan families with care.</p>
           </div>
         </section>
         <section>
@@ -1421,7 +1425,7 @@ def practice_detail_page(s: dict):
             </div>
 
             <h2>Available across Michigan</h2>
-            <p>We provide {s['name'].lower()} services at all seven of our Michigan offices: {loc_links}. Virtual consultations are available statewide; in-home visits can be arranged on request.</p>
+            <p>We provide {s['name'].lower()} services at all seven of our Michigan offices: {loc_links}. Virtual consultations are available statewide.</p>
 
             <h2>Related practice areas</h2>
             <div class="related-grid">
@@ -1469,7 +1473,7 @@ def locations_index_page():
         </html>
         """).rstrip()
     page("locations/index.html", head(title, desc, "/locations/", depth, extras) + "\n" + body)
-    # Maps & Directions: legacy WP URL — point at the same content
+    # Maps & Directions: legacy WP URL - point at the same content
     legacy = dedent(f"""\
         <body>
         {site_header('locations', depth)}
@@ -1539,10 +1543,7 @@ def location_detail_page(loc: dict):
                 <strong>Phone</strong>
                 <div class="val"><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
               </div>
-              <div>
-                <strong>Hours</strong>
-                <div class="val">Monday &ndash; Friday, 9 AM &ndash; 5 PM</div>
-              </div>
+              {'<div><strong>Hours</strong><div class="val">Monday &ndash; Friday, 9 AM &ndash; 5 PM</div></div>' if loc.get('is_main') else '<div><strong>Availability</strong><div class="val">By Appointment</div></div>'}
             </div>
           </div>
         </section>
@@ -1556,7 +1557,7 @@ def location_detail_page(loc: dict):
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
               <div class="map-embed-caption">
-                <span class="addr"><strong>Coles Law Firm &mdash; {loc['name']}</strong> &middot; {loc['street']}{suite_inline}, {city_state} {loc['zip']}</span>
+                <span class="addr"><strong>Coles Law Firm - {loc['name']}</strong> &middot; {loc['street']}{suite_inline}, {city_state} {loc['zip']}</span>
                 <a href="https://maps.google.com/?q={map_query}" rel="noopener" target="_blank">Get Directions &rarr;</a>
               </div>
             </div>
@@ -1623,7 +1624,7 @@ def contact_page():
         <section class="hero hero-compact">
           <div class="container">
             <h1>Schedule a Consultation</h1>
-            <p>Tell us a little about your situation and we'll be in touch to set up a confidential conversation &mdash; in person, by phone, or by video.</p>
+            <p>Tell us a little about your situation and we'll be in touch to set up a confidential conversation - in person, by phone, or by video.</p>
           </div>
         </section>
 
@@ -1654,7 +1655,7 @@ def contact_page():
                   <div><span class="label-cell">Email</span><span class="val"><a href="mailto:{FIRM_EMAIL}">{FIRM_EMAIL}</a></span></div>
                   <div><span class="label-cell">Hours</span><span class="val">Monday &ndash; Friday, 9:00 AM &ndash; 5:00 PM</span></div>
                 </div>
-                <p style="margin-top: 32px; color: var(--ink-soft); font-size: 15px;">Prefer to drop in? See our <a href="{rel(depth, 'locations/')}" style="font-weight: 600;">full list of office locations &rarr;</a></p>
+                <p style="margin-top: 32px; color: var(--ink-soft); font-size: 15px;">See our <a href="{rel(depth, 'locations/')}" style="font-weight: 600;">full list of office locations &rarr;</a></p>
               </div>
               <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you. We will be in touch shortly.'); this.reset();">
                 <h3>Request a Consultation</h3>
@@ -1668,14 +1669,14 @@ def contact_page():
                     <option>Wills &amp; Codicils</option>
                     <option>Powers of Attorney</option>
                     <option>Elder Law</option>
-                    <option>Medicaid &amp; Medicare</option>
+                    <option>Medicaid Planning</option>
                     <option>Guardianships</option>
                     <option>Probate Estates</option>
                     <option>Other / Not Sure</option>
                   </select>
                 </div>
                 <div class="field"><label for="message">Brief Description</label>
-                  <textarea id="message" name="message" placeholder="A sentence or two about your situation is plenty &mdash; we'll follow up for the details."></textarea>
+                  <textarea id="message" name="message" placeholder="A sentence or two about your situation is plenty - we'll follow up for the details."></textarea>
                 </div>
                 <button type="submit" class="form-submit">Send Inquiry</button>
                 <p class="disclaimer">Submitting this form does not create an attorney-client relationship. Please do not share confidential information until such a relationship is formally established.</p>
@@ -1814,7 +1815,7 @@ def blog_post_page(post: dict):
 def service_city_page(svc: dict, loc: dict):
     """Hyper-local landing page for a service + city combination.
 
-    URL: /{city-slug}-{service-slug}/ — flat structure keeps the
+    URL: /{city-slug}-{service-slug}/ - flat structure keeps the
     keyword close to the domain root, which matters for local SEO.
     """
     depth = 1
@@ -1823,7 +1824,7 @@ def service_city_page(svc: dict, loc: dict):
     title = f"{loc['name']} {svc['name']} | Coles Law Firm | {loc['county']}, MI"
     desc = (
         f"Looking for a {loc['name']} {svc['name'].lower()}? Coles Law Firm has served "
-        f"{loc['county']} families for 20+ years from our {loc['name']} office. "
+        f"{loc['county']} families for 30+ years from our {loc['name']} office. "
         f"Free initial consultation."
     )
     full_address = loc['street'] + (' ' + loc['suite'] if loc['suite'] else '') + ', ' + loc['city'] + ', ' + loc['state'] + ' ' + loc['zip']
@@ -1884,7 +1885,7 @@ def service_city_page(svc: dict, loc: dict):
           <div class="container">
             <div class="sc-eyebrow">{loc['name']}, MI &middot; {loc['county']}</div>
             <h1>{loc['name']} {svc['name']}</h1>
-            <p class="sc-lede">{svc['intro']} Serving {loc['name']} and {loc['county']} for over 20 years from our {loc['name']} office.</p>
+            <p class="sc-lede">{svc['intro']} Serving {loc['name']} and {loc['county']} for over 30 years from our {loc['name']} office.</p>
             <div class="sc-actions">
               <a href="{rel(depth, 'contact/')}" class="btn btn-primary">Schedule Free Consultation</a>
               <a href="tel:{FIRM_PHONE_TEL}" class="btn btn-ghost">Call {FIRM_PHONE}</a>
@@ -1900,7 +1901,7 @@ def service_city_page(svc: dict, loc: dict):
                 <p>{svc['what_we_do']} Our {loc['name']} office handles {svc['short']} matters across {loc['county']} and the surrounding region, from initial consultation through final document signing or court closing.</p>
 
                 <h2>Local court &amp; jurisdiction</h2>
-                <p>{loc['name']} {svc['short'].capitalize()} matters that go before a court are typically filed with the <strong>{loc['probate_court']}</strong>. We've worked with the {loc['county']} probate bench for two decades and know the local procedures &mdash; from filing requirements to typical hearing timelines.</p>
+                <p>{loc['name']} {svc['short'].capitalize()} matters that go before a court are typically filed with the <strong>{loc['probate_court']}</strong>. We've worked with the {loc['county']} probate bench for three decades and know the local procedures - from filing requirements to typical hearing timelines.</p>
 
                 <h2>Communities we serve from our {loc['name']} office</h2>
                 <p>Clients reach our {loc['name']} office from across {loc['county']} and nearby communities, including:</p>
@@ -1909,9 +1910,9 @@ def service_city_page(svc: dict, loc: dict):
                 </div>
 
                 <h2>Why families in {loc['name']} choose Coles Law</h2>
-                <p>For more than twenty years, families in {loc['name']} have trusted Jennifer Coles and our team with their {svc['short']} matters. A few reasons clients tell us they came back &mdash; or referred a friend:</p>
+                <p>For more than thirty years, families in {loc['name']} have trusted Jennifer Coles and our team with their {svc['short']} matters. A few reasons clients tell us they came back - or referred a friend:</p>
                 <ul>
-                  <li><strong>Local presence.</strong> Our {loc['name']} office is staffed by attorneys who actually work in {loc['county']} &mdash; not a call center answering from another state.</li>
+                  <li><strong>Local presence.</strong> Our {loc['name']} office is staffed by attorneys who actually work in {loc['county']} - not a call center answering from another state.</li>
                   <li><strong>Plain English.</strong> We explain {svc['short']} in language you can understand, with time to ask questions.</li>
                   <li><strong>Flat fees where possible.</strong> No surprise bills. You'll know the cost before we begin work.</li>
                   <li><strong>Long-term relationship.</strong> Estate plans evolve. We're here years from now to update yours as life changes.</li>
@@ -1927,7 +1928,7 @@ def service_city_page(svc: dict, loc: dict):
                     <p style="margin-bottom: 14px;">{loc['blurb']}</p>
                     <div class="meta-line"><strong>Address</strong>{loc['street']}{', ' + loc['suite'] if loc['suite'] else ''}<br>{loc['city']}, {loc['state']} {loc['zip']}</div>
                     <div class="meta-line"><strong>Phone</strong><a href="tel:{FIRM_PHONE_TEL}">{FIRM_PHONE}</a></div>
-                    <div class="meta-line"><strong>Hours</strong>Mon&ndash;Fri, 9 AM &ndash; 5 PM</div>
+                    {'<div class="meta-line"><strong>Hours</strong>Mon&ndash;Fri, 9 AM &ndash; 5 PM</div>' if loc.get('is_main') else '<div class="meta-line"><strong>Availability</strong>By Appointment</div>'}
                     <div class="meta-line"><strong>Service area</strong>{loc['county']} &amp; surrounding</div>
                   </div>
                   <div class="card-cta">
@@ -1976,7 +1977,7 @@ def local_index_page():
     """Hub page listing all city x service combinations as a matrix."""
     depth = 1
     title = "Local Coverage | Coles Law Firm | Michigan City & Service Index"
-    desc = "Find a Coles Law Firm landing page for your city and the legal service you need. Estate planning, probate, trusts, elder law and more — across seven Michigan cities."
+    desc = "Find a Coles Law Firm landing page for your city and the legal service you need. Estate planning, probate, trusts, elder law and more - across seven Michigan cities."
     bc_html, bc_schema = breadcrumbs(depth, [("Home", ""), ("Local Coverage", None)])
 
     rows = []
@@ -2032,7 +2033,7 @@ def not_found_page():
         <main id="main">
         <section class="hero hero-compact">
           <div class="container" style="text-align: center;">
-            <h1>404 &mdash; Page Not Found</h1>
+            <h1>404 - Page Not Found</h1>
             <p>The page you were looking for can't be found. It may have moved, or the link may be incorrect.</p>
           </div>
         </section>
@@ -2113,7 +2114,7 @@ def what_to_expect_page():
                   <li>Any existing estate planning documents (even old ones)</li>
                   <li>A rough list of your assets and approximate values</li>
                   <li>Names of people you'd want as personal representatives, trustees, guardians, or agents</li>
-                  <li>Questions &mdash; the more specific, the better</li>
+                  <li>Questions - the more specific, the better</li>
                 </ul>
                 <p style="color: var(--ink-soft); font-size: 15px;">Don't have all of this yet? That's fine. We can work from what you have and fill in the rest together.</p>
               </div>
@@ -2147,7 +2148,7 @@ def what_to_expect_page():
 def checklist_page():
     depth = 2
     title = "Michigan Estate Planning Checklist | Coles Law Firm"
-    desc = "A short, plain-English Michigan estate planning checklist — the things most families forget, and questions to answer before your first attorney meeting. Free, no email required."
+    desc = "A short, plain-English Michigan estate planning checklist - the things most families forget, and questions to answer before your first attorney meeting. Free, no email required."
     bc_html, bc_schema = breadcrumbs(depth, [
         ("Home", ""),
         ("Resources", "resources/"),
@@ -2164,7 +2165,7 @@ def checklist_page():
               <div>
                 <div class="cb-eyebrow">Free Resource &middot; No Email Required</div>
                 <h1>Michigan Estate Planning Checklist</h1>
-                <p class="lede">A short, plain-English starter. Three sections, no fluff &mdash; the things most families forget, and a few questions to answer before your first attorney meeting.</p>
+                <p class="lede">A short, plain-English starter. Three sections, no fluff - the things most families forget, and a few questions to answer before your first attorney meeting.</p>
               </div>
               <div class="cb-actions">
                 <button class="btn btn-dark" onclick="window.print()">Print or Save as PDF</button>
@@ -2174,18 +2175,18 @@ def checklist_page():
             <h2>1. The five core documents</h2>
             <p>Most complete estate plans rest on five documents. If you have all five, properly executed under Michigan law, you've covered the major scenarios.</p>
             <ul class="check-list">
-              <li><strong>Last Will &amp; Testament</strong> &mdash; names guardians for minor children, a personal representative, and directs distribution.</li>
-              <li><strong>Revocable Living Trust</strong> &mdash; manages assets during life and avoids probate at death (when properly funded).</li>
-              <li><strong>Durable Financial Power of Attorney</strong> &mdash; names someone to handle finances if you're incapacitated.</li>
-              <li><strong>Patient Advocate Designation</strong> &mdash; Michigan's healthcare power of attorney.</li>
-              <li><strong>HIPAA Authorization</strong> &mdash; lets your loved ones access your medical information.</li>
+              <li><strong>Last Will &amp; Testament</strong> - names guardians for minor children, a personal representative, and directs distribution.</li>
+              <li><strong>Revocable Living Trust</strong> - manages assets during life and avoids probate at death (when properly funded).</li>
+              <li><strong>Durable Financial Power of Attorney</strong> - names someone to handle finances if you're incapacitated.</li>
+              <li><strong>Patient Advocate Designation</strong> - Michigan's healthcare power of attorney.</li>
+              <li><strong>HIPAA Authorization</strong> - lets your loved ones access your medical information.</li>
             </ul>
 
             <h2>2. Things people commonly forget</h2>
             <ul class="check-list">
               <li><strong>Trust funding.</strong> A trust only works for assets actually titled in its name. Most plans go wrong here, not in the drafting.</li>
               <li><strong>Beneficiary designations.</strong> Retirement accounts, life insurance, and bank PODs pass outside your will. Check them annually.</li>
-              <li><strong>Digital assets.</strong> Email, photos, password manager, crypto, social accounts &mdash; make a list, and decide who can access what.</li>
+              <li><strong>Digital assets.</strong> Email, photos, password manager, crypto, social accounts - make a list, and decide who can access what.</li>
               <li><strong>Pets.</strong> Michigan recognizes pet trusts. Even informally, name a caregiver and provide for their costs.</li>
               <li><strong>Out-of-state property.</strong> Real estate in another state can trigger separate (ancillary) probate. A trust solves this.</li>
               <li><strong>Letters of instruction.</strong> Non-binding, but enormously helpful for your family. Where things are, what your wishes are, who to call.</li>
@@ -2197,7 +2198,7 @@ def checklist_page():
               <li>Who would you trust to make financial decisions for you?</li>
               <li>Who would you trust to make medical decisions for you?</li>
               <li>What matters most to you about how your estate is divided?</li>
-              <li>Are there family complications &mdash; second marriages, estranged relatives, special-needs beneficiaries &mdash; that need to be addressed?</li>
+              <li>Are there family complications - second marriages, estranged relatives, special-needs beneficiaries - that need to be addressed?</li>
               <li>What's your rough net worth, and where are your assets held?</li>
               <li>Do you have long-term care concerns for yourself or a parent?</li>
             </ul>
@@ -2226,7 +2227,7 @@ def resources_index_page():
         <section class="hero hero-compact">
           <div class="container">
             <h1>Resources</h1>
-            <p>Plain-English guides, checklists, and articles. Free to read or share &mdash; no email required.</p>
+            <p>Plain-English guides, checklists, and articles. Free to read or share - no email required.</p>
           </div>
         </section>
         <section>

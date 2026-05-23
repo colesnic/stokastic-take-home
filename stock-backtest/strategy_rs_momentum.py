@@ -19,7 +19,8 @@ class RSMomentumStrategy:
     """
     def __init__(self, top_n: int = 2, rebalance_days: int = 5,
                  lookback_short: int = 20, lookback_mid: int = 60, lookback_long: int = 120,
-                 adx_min: float = 18.0, rsi_min: float = 45.0, ema_trend_period: int = 50):
+                 adx_min: float = 18.0, rsi_min: float = 45.0, ema_trend_period: int = 50,
+                 regime_ticker: str = ""):
         self.top_n = top_n
         self.rebalance_days = rebalance_days
         self.lookback_short = lookback_short
@@ -28,6 +29,7 @@ class RSMomentumStrategy:
         self.adx_min = adx_min
         self.rsi_min = rsi_min
         self.ema_trend_period = ema_trend_period
+        self.regime_ticker = regime_ticker  # if set, only enter when this ticker > EMA
         self.signals: dict = {}
 
     def prepare(self, data: dict):
@@ -67,6 +69,14 @@ class RSMomentumStrategy:
             ticker_scores[ticker]  = score.reindex(all_dates)
             ticker_filters[ticker] = qualify.reindex(all_dates).fillna(False)
 
+        # Market regime filter: only enter when regime_ticker > its EMA
+        if self.regime_ticker and self.regime_ticker in data:
+            reg_close = data[self.regime_ticker]["Close"]
+            reg_ema   = ema(reg_close, self.ema_trend_period)
+            regime_bull = (reg_close > reg_ema).reindex(all_dates, fill_value=False)
+        else:
+            regime_bull = pd.Series(True, index=all_dates)
+
         # For each date, rank tickers and assign signals
         scores_df  = pd.DataFrame(ticker_scores, index=all_dates)
         filters_df = pd.DataFrame(ticker_filters, index=all_dates)
@@ -78,6 +88,13 @@ class RSMomentumStrategy:
         for i, date in enumerate(all_dates):
             # Only rebalance on schedule
             if i % self.rebalance_days != 0:
+                continue
+
+            # When BTC (regime ticker) crosses below its EMA → exit all, no new entries
+            if not regime_bull.get(date, True):
+                for t in list(in_position):
+                    sig_dict[t].loc[date] = -1
+                    in_position.discard(t)
                 continue
 
             day_scores   = scores_df.loc[date].dropna()

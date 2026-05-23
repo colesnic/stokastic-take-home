@@ -19,7 +19,7 @@ class RSMomentumStrategy:
     """
     def __init__(self, top_n: int = 2, rebalance_days: int = 5,
                  lookback_short: int = 20, lookback_mid: int = 60, lookback_long: int = 120,
-                 adx_min: float = 18.0, rsi_min: float = 45.0):
+                 adx_min: float = 18.0, rsi_min: float = 45.0, ema_trend_period: int = 50):
         self.top_n = top_n
         self.rebalance_days = rebalance_days
         self.lookback_short = lookback_short
@@ -27,6 +27,7 @@ class RSMomentumStrategy:
         self.lookback_long = lookback_long
         self.adx_min = adx_min
         self.rsi_min = rsi_min
+        self.ema_trend_period = ema_trend_period
         self.signals: dict = {}
 
     def prepare(self, data: dict):
@@ -51,7 +52,7 @@ class RSMomentumStrategy:
             # Blended score with more weight to shorter lookback
             score = 0.5 * ret_short + 0.3 * ret_mid + 0.2 * ret_long
 
-            trend = ema(close, 50)
+            trend = ema(close, self.ema_trend_period)
             adx_v = adx(high, low, close, 14)
             rsi_v = rsi(close, 14)
 

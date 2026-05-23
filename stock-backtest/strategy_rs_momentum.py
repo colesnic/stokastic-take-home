@@ -20,7 +20,8 @@ class RSMomentumStrategy:
     def __init__(self, top_n: int = 2, rebalance_days: int = 5,
                  lookback_short: int = 20, lookback_mid: int = 60, lookback_long: int = 120,
                  adx_min: float = 18.0, rsi_min: float = 45.0, rsi_max: float = 82.0,
-                 ema_trend_period: int = 50, regime_ticker: str = ""):
+                 ema_trend_period: int = 50, regime_ticker: str = "",
+                 min_hold_days: int = 0):
         self.top_n = top_n
         self.rebalance_days = rebalance_days
         self.lookback_short = lookback_short
@@ -31,6 +32,7 @@ class RSMomentumStrategy:
         self.rsi_max = rsi_max
         self.ema_trend_period = ema_trend_period
         self.regime_ticker = regime_ticker  # if set, only enter when this ticker > EMA
+        self.min_hold_days = min_hold_days  # suppress exits until this many days held
         self.signals: dict = {}
 
     def prepare(self, data: dict):
@@ -84,18 +86,24 @@ class RSMomentumStrategy:
 
         # Initialize signal series
         sig_dict = {t: pd.Series(0, index=all_dates) for t in data}
-        in_position = set()
+        in_position = {}  # {ticker: entry_date} for min_hold_days tracking
 
         for i, date in enumerate(all_dates):
             # Only rebalance on schedule
             if i % self.rebalance_days != 0:
                 continue
 
-            # When BTC (regime ticker) crosses below its EMA → exit all, no new entries
+            def hold_days(ticker):
+                if ticker not in in_position:
+                    return 0
+                return (date - in_position[ticker]).days
+
+            # When BTC (regime ticker) crosses below its EMA → exit all (if min hold met)
             if not regime_bull.get(date, True):
                 for t in list(in_position):
-                    sig_dict[t].loc[date] = -1
-                    in_position.discard(t)
+                    if hold_days(t) >= self.min_hold_days:
+                        sig_dict[t].loc[date] = -1
+                        del in_position[t]
                 continue
 
             day_scores   = scores_df.loc[date].dropna()
@@ -105,17 +113,17 @@ class RSMomentumStrategy:
             qualified = day_scores[day_filters.reindex(day_scores.index, fill_value=False)]
             top_n_tickers = set(qualified.nlargest(self.top_n).index) if len(qualified) >= 1 else set()
 
-            # Exit positions not in top-N anymore
+            # Exit positions not in top-N anymore (only if min hold period has passed)
             for t in list(in_position):
-                if t not in top_n_tickers:
+                if t not in top_n_tickers and hold_days(t) >= self.min_hold_days:
                     sig_dict[t].loc[date] = -1  # exit signal
-                    in_position.discard(t)
+                    del in_position[t]
 
             # Enter new top-N
             for t in top_n_tickers:
                 if t not in in_position:
                     sig_dict[t].loc[date] = 1   # entry signal
-                    in_position.add(t)
+                    in_position[t] = date
 
         for ticker in data:
             self.signals[ticker] = sig_dict[ticker]

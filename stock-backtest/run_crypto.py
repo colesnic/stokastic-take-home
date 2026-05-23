@@ -64,7 +64,10 @@ def fetch_crypto(coin: str) -> pd.Series:
     with urllib.request.urlopen(url, timeout=15) as r:
         df = pd.read_csv(io.StringIO(r.read().decode()), low_memory=False)
     df["Date"] = pd.to_datetime(df["time"])
-    df["Close"] = pd.to_numeric(df["PriceUSD"], errors="coerce")
+    for col in ("PriceUSD", "ReferenceRateUSD"):
+        if col in df.columns:
+            df["Close"] = pd.to_numeric(df[col], errors="coerce")
+            break
     df = df[["Date", "Close"]].dropna().set_index("Date").sort_index()
     return df["Close"]
 
@@ -194,8 +197,8 @@ def main():
         try:
             b = btc.loc[s:e]
             eth_s = eth.loc[s:e]
-            br = (b.iloc[-1] / b.iloc[0] - 1) * 100 if len(b) > 1 else 0
-            er = (eth_s.iloc[-1] / eth_s.iloc[0] - 1) * 100 if len(eth_s) > 1 else 0
+            br = (float(b.iloc[-1]) / float(b.iloc[0]) - 1) * 100 if len(b) > 1 else 0
+            er = (float(eth_s.iloc[-1]) / float(eth_s.iloc[0]) - 1) * 100 if len(eth_s) > 1 else 0
             print(f"  {label:<16}  {br:>+7.1f}%  {er:>+7.1f}%")
         except Exception:
             pass
@@ -203,18 +206,22 @@ def main():
     # ── IS grid search ────────────────────────────────────────────────────
     print("\n\n  In-sample grid search ...")
     print("  Fixed: top_n=2, position_size=50%, max_positions=2, ATR_stop=20x")
-    print("  Vary:  ema_trend_period, rebalance_days")
+    print("  Vary:  ema_trend_period, rebalance_days, min_hold_days")
 
-    # rsi_max=99: disables overbought cap (crypto RSI > 82 = momentum signal, not reversal)
-    # Grid over EMA period and rebalance frequency only.
+    # Two families:
+    #  A) Normal: monthly regime check, no minimum hold (standard STCG exposed)
+    #  B) LTCG-lock: monthly regime check, min_hold=365 days (forces LTCG; suppresses
+    #     exits until ≥365 days since entry, e.g. holds through May 2021 BTC correction)
     strat_configs = [
         dict(top_n=2, rebalance_days=rb,
              lookback_short=30, lookback_mid=60, lookback_long=120,
              adx_min=12, rsi_min=35, rsi_max=99,
              ema_trend_period=ema,
-             regime_ticker="BTC")
-        for rb  in [14, 21]
+             regime_ticker="BTC",
+             min_hold_days=mhd)
+        for rb  in [14, 21, 42]
         for ema in [100, 150, 200]
+        for mhd in [0, 365]   # 0 = normal, 365 = LTCG-lock
     ]
     # risk_per_trade_pct must be large (0.50) when using very wide ATR stops (20x).
     # With risk_per_trade=0.02 and stop=20x ATR: shares = 0.02×equity / (20×ATR).
@@ -253,10 +260,10 @@ def main():
     results_is.sort(key=lambda x: x[0], reverse=True)
 
     print(f"\n  IS configs (post-STCG-tax, {IS_START}–{IS_END}):")
-    print(f"  {'ema':>4} {'rb':>3}  {'Mo%':>7} {'SR':>6} {'DD%':>8} {'N':>4} {'Hold':>5} {'score':>7}")
-    print("  " + "-" * 58)
+    print(f"  {'ema':>4} {'rb':>3} {'mhd':>4}  {'Mo%':>7} {'SR':>6} {'DD%':>8} {'N':>4} {'Hold':>5} {'score':>7}")
+    print("  " + "-" * 64)
     for score, mo, sr, dd, hold, sp, m in results_is:
-        print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3}"
+        print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3} {sp.get('min_hold_days',0):>4}"
               f"  {mo:>+7.2f}%  {sr:>6.2f}  {dd:>8.2f}%"
               f"  {m.get('n_trades', 0):>4}  {hold:>4.0f}d  {score:>7.2f}")
 
@@ -269,9 +276,9 @@ def main():
 
     # ── OOS blind test — all IS configs ────────────────────────────────────
     print(f"\n  OOS results — all configs on {OOS_START}–{OOS_END}:")
-    print(f"  {'ema':>4} {'rb':>3}  {'Mo%(net)':>9} {'SR':>6} {'DD%':>8}"
+    print(f"  {'ema':>4} {'rb':>3} {'mhd':>4}  {'Mo%(net)':>9} {'SR':>6} {'DD%':>8}"
           f"  {'N':>4} {'Hold':>5} {'Eq$':>10}")
-    print("  " + "-" * 65)
+    print("  " + "-" * 72)
 
     oos_results = []
     champ_rpt   = None
@@ -282,7 +289,7 @@ def main():
             hold = m.get("avg_holding_days", 0)
             oos_results.append((m.get("sharpe_ratio", 0), sp, m, rpt))
             flag = " ← LTCG" if hold >= 365 else ""
-            print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3}"
+            print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3} {sp.get('min_hold_days',0):>4}"
                   f"  {m.get('monthly_return_pct', 0):>+8.2f}%"
                   f"  {m.get('sharpe_ratio', 0):>6.2f}"
                   f"  {m.get('max_drawdown_pct', 0):>8.2f}%"
@@ -296,12 +303,26 @@ def main():
         print("  No OOS results.")
         return
 
+    # Report IS-selected champion OOS performance (true walk-forward blind test)
+    is_champ_oos = next(((sp, m, rpt) for _, sp, m, rpt in oos_results
+                         if sp == best_sp), None)
+    if is_champ_oos:
+        isp, im, _ = is_champ_oos
+        print(f"\n  IS-champion OOS (true walk-forward blind test):")
+        print(f"    Config: EMA{isp['ema_trend_period']} rb={isp['rebalance_days']}d "
+              f"mhd={isp.get('min_hold_days',0)}d")
+        print(f"    OOS: {im.get('monthly_return_pct',0):+.2f}%/mo  "
+              f"Sharpe: {im.get('sharpe_ratio',0):.2f}  "
+              f"DD: {im.get('max_drawdown_pct',0):.1f}%  "
+              f"Eq: ${im.get('final_equity',0):,.0f}")
+
+    # OOS champion = best Sharpe across all OOS configs (may differ from IS champion)
     champion_sr, champ_sp, champ_oos_m, champ_oos_rpt = oos_results[0]
 
     # ── Champion detailed report ───────────────────────────────────────────
     champ_oos_rpt.print_full_report(
         f"OOS CHAMPION — BTC+ETH regime  ema={champ_sp['ema_trend_period']}"
-        f"  rb={champ_sp['rebalance_days']}d  ATR_stop=20x"
+        f"  rb={champ_sp['rebalance_days']}d  mhd={champ_sp.get('min_hold_days',0)}d  ATR_stop=20x"
         f"  [STCG {TAX_RATE*100:.0f}%/<365d, LTCG=0%/model, {OOS_START}–{OOS_END}]"
     )
 
@@ -317,16 +338,17 @@ def main():
     eq   = m.get("final_equity", 100_000)
     hold = m.get("avg_holding_days", 0)
 
-    # Adjust for real-world LTCG (model shows 0% LTCG, reality is ~20%)
+    # Adjust for real-world LTCG (model shows 0% LTCG, reality is ~15-20%)
+    # Must use IS-end equity (OOS initial capital) as the OOS base, NOT $100K.
     ltcg_tax_rate = 0.20
-    gross_gain    = eq - 100_000
-    # Rough adjustment: assume most gain is LTCG (hold > 365d) → reduce by LTCG rate
-    if hold >= 365 and gross_gain > 0:
-        adj_eq     = 100_000 + gross_gain * (1 - ltcg_tax_rate)
+    oos_base  = champ_oos_rpt.result.initial_capital  # IS-end equity
+    oos_gain  = eq - oos_base
+    if hold >= 365 and oos_gain > 0:
+        adj_eq     = oos_base + oos_gain * (1 - ltcg_tax_rate)
         adj_months = (pd.Timestamp(OOS_END) - pd.Timestamp(OOS_START)).days / 30.44
-        adj_mo     = ((adj_eq / 100_000) ** (1 / adj_months) - 1) * 100
+        adj_mo     = ((adj_eq / oos_base) ** (1 / adj_months) - 1) * 100
         ltcg_note  = (f"  After real LTCG (~20%): equity ${adj_eq:,.0f}  "
-                      f"≈ {adj_mo:+.2f}%/month")
+                      f"≈ {adj_mo:+.2f}%/month (from OOS base ${oos_base:,.0f})")
     else:
         ltcg_note = ""
 
@@ -354,10 +376,13 @@ def main():
     print(f"  Avg hold: {hold:.0f} days  "
           f"({'LTCG eligible (≥365d)' if hold >= 365 else f'short-term, STCG 35%'})")
 
-    print(f"\n  Champion config:")
+    print(f"\n  OOS champion config (best OOS Sharpe, not necessarily IS-selected):")
     print(f"    BTC > BTC_EMA({champ_sp['ema_trend_period']}) → invest in BTC+ETH 50/50")
     print(f"    Regime check every {champ_sp['rebalance_days']} days")
+    print(f"    Min hold: {champ_sp.get('min_hold_days', 0)} days (LTCG-lock)")
     print(f"    ATR stop: 20x (emergency only, rely on EMA exit)")
+    print(f"\n  NOTE: IS-champion gives {is_champ_oos[1].get('monthly_return_pct',0):+.2f}%/mo OOS"
+          if is_champ_oos else "")
     print()
 
 

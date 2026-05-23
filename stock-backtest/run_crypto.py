@@ -38,7 +38,7 @@ warnings.filterwarnings("ignore")
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from backtester_advanced import AdvancedBacktester
+from backtester_advanced import AdvancedBacktester, AdvancedBacktestResult
 from strategy_rs_momentum import RSMomentumStrategy
 from risk_metrics import RiskReport
 from indicators import ema as ema_fn, atr as atr_fn, adx as adx_fn
@@ -95,12 +95,47 @@ def slice_data(data: dict, start: str, end: str, min_rows: int = 60) -> dict:
             if len(df.loc[start:end]) >= min_rows}
 
 
-def run_one(full_data: dict, window_data: dict,
-            strat_params: dict, bt_params: dict) -> RiskReport:
+def run_is(full_data: dict, is_data: dict,
+           strat_params: dict, bt_params: dict) -> RiskReport:
+    """IS grid search: signals from full history, backtest on IS window only."""
     strat = RSMomentumStrategy(**strat_params)
     strat.prepare(full_data)
     bt = AdvancedBacktester(initial_capital=100_000, **bt_params)
-    return RiskReport(bt.run(window_data, strat))
+    return RiskReport(bt.run(is_data, strat))
+
+
+def run_oos(full_data: dict, combined_data: dict,
+            strat_params: dict, bt_params: dict) -> RiskReport:
+    """
+    OOS evaluation: run IS+OOS as a continuous backtest so positions carry
+    across the IS/OOS boundary. Report OOS metrics using IS-end equity as base.
+
+    This fixes the 'missing 2021' bug: with prepare(full_data) the +1 entry
+    signals for BTC+ETH are generated in IS (Oct/Nov 2020). Running only on OOS
+    data means the backtest starts with no positions and never sees those signals.
+    Running combined IS+OOS lets positions carry into OOS naturally.
+    """
+    strat = RSMomentumStrategy(**strat_params)
+    strat.prepare(full_data)
+    bt = AdvancedBacktester(initial_capital=100_000, **bt_params)
+    result = bt.run(combined_data, strat)
+
+    # Split equity curve and trades at OOS boundary
+    eq = result.equity_curve
+    oos_eq = eq.loc[OOS_START:]
+    oos_trades = [t for t in result.closed_trades
+                  if t.exit_date is not None and t.exit_date >= pd.Timestamp(OOS_START)]
+
+    if len(oos_eq) == 0:
+        return None
+
+    oos_result = AdvancedBacktestResult(
+        equity_curve=oos_eq.tolist(),
+        dates=oos_eq.index.tolist(),
+        closed_trades=oos_trades,
+        initial_capital=float(oos_eq.iloc[0]),  # IS-end equity as OOS base
+    )
+    return RiskReport(oos_result)
 
 
 def main():
@@ -125,8 +160,9 @@ def main():
         except Exception as e:
             print(f"  {label}: FAILED ({e})")
 
-    is_data  = slice_data(full_data, IS_START,  IS_END)
-    oos_data = slice_data(full_data, OOS_START, OOS_END)
+    is_data       = slice_data(full_data, IS_START,  IS_END)
+    oos_data      = slice_data(full_data, OOS_START, OOS_END)
+    combined_data = slice_data(full_data, IS_START,  OOS_END)  # IS+OOS continuous
 
     # ── BTC regime diagnostics ─────────────────────────────────────────────
     btc_close = full_data["BTC"]["Close"]
@@ -197,7 +233,7 @@ def main():
 
     for sp in strat_configs:
         try:
-            rpt = run_one(full_data, is_data, sp, bt_fixed)
+            rpt = run_is(full_data, is_data, sp, bt_fixed)
             m   = rpt.full_metrics()
             mo  = m.get("monthly_return_pct", 0)
             sr  = m.get("sharpe_ratio", 0)
@@ -241,7 +277,7 @@ def main():
     champ_rpt   = None
     for _, _, _, _, _, sp, _ in results_is:
         try:
-            rpt = run_one(full_data, oos_data, sp, bt_fixed)
+            rpt = run_oos(full_data, combined_data, sp, bt_fixed)
             m   = rpt.full_metrics()
             hold = m.get("avg_holding_days", 0)
             oos_results.append((m.get("sharpe_ratio", 0), sp, m, rpt))
@@ -311,7 +347,8 @@ def main():
 
     passes = sum(1 for _, ok, _ in bar if ok)
     print(f"\n  {passes}/7 criteria pass")
-    print(f"  Model equity (STCG 35% on <365d holds, 0% on ≥365d): ${eq:,.0f}")
+    print(f"  Model equity (STCG 35% on <365d, 0% on ≥365d): ${eq:,.0f}  "
+          f"[OOS base = IS-end equity, not $100K]")
     if ltcg_note:
         print(ltcg_note)
     print(f"  Avg hold: {hold:.0f} days  "

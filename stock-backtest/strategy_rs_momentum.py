@@ -19,8 +19,8 @@ class RSMomentumStrategy:
     """
     def __init__(self, top_n: int = 2, rebalance_days: int = 5,
                  lookback_short: int = 20, lookback_mid: int = 60, lookback_long: int = 120,
-                 adx_min: float = 18.0, rsi_min: float = 45.0, ema_trend_period: int = 50,
-                 regime_ticker: str = ""):
+                 adx_min: float = 18.0, rsi_min: float = 45.0, rsi_max: float = 82.0,
+                 ema_trend_period: int = 50, regime_ticker: str = ""):
         self.top_n = top_n
         self.rebalance_days = rebalance_days
         self.lookback_short = lookback_short
@@ -28,6 +28,7 @@ class RSMomentumStrategy:
         self.lookback_long = lookback_long
         self.adx_min = adx_min
         self.rsi_min = rsi_min
+        self.rsi_max = rsi_max
         self.ema_trend_period = ema_trend_period
         self.regime_ticker = regime_ticker  # if set, only enter when this ticker > EMA
         self.signals: dict = {}
@@ -58,12 +59,12 @@ class RSMomentumStrategy:
             adx_v = adx(high, low, close, 14)
             rsi_v = rsi(close, 14)
 
-            # Qualify filter: must be in uptrend, trending, not overbought
+            # Qualify filter: must be in uptrend, trending, within RSI bounds
             qualify = (
                 (close > trend) &
                 (adx_v >= self.adx_min) &
                 (rsi_v >= self.rsi_min) &
-                (rsi_v <= 82)
+                (rsi_v <= self.rsi_max)
             )
 
             ticker_scores[ticker]  = score.reindex(all_dates)

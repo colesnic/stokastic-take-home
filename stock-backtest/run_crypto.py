@@ -169,14 +169,17 @@ def main():
     print("  Fixed: top_n=2, position_size=50%, max_positions=2, ATR_stop=20x")
     print("  Vary:  ema_trend_period, rebalance_days")
 
+    # rsi_max=82 (stock default) caps out crypto RSI during bull acceleration — wrong filter.
+    # rsi_max=99 disables the overbought cap, allowing LTCG holds through full bull runs.
     strat_configs = [
         dict(top_n=2, rebalance_days=rb,
              lookback_short=30, lookback_mid=60, lookback_long=120,
-             adx_min=12, rsi_min=35,
+             adx_min=12, rsi_min=35, rsi_max=rmax,
              ema_trend_period=ema,
              regime_ticker="BTC")
-        for rb  in [14, 21]
-        for ema in [100, 150, 200]
+        for rb   in [14, 21]
+        for ema  in [100, 150, 200]
+        for rmax in [82, 99]
     ]
     bt_fixed = dict(
         max_positions=2, position_size_pct=0.50,
@@ -210,12 +213,13 @@ def main():
     results_is.sort(key=lambda x: x[0], reverse=True)
 
     print(f"\n  IS configs (post-STCG-tax, {IS_START}–{IS_END}):")
-    print(f"  {'ema':>4} {'rb':>3}  {'Mo%':>7} {'SR':>6} {'DD%':>8} {'N':>4} {'Hold':>5} {'score':>7}")
-    print("  " + "-" * 58)
+    print(f"  {'ema':>4} {'rb':>3} {'rsimax':>6}  {'Mo%':>7} {'SR':>6} {'DD%':>8} {'N':>4} {'Hold':>5} {'score':>7}")
+    print("  " + "-" * 65)
     for score, mo, sr, dd, hold, sp, m in results_is:
-        print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3}"
+        print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3} {sp['rsi_max']:>6}"
               f"  {mo:>+7.2f}%  {sr:>6.2f}  {dd:>8.2f}%"
               f"  {m.get('n_trades', 0):>4}  {hold:>4.0f}d  {score:>7.2f}")
+
 
     if not best_cfg:
         print("  No valid IS configs found.")
@@ -225,9 +229,9 @@ def main():
 
     # ── OOS blind test — all IS configs ────────────────────────────────────
     print(f"\n  OOS results — all configs on {OOS_START}–{OOS_END}:")
-    print(f"  {'ema':>4} {'rb':>3}  {'Mo%(net)':>9} {'SR':>6} {'DD%':>8}"
-          f"  {'WR%':>6} {'N':>4} {'Hold':>5} {'Eq$':>10}")
-    print("  " + "-" * 72)
+    print(f"  {'ema':>4} {'rb':>3} {'rsimax':>6}  {'Mo%(net)':>9} {'SR':>6} {'DD%':>8}"
+          f"  {'N':>4} {'Hold':>5} {'Eq$':>10}")
+    print("  " + "-" * 75)
 
     oos_results = []
     champ_rpt   = None
@@ -238,11 +242,10 @@ def main():
             hold = m.get("avg_holding_days", 0)
             oos_results.append((m.get("sharpe_ratio", 0), sp, m, rpt))
             flag = " ← LTCG" if hold >= 365 else ""
-            print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3}"
+            print(f"  {sp['ema_trend_period']:>4} {sp['rebalance_days']:>3} {sp['rsi_max']:>6}"
                   f"  {m.get('monthly_return_pct', 0):>+8.2f}%"
                   f"  {m.get('sharpe_ratio', 0):>6.2f}"
                   f"  {m.get('max_drawdown_pct', 0):>8.2f}%"
-                  f"  {m.get('win_rate_pct', 0):>6.1f}%"
                   f"  {m.get('n_trades', 0):>4}  {hold:>4.0f}d"
                   f"  ${m.get('final_equity', 100_000):>9,.0f}{flag}")
         except Exception:

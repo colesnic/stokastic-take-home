@@ -4,6 +4,16 @@ stock data and save it to stock-backtest/data/.
 
 Requirements: pip install yfinance pandas
 Usage:        python3 download_real_data.py
+
+Universe design — deliberately sector-diverse to stress-test survivorship/selection bias:
+  Tech leaders    : secular winners, high-vol momentum plays
+  Energy          : XOM/CVX/COP crashed 2014-2016 with oil, recovered 2021-2022
+                    → tests if EMA(50) filter correctly avoids multi-year downtrends
+  Financials      : rate-sensitive, sector-rotation candidates
+  Healthcare      : defensive, low-momentum (stress-tests low-ADX filter)
+  Retail          : WMT defensive, TGT volatile; sector had multi-year chop
+  Industrials     : cyclical, earnings-driven momentum bursts
+  Indices/ETFs    : broad market exposure reference + counter-cyclical GLD
 """
 import os
 import sys
@@ -15,14 +25,26 @@ except ImportError:
     print("Install dependencies: pip install yfinance pandas")
     sys.exit(1)
 
+# --- Universe: sector-diverse, includes secular winners AND underperformers ---
 TICKERS = [
+    # Tech leaders (high CAGR, high-vol momentum)
     "NVDA", "AMD", "AAPL", "MSFT", "META", "GOOGL", "TSLA", "AMZN",
-    "SMCI", "ARM", "AVGO", "MRVL",
-    "QQQ", "SOXX", "ARKK", "XLK", "XLY",
-    "COIN", "MSTR", "PLTR",
+    "SMCI", "AVGO", "PLTR",
+    # Energy — crashed 2014-2016, boomed 2021-2022 (genuine cyclical stress test)
+    "XOM", "CVX", "COP", "SLB", "XLE",
+    # Financials — rate-sensitive, different momentum profile than tech
+    "JPM", "BAC", "GS", "V",
+    # Healthcare — defensive, low-momentum (tests ADX filter efficacy)
+    "JNJ", "PFE", "UNH",
+    # Retail — WMT defensive, TGT volatile; tests sector chop
+    "WMT", "TGT",
+    # Industrials — cyclical, earnings-driven bursts
+    "CAT", "BA",
+    # Indices and sector ETFs (benchmarks + counter-cyclical GLD)
+    "QQQ", "SPY", "GLD", "XLK", "XLE",
 ]
 
-START = "2020-01-01"
+START = "2015-01-01"   # wider window: includes energy crash 2015-2016
 END   = "2025-05-01"
 
 OUT_DIR = os.path.join(os.path.dirname(__file__), "data")

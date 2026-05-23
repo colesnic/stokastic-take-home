@@ -22,14 +22,23 @@ SETUP
   export ALPACA_SECRET_KEY=your_secret
   export ALPACA_PAPER=true      # default; set false for live money
 
+EXECUTION MODEL
+---------------
+Uses MOC (Market-On-Close) orders — fills at today's 4pm close price.
+This matches the backtest which was optimised for close-to-close execution.
+The realistic backtest (run_realistic.py) showed that next-open execution
+loses ~1.6%/month of the strategy's edge; MOC preserves it.
+
+Run the script by 3:45pm ET each day (before the MOC cutoff at 3:50pm ET).
+
 USAGE
 -----
-  python3 live_trader.py            # run after 4:30pm ET on trading days
+  python3 live_trader.py            # run by 3:45pm ET on trading days
   python3 live_trader.py --status   # show positions and today's signals only
   python3 live_trader.py --dry-run  # show intended orders without submitting
 
-AUTOMATE (cron, runs Mon-Fri at 4:35pm ET)
-  35 16 * * 1-5 cd /path/to/stock-backtest && python3 live_trader.py >> live.log 2>&1
+AUTOMATE (cron, runs Mon-Fri at 3:40pm ET — before MOC cutoff)
+  40 15 * * 1-5 cd /path/to/stock-backtest && python3 live_trader.py >> live.log 2>&1
 """
 
 import os
@@ -341,12 +350,12 @@ def rebalance(client: TradingClient, data: dict, signals: dict,
                 symbol=symbol,
                 qty=round(pos["qty"], 6),
                 side=OrderSide.SELL,
-                time_in_force=TimeInForce.DAY,
+                time_in_force=TimeInForce.CLS,  # MOC exit matches backtest timing
             )
             order = client.submit_order(req)
-            print(f"    Market SELL submitted: {order.id}")
+            print(f"    MOC SELL submitted: {order.id}")
         else:
-            print(f"    [DRY-RUN] Market SELL {symbol}")
+            print(f"    [DRY-RUN] MOC SELL {symbol}")
         state["stop_orders"].pop(symbol, None)
 
     # ── Entries ────────────────────────────────────────────────────────────
@@ -364,15 +373,18 @@ def rebalance(client: TradingClient, data: dict, signals: dict,
               f"adx={snap.get('adx',0):.1f}  rsi={snap.get('rsi',0):.1f}")
 
         if not dry_run:
-            # Market order — fills at next open
+            # MOC (Market-On-Close) order — fills at today's close price.
+            # This matches how the strategy was backtested (close-to-close
+            # execution). Must be submitted before 3:50pm ET.
+            # Alpaca accepts MOC via TimeInForce.CLS.
             req = MarketOrderRequest(
                 symbol=symbol,
                 notional=notional,
                 side=OrderSide.BUY,
-                time_in_force=TimeInForce.DAY,
+                time_in_force=TimeInForce.CLS,
             )
             order = client.submit_order(req)
-            print(f"    Market BUY submitted: {order.id}")
+            print(f"    MOC BUY submitted: {order.id}")
             # Stop order — GTC, will need updating daily as stop trails
             stop_id = submit_stop(client, symbol, est_qty, initial_stop, dry_run=False)
             if stop_id:
